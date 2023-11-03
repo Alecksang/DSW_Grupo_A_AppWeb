@@ -8,10 +8,7 @@ public class EntityFactory
     /**
      * Method that returns an instance of User class
      */
-    public static User createUser()
-    {
-        return new User();
-    }
+    public static User createUser() {return new User();}
 
     /**
      * Method that returns an instance of User class
