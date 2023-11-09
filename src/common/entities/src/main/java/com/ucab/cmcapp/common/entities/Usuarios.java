@@ -1,7 +1,16 @@
 package com.ucab.cmcapp.common.entities;
 
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Usuarios {
+    @Id
+    @GeneratedValue
     private String usarios_ID;
+    @Basic
     private String usuarios_Nombre;
     private String usuarios_Apellido;
 
