@@ -25,7 +25,6 @@ public class UserDao extends BaseDao<User>
     {
         super();
     }
-
     public UserDao( DBHandler handler )
     {
         super( handler );

@@ -26,7 +26,6 @@ public class Usuarios {
 
     public Usuarios (long id) {
         usarios_ID= id;
-
     }
 
     public long getUsarios_ID() {
