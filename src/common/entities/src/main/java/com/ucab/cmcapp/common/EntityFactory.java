@@ -16,6 +16,16 @@ public class EntityFactory
     /**
      * Method that returns an instance of User class
      */
+    public static Usuarios createUsuario()
+    {
+        return new Usuarios();
+    }
+
+    public static Usuarios createUsuario(long id)
+    {
+        return new Usuarios(id);
+    }
+
     public static User createUser(long id)
     {
         return new User(id);
