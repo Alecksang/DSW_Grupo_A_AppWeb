@@ -9,26 +9,40 @@ import javax.persistence.Id;
 public class Usuarios {
     @Id
     @GeneratedValue
-    private String usarios_ID;
+    private long usarios_ID;
     @Basic
+    private String usuarios_username;
     private String usuarios_Nombre;
     private String usuarios_Apellido;
 
     public Usuarios() {
     }
 
-    public Usuarios(String usarios_ID, String usuarios_Nombre, String usuarios_Apellido) {
-        this.usarios_ID = usarios_ID;
+    public Usuarios(String usuarios_username, String usuarios_Nombre, String usuarios_Apellido) {
+        this.usuarios_username = usuarios_username;
         this.usuarios_Nombre = usuarios_Nombre;
         this.usuarios_Apellido = usuarios_Apellido;
     }
 
-    public String getUsarios_ID() {
+    public Usuarios (long id) {
+        usarios_ID= id;
+
+    }
+
+    public long getUsarios_ID() {
         return usarios_ID;
     }
 
-    public void setUsarios_ID(String usarios_ID) {
+    public void setUsarios_ID(long usarios_ID) {
         this.usarios_ID = usarios_ID;
+    }
+
+    public String getUsuarios_username() {
+        return usuarios_username;
+    }
+
+    public void setUsuarios_username(String usuarios_username) {
+        this.usuarios_username = usuarios_username;
     }
 
     public String getUsuarios_Nombre() {
@@ -47,3 +61,4 @@ public class Usuarios {
         this.usuarios_Apellido = usuarios_Apellido;
     }
 }
+

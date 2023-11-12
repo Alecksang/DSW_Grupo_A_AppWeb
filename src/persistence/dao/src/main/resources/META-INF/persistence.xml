@@ -7,6 +7,7 @@
         <non-jta-data-source>java:/AttackerDS</non-jta-data-source>
         <class>com.ucab.cmcapp.common.entities.User</class>
         <class>com.ucab.cmcapp.common.entities.UserType</class>
+        <class>com.ucab.cmcapp.common.entities.Usuarios</class>
 
         <properties>
             <property name="hibernate.generate_statistics" value="true"/>
