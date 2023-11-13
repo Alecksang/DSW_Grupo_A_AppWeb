@@ -31,7 +31,7 @@ public class GetUsuarioByUsernameCommand extends Command<Usuarios> {
     {
         //region Instrumentation DEBUG
         _logger.debug( String.format( "Get in GetUserByUsernameCommand.ctor: parameter {%s}", usuario.toString() ) );
-        usuarios_username = usuario;;
+        usuarios_username = usuario;
         setHandler(handler);
         _dao = DaoFactory.createUsuarioDao(getHandler());
 
