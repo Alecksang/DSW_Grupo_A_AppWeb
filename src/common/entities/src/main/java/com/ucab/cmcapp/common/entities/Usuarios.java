@@ -8,9 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Usuarios {
     @Id
-    @GeneratedValue
     private long usarios_ID;
-    @Basic
+
     private String usuarios_username;
     private String usuarios_Nombre;
     private String usuarios_Apellido;

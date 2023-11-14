@@ -8,7 +8,7 @@
         <class>com.ucab.cmcapp.common.entities.User</class>
         <class>com.ucab.cmcapp.common.entities.UserType</class>
         <class>com.ucab.cmcapp.common.entities.Usuarios</class>
-
+        <class>com.ucab.cmcapp.common.entities.Alerta</class>
         <properties>
             <property name="hibernate.generate_statistics" value="true"/>
             <property name="hibernate.connection.handling_mode" value="delayed_acquisition_and_release_after_transaction" />
