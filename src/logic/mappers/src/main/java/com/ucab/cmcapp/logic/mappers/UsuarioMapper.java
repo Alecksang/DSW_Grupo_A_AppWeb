@@ -76,7 +76,7 @@ public class UsuarioMapper extends BaseMapper {
         return entity;
     }
 
-    public static Usuarios mapDtoToEntityEmail( String usuarios_username )
+    public static Usuarios mapDtoToEntityUsername( String usuarios_username )
     {
         Usuarios entity = EntityFactory.createUsuario();
 
