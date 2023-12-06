@@ -14,4 +14,8 @@ public class DaoFactory
     {
         return new UsuarioDao( handler );
     }
+    public static AlertaDao createAlertaDao( DBHandler handler )
+    {
+        return new AlertaDao( handler );
+    }
 }
