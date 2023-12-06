@@ -1,7 +1,12 @@
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\composite\GetUserCommand.java
+C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByIdCommand.java
+C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\CreateUsuarioCommand.java
+C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\AddUsuarioCommand.java
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\CommandFactory.java
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\GetUserByEmailCommand.java
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\Command.java
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\AddUserCommand.java
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\GetUserByIdCommand.java
+C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByUsernameCommand.java
+C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\GetUsuarioCommand.java
 C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\composite\CreateUserCommand.java

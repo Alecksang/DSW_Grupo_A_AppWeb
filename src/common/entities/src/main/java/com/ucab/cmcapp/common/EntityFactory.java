@@ -21,6 +21,8 @@ public class EntityFactory
         return new Usuarios();
     }
 
+
+    /*Metodos para la clase usuario*/
     public static Usuarios createUsuario(long id)
     {
         return new Usuarios(id);
@@ -30,6 +32,18 @@ public class EntityFactory
     {
         return new User(id);
     }
+
+    /*Metodos para la clase alerta*/
+    public static Alerta createAlerta()
+    {
+        return new Alerta();
+    }
+
+    public static Alerta createAlerta(long id)
+    {
+        return new Alerta(id);
+    }
+
 
     /**
      * Method that returns an instance of UserType class
