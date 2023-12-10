@@ -1,5 +1,6 @@
 package com.ucab.cmcapp.persistence;
 
+import com.ucab.cmcapp.common.entities.Agresor;
 import com.ucab.cmcapp.persistence.dao.*;
 import com.ucab.cmcapp.common.entities.Victima;
 
@@ -22,7 +23,11 @@ public class DaoFactory
     {
         return new VictimaDao( handler );
     }
-    //AlertaDao
+    //Agresor Dao
+    public static AgresorDao createAgresorDao(DBHandler handler) {
+        return new AgresorDao(handler);
+    }
+    //Alerta Dao
     public static AlertaDao createAlertaDao( DBHandler handler )
     {
         return new AlertaDao( handler );

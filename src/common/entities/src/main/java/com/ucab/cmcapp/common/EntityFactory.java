@@ -36,6 +36,16 @@ public class EntityFactory
         return new Victima(id);
     }
 
+    //Metodos para la clase Agresor
+    public static Agresor createAgresor() {
+        return new Agresor();
+    }
+    public static Agresor createAgresor(long id) {
+        return new Agresor(id);
+    }
+
+
+
 
     /*Metodos para la clase alerta*/
     public static Alerta createAlerta()

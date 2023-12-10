@@ -1,9 +1,14 @@
 package com.ucab.cmcapp.logic.commands;
 
-import com.ucab.cmcapp.common.entities.Alerta;
-import com.ucab.cmcapp.common.entities.User;
-import com.ucab.cmcapp.common.entities.Usuarios;
-import com.ucab.cmcapp.common.entities.Victima;
+import com.ucab.cmcapp.common.entities.*;
+import com.ucab.cmcapp.logic.commands.agresor.atomic.AddAgresorCommand;
+import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByIdCommand;
+import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByListCommand;
+import com.ucab.cmcapp.logic.commands.agresor.atomic.ModifyAgresorCommand;
+import com.ucab.cmcapp.logic.commands.agresor.composite.CreateAgresorCommand;
+import com.ucab.cmcapp.logic.commands.agresor.composite.GetAgresorCommand;
+import com.ucab.cmcapp.logic.commands.agresor.composite.GetAllAgresorCommand;
+import com.ucab.cmcapp.logic.commands.agresor.composite.UpdateAgresorCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.AddAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByIdCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
@@ -96,13 +101,18 @@ public class CommandFactory
     {
         return new CreateUsuarioCommand(user);
     }
-//Victima
+
+//VICTIMA
+
+    //POST
     public static AddVictimaCommand createAddVictimaCommand(Victima usuarioVictima, DBHandler handler) {
         return new AddVictimaCommand(usuarioVictima, handler);
     }
     public static CreateVictimaCommand createCreateVictimaCommand(Victima usuarioVictima) {
         return new CreateVictimaCommand(usuarioVictima);
     }
+
+    //GET
     public static GetVictimaCommand createGetVictimaCommand(Victima usuarioVictima) {
         return new GetVictimaCommand(usuarioVictima);
     }
@@ -118,6 +128,8 @@ public class CommandFactory
     public static GetVictimaByListCommand createGetVictimaByListCommand(DBHandler handler) {
         return new GetVictimaByListCommand(handler);
     }
+
+    //PUT
     public static UpdateVictimaCommand createUpdateVictimaCommand(Victima usuarioVictima){
         return new UpdateVictimaCommand(usuarioVictima);
     }
@@ -125,8 +137,57 @@ public class CommandFactory
         return new ModifyVictimaCommand(usuarioVictima, handler);
     }
 
+//AGRESOR
 
-//Alerta
+    //POST
+    public static AddAgresorCommand createAddAgresorCommand(Agresor usuarioAgresor, DBHandler handler) {
+        return new AddAgresorCommand(usuarioAgresor, handler);
+    }
+    public static CreateAgresorCommand createCreateAgresorCommand(Agresor agresor)
+    {
+        return new CreateAgresorCommand(agresor);
+    }
+
+    //GET
+    public static GetAgresorCommand createGetAgresorCommand(Agresor usuarioAgresor) {
+        return new GetAgresorCommand(usuarioAgresor);
+    }
+
+    public static GetAgresorByIdCommand createGetAgresorByIdCommand(DBHandler handler, long agresorId) {
+        return new GetAgresorByIdCommand(handler, agresorId);
+    }
+
+    public static GetAllAgresorCommand createGetAllAgresorCommand(){
+        return new GetAllAgresorCommand();
+    }
+
+    public static GetAgresorByListCommand createGetAgresorByListCommand(DBHandler handler) {
+        return new GetAgresorByListCommand(handler);
+    }
+
+    //PUT
+    public static UpdateAgresorCommand createUpdateAgresorCommand(Agresor usuarioAgresor){
+        return new UpdateAgresorCommand(usuarioAgresor);
+    }
+
+    public static ModifyAgresorCommand createModifyAgresorCommand(Agresor usuarioAgresor, DBHandler handler){
+        return new ModifyAgresorCommand(usuarioAgresor, handler);
+    }
+
+
+//ALERTA
+
+    //POST
+    public static AddAlertaCommand createAddAlertaCommand(Alerta alerta, DBHandler handler)
+    {
+        return new AddAlertaCommand(alerta, handler);
+    }
+    public static CreateAlertaCommand createCreateAlertaCommand(Alerta alerta)
+    {
+        return new CreateAlertaCommand(alerta);
+    }
+
+    //GET
     public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
     {
         return new GetAlertaCommand(alerta);
@@ -137,30 +198,8 @@ public class CommandFactory
         return new GetAlertaByIdCommand(handler, alertaId);
     }
 
-    public static AddAlertaCommand createAddAlertaCommand(Alerta alerta, DBHandler handler)
-    {
-        return new AddAlertaCommand(alerta, handler);
-    }
-
-    public static AddAlertaCommand createAddAlertaCommand(Alerta alerta)
-    {
-        return new AddAlertaCommand(alerta);
-    }
-
-    public static CreateAlertaCommand createCreateAlertaCommand(Alerta alerta)
-    {
-        return new CreateAlertaCommand(alerta);
-    }
     public static GetAlertaByTipoCommand createGetAlertaByTipoCommand(Alerta alerta)
     {
         return new GetAlertaByTipoCommand(alerta);
     }
-
-    public static GetAlertaByTipoCommand createGetAlertaByTipoCommand(Alerta alerta, DBHandler handler)
-    {
-        return new GetAlertaByTipoCommand(alerta, handler);
-    }
-
-
-
 }
