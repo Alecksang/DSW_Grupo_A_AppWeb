@@ -1,48 +1,56 @@
 package com.ucab.cmcapp.common;
-
 import com.ucab.cmcapp.common.entities.*;
-
 public class EntityFactory
 
 {
-    /**
-     * Method that returns an instance of User class
-     */
+
     public static User createUser()
     {
         return new User();
     }
+    public static User createUser(long id)
+    {
+        return new User(id);
+    }
 
-    /**
-     * Method that returns an instance of User class
-     */
+
+
+    /*Metodos para la clase usuario*/
     public static Usuarios createUsuario()
     {
         return new Usuarios();
     }
-
-
-    /*Metodos para la clase usuario*/
     public static Usuarios createUsuario(long id)
     {
         return new Usuarios(id);
     }
 
-    public static User createUser(long id)
+
+    //Metodos para la clase victima
+    public static Victima createVictima()
     {
-        return new User(id);
+        return new Victima();
     }
+    public static Victima createVictima(long id)
+    {
+        return new Victima(id);
+    }
+
 
     /*Metodos para la clase alerta*/
     public static Alerta createAlerta()
     {
         return new Alerta();
     }
-
     public static Alerta createAlerta(long id)
     {
         return new Alerta(id);
     }
+
+
+
+
+
 
 
     /**
@@ -52,7 +60,6 @@ public class EntityFactory
     {
         return new UserType();
     }
-
     /**
      * Method that returns an instance of UserType class
      */

@@ -3,6 +3,7 @@ package com.ucab.cmcapp.logic.commands;
 import com.ucab.cmcapp.common.entities.Alerta;
 import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuarios;
+import com.ucab.cmcapp.common.entities.Victima;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.AddAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByIdCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
@@ -18,6 +19,14 @@ import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByIdCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.CreateUsuarioCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.GetUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.victima.atomic.AddVictimaCommand;
+import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByIdCommand;
+import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByListCommand;
+import com.ucab.cmcapp.logic.commands.victima.atomic.ModifyVictimaCommand;
+import com.ucab.cmcapp.logic.commands.victima.composite.CreateVictimaCommand;
+import com.ucab.cmcapp.logic.commands.victima.composite.GetAllVictimaCommand;
+import com.ucab.cmcapp.logic.commands.victima.composite.GetVictimaCommand;
+import com.ucab.cmcapp.logic.commands.victima.composite.UpdateVictimaCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
 
 public class CommandFactory
@@ -57,8 +66,8 @@ public class CommandFactory
     {
         return new CreateUserCommand(user);
     }
+    //Usuario
 
-    //Usuario Command
     public static GetUsuarioCommand createGetUsuarioCommand(Usuarios user)
     {
         return new GetUsuarioCommand(user);
@@ -87,9 +96,37 @@ public class CommandFactory
     {
         return new CreateUsuarioCommand(user);
     }
+//Victima
+    public static AddVictimaCommand createAddVictimaCommand(Victima usuarioVictima, DBHandler handler) {
+        return new AddVictimaCommand(usuarioVictima, handler);
+    }
+    public static CreateVictimaCommand createCreateVictimaCommand(Victima usuarioVictima) {
+        return new CreateVictimaCommand(usuarioVictima);
+    }
+    public static GetVictimaCommand createGetVictimaCommand(Victima usuarioVictima) {
+        return new GetVictimaCommand(usuarioVictima);
+    }
 
-    //Alerta
+    public static GetVictimaByIdCommand createGetVictimaByIdCommand(DBHandler handler, long victimaId) {
+        return new GetVictimaByIdCommand(handler, victimaId);
+    }
 
+    public static GetAllVictimaCommand createGetAllVictimaCommand(){
+        return new GetAllVictimaCommand();
+    }
+
+    public static GetVictimaByListCommand createGetVictimaByListCommand(DBHandler handler) {
+        return new GetVictimaByListCommand(handler);
+    }
+    public static UpdateVictimaCommand createUpdateVictimaCommand(Victima usuarioVictima){
+        return new UpdateVictimaCommand(usuarioVictima);
+    }
+    public static ModifyVictimaCommand createModifyVictimaCommand(Victima usuarioVictima, DBHandler handler){
+        return new ModifyVictimaCommand(usuarioVictima, handler);
+    }
+
+
+//Alerta
     public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
     {
         return new GetAlertaCommand(alerta);
@@ -123,4 +160,7 @@ public class CommandFactory
     {
         return new GetAlertaByTipoCommand(alerta, handler);
     }
+
+
+
 }
