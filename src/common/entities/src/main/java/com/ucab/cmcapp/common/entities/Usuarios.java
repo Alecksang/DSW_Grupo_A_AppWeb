@@ -1,11 +1,9 @@
 package com.ucab.cmcapp.common.entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "usuarios")
 public class Usuarios {
     @Id
     private long usarios_ID;

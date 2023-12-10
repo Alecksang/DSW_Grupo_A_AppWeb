@@ -30,7 +30,6 @@ import javax.ws.rs.core.Response;
 @Path( "/usuarios" )
 @Produces( MediaType.APPLICATION_JSON )
 @Consumes( MediaType.APPLICATION_JSON )
-
 public class UsuarioService {
     private static Logger _logger = LoggerFactory.getLogger( UsuarioService.class );
     @GET
