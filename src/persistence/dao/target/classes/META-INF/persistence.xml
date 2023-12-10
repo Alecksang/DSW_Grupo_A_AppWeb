@@ -8,6 +8,8 @@
         <class>com.ucab.cmcapp.common.entities.User</class>
         <class>com.ucab.cmcapp.common.entities.UserType</class>
         <class>com.ucab.cmcapp.common.entities.Usuarios</class>
+        <class>com.ucab.cmcapp.common.entities.Victima</class>
+        <class>com.ucab.cmcapp.common.entities.Agresor</class>
         <class>com.ucab.cmcapp.common.entities.Alerta</class>
 
         <properties>

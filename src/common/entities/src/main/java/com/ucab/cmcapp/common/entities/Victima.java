@@ -3,7 +3,7 @@ package com.ucab.cmcapp.common.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "victima", uniqueConstraints = @UniqueConstraint(columnNames = "usarios_ID"))
+@Table(name = "victima", uniqueConstraints = @UniqueConstraint(columnNames = "id_usuario"))
 public class Victima {
     @Id
     @Column(name = "id")
