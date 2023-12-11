@@ -2,99 +2,91 @@ package com.ucab.cmcapp.logic.mappers;
 
 
 import com.ucab.cmcapp.common.EntityFactory;
-import com.ucab.cmcapp.common.entities.Usuarios;
-import com.ucab.cmcapp.logic.dtos.UserDto;
+import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
 public class UsuarioMapper extends BaseMapper {
+    private static Logger _logger = LoggerFactory.getLogger(UsuarioMapper.class);
 
-    private static Logger _logger = LoggerFactory.getLogger( UsuarioMapper.class );
+    public static Usuario mapDtoToEntity(UsuarioDto dto) throws ParseException {
+        Usuario entity = EntityFactory.createUsuario();
 
-    public static Usuarios mapDtoToEntity(UsuarioDto dto ) throws ParseException
-    {
-        Usuarios entity = EntityFactory.createUsuario(dto.getId());
-
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in UsuariorMapper.mapDtoToEntity: dto {}", dto );
-        //endregion
-
-        entity.setUsuarios_username( dto.getUsuarios_username() );
-        entity.setUsuarios_Nombre(dto.getUsuarios_Nombre());
-        entity.setUsuarios_Apellido( dto.getUsuarios_Apellido() );
-
-
-        //if ( Objects.nonNull( dto.getUsuarioTypeDto() ) )
-       // {
-           // entity.set_userType( UserTypeMapper.mapDtoToEntity( dto.getUsuarioTypeDto() ) );
-       // }
-
-        //region Instrumentation DEBUG
-        _logger.debug( "Leaving UserMapper.mapDtoToEntity: entity {}", entity );
-        //endregion
+        entity.set_id(dto.getId());
+        entity.set_username(dto.get_username());
+        entity.set_estatus(dto.get_estatus());
+        entity.set_nombre(dto.get_nombre());
+        entity.set_apellido(dto.get_apellido());
+        entity.set_correo(dto.get_correo());
+        entity.set_IMEI(dto.get_IMEI());
 
         return entity;
     }
 
-    public static UsuarioDto mapEntityToDto( Usuarios entity )
-    {
+    public static UsuarioDto mapEntityToDto(Usuario entity) {
         final UsuarioDto dto = new UsuarioDto();
 
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in UsuarioMapper.mapEntityToDto: entity {}", entity );
-        //endregion
 
-        dto.setId( entity.getUsarios_ID());
-        dto.setUsuarios_username(  entity.getUsuarios_username() );
-        dto.setUsuarios_Nombre( entity.getUsuarios_Nombre() );
-        //if(Objects.nonNull(entity.getUserType()))
-            //dto.setUserTypeDto( UserTypeMapper.mapEntityToDto( entity.getUserType() ));
+        dto.setId(entity.get_id());
+        dto.set_username(entity.get_username());
+        dto.set_nombre(entity.get_nombre());
+        dto.set_estatus(entity.get_estatus());
+        dto.set_apellido(entity.get_apellido());
+        dto.set_correo(entity.get_correo());
+        dto.set_IMEI(entity.get_IMEI());
 
-        //region Instrumentation DEBUG
-        _logger.debug( "Leaving UserMapper.mapEntityToDto: dto {}", dto );
-        //endregion
         return dto;
     }
 
-    public static Usuarios mapDtoToEntity( long id )
-    {
-        Usuarios entity = EntityFactory.createUsuario( id );
-
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in UserMapper.mapDtoToEntity: id {}", id );
-        //endregion
-
-        entity.setUsarios_ID( id );
-
-        //region Instrumentation DEBUG
-        _logger.debug( "Leaving UsuarioMapper.mapDtoToEntity: entity {}", entity );
-        //endregion
-
+    public static Usuario mapDtoToEntity(long id) {
+        Usuario entity = EntityFactory.createUsuario(id);
+        entity.set_id(id);
         return entity;
     }
 
-    public static Usuarios mapDtoToEntityUsername( String usuarios_username )
-    {
-        Usuarios entity = EntityFactory.createUsuario();
+    public static List<UsuarioDto> mapEntityListToDtoList(List<Usuario> entityList){
+        List<UsuarioDto> dtoList = new ArrayList<UsuarioDto>();
+        UsuarioDto usuarioDto;
 
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in UsuarioMapper.mapDtoToEntityEmail: usuarios_username {}", usuarios_username );
-        //endregion
+        for (Usuario usuario : entityList) {
+            usuarioDto = new UsuarioDto();
+            usuarioDto.setId(usuario.get_id());
+            usuarioDto.set_username(usuario.get_username());
+            usuarioDto.set_estatus(usuario.get_estatus());
+            usuarioDto.set_nombre(usuario.get_nombre());
+            usuarioDto.set_apellido(usuario.get_apellido());
+            usuarioDto.set_correo(usuario.get_correo());
+            usuarioDto.set_IMEI(usuario.get_IMEI());
 
-        entity.setUsuarios_username( usuarios_username );
 
-        //region Instrumentation DEBUG
-        _logger.debug( "Leaving UsuarioMapper.mapDtoToEntityEmail: entity {}", entity );
-        //endregion
+            dtoList.add(usuarioDto);
+        }
 
+        return dtoList;
+    }
+
+    public static Usuario mapDtoToEntityCorreo(String email) {
+        Usuario entity = EntityFactory.createUsuario();
+        entity.set_correo(email);
+        return entity;
+    }
+
+    public static Usuario mapDtoToEntityUsername(String username){
+        Usuario entity = EntityFactory.createUsuario();
+        entity.set_username(username);
+        return entity;
+    }
+
+    public static Usuario mapDtoToEntityIMEI(String imei) {
+        Usuario entity = EntityFactory.createUsuario();
+        entity.set_IMEI(imei);
         return entity;
     }
 
 }
-
-
-
-

@@ -15,18 +15,18 @@ public class EntityFactory
 
 
 
-    /*Metodos para la clase usuario*/
-    public static Usuarios createUsuario()
+    /*Metodos para la clase Usuario*/
+    public static Usuario createUsuario()
     {
-        return new Usuarios();
+        return new Usuario();
     }
-    public static Usuarios createUsuario(long id)
+    public static Usuario createUsuario(long id)
     {
-        return new Usuarios(id);
+        return new Usuario(id);
     }
 
 
-    //Metodos para la clase victima
+    //Metodos para la clase VICTIMA
     public static Victima createVictima()
     {
         return new Victima();
@@ -36,7 +36,7 @@ public class EntityFactory
         return new Victima(id);
     }
 
-    //Metodos para la clase Agresor
+    //Metodos para la clase AGRESOR
     public static Agresor createAgresor() {
         return new Agresor();
     }
@@ -44,10 +44,17 @@ public class EntityFactory
         return new Agresor(id);
     }
 
+    //Metodos para la clase ZONA SEGURA
+    public static ZonaSegura createZonaSegura(long id) {
+        return new ZonaSegura(id);
+    }
+    public static ZonaSegura createZonaSegura() {
+        return new ZonaSegura();
+    }
 
 
 
-    /*Metodos para la clase alerta*/
+    /*Metodos para la clase ALERTA*/
     public static Alerta createAlerta()
     {
         return new Alerta();

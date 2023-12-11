@@ -8,39 +8,35 @@ import com.ucab.cmcapp.persistence.dao.UsuarioDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class GetUsuarioByIdCommand extends Command<Usuario> {
-    private static Logger _logger = LoggerFactory.getLogger(GetUsuarioByIdCommand.class);
-    private long _userId;
-    private Usuario _result;
+import java.util.List;
+
+public class GetUsuarioByListCommand extends Command<Usuario> {
+
+    private List<Usuario> _result;
     private UsuarioDao _dao;
 
-    public GetUsuarioByIdCommand(DBHandler handler, long userId) {
+    public GetUsuarioByListCommand(DBHandler handler) {
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Get in GetUsuarioByIdCommand.ctor: parameter {%s}", userId));
         //endregion
 
-        _userId = userId;
         setHandler(handler);
         _dao = DaoFactory.createUsuarioDao(getHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug(String.format("Leaving GetUsuarioByIdCommand.ctor: attribute {%s}", userId));
         //endregion
     }
 
     @Override
     public void execute() {
         //region Instrumentation DEBUG
-        _logger.debug("Get in  GetUsuarioByIdCommand.execute");
         //endregion
-        _result = _dao.find(_userId, Usuario.class);
+        _result = _dao.findAll(Usuario.class);
         //region Instrumentation DEBUG
-        _logger.debug("Leaving  GetUsuarioByIdCommand.execute");
         //endregion
     }
 
     @Override
-    public Usuario getReturnParam() {
+    public List <Usuario> getReturnParam() {
         return _result;
     }
 
