@@ -13,23 +13,31 @@ public class DaoFactory
         return new UserDao( handler );
     }
 
-    //Usuario Dao
+    //USUARIO DAO
     public static UsuarioDao createUsuarioDao( DBHandler handler )
     {
         return new UsuarioDao( handler );
     }
-    //Victima Dao
+
+    //VICTIMA DAO
     public static VictimaDao createVictimaDao( DBHandler handler )
     {
         return new VictimaDao( handler );
     }
-    //Agresor Dao
+
+    //AGRESOR DAO
     public static AgresorDao createAgresorDao(DBHandler handler) {
         return new AgresorDao(handler);
     }
-    //Alerta Dao
+
+    //ALERTA DAO
     public static AlertaDao createAlertaDao( DBHandler handler )
     {
         return new AlertaDao( handler );
+    }
+
+    //ZONA SEGURA DAO
+    public static ZonaSeguraDao createZonaSeguraDao(DBHandler handler) {
+        return new ZonaSeguraDao(handler);
     }
 }

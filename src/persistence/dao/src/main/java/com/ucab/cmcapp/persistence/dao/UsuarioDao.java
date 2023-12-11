@@ -1,7 +1,7 @@
 package com.ucab.cmcapp.persistence.dao;
 
 import com.ucab.cmcapp.common.EntityFactory;
-import com.ucab.cmcapp.common.entities.Usuarios;
+import com.ucab.cmcapp.common.entities.*;
 import com.ucab.cmcapp.common.exceptions.CupraException;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
@@ -13,50 +13,83 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-public class UsuarioDao extends BaseDao<Usuarios>{
-    private static Logger _logger = LoggerFactory.getLogger( UsuarioDao.class );
+
+public class UsuarioDao extends BaseDao<Usuario> {
+    private static Logger _logger = LoggerFactory.getLogger(UsuarioDao.class);
     private EntityManager _em;
     private CriteriaBuilder _builder;
 
-    public UsuarioDao()
-    {
+
+    public UsuarioDao() {
         super();
     }
-    public UsuarioDao(DBHandler handler )
-    {
-        super( handler );
+
+    public UsuarioDao(DBHandler handler) {
+        super(handler);
 
         _em = getDBHandler().getSession();
         _builder = _em.getCriteriaBuilder();
     }
+    public Usuario getUsuarioByUsername(String alias) {
+        Usuario result = EntityFactory.createUsuario();
+        try {
+            CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
+            Root<Usuario> root = query.from(Usuario.class);
 
-    public Usuarios getUsuarioByUsername( String Username )
-    {
-        Usuarios result = EntityFactory.createUsuario();
-        _logger.debug( String.format( "Get in UsuarioDao.getUsuarioByUsername: parameter {%s}", Username ) );
-        try
-        {
-            CriteriaQuery<Usuarios> query = _builder.createQuery( Usuarios.class );
-            Root<Usuarios> root = query.from( Usuarios.class );
+            query.select(root);
+            query.where(_builder.equal(root.get("_alias"), alias));
 
-            query.select( root );
-            query.where( _builder.equal( root.get( "_Username" ), Username ) );
-
-            result = _em.createQuery( query ).getSingleResult();
+            result = _em.createQuery(query).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw new CupraException(e.getMessage());
         }
-        catch ( NoResultException e )
-        {
-            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: No Result {%s}", e.getMessage() ) );
-        }
-        catch ( Exception e )
-        {
-            _logger.error( String.format( "Error UsuarioDao.getUsuarioByUsername: {%s}", e.getMessage() ) );
-            throw new CupraException( e.getMessage() );
+
+        return result;
+    }
+    public Usuario getUsuarioByCorreo(String correo) {
+        Usuario result = EntityFactory.createUsuario();
+        _logger.debug(String.format("Get in UsuarioDao.getUsuarioByCorreo: parameter {%s}", correo));
+        try {
+            CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
+            Root<Usuario> root = query.from(Usuario.class);
+
+            query.select(root);
+            query.where(_builder.equal(root.get("_correo"), correo));
+
+            result = _em.createQuery(query).getSingleResult();
+        } catch (NoResultException e) {
+            _logger.error(String.format("Error UsuarioDao.getUsuarioByCorreo: No Result {%s}", e.getMessage()));
+            return null;
+        } catch (Exception e) {
+            _logger.error(String.format("Error UsuarioDao.getUsuarioByCorreo: {%s}", e.getMessage()));
+            throw new CupraException(e.getMessage());
         }
         //region Instrumentation
-        _logger.debug( String.format( "Leavin UsuarioDao.getUsuarioByUsername: result {%s}", result ) );
+        _logger.debug(String.format("Leavin UsuarioDao.getUserByCorreo: result {%s}", result));
         //endregion
 
         return result;
     }
+
+    public Usuario getUserByIMEI(String mac) {
+        Usuario result = EntityFactory.createUsuario();
+        try {
+            CriteriaQuery<Usuario> query = _builder.createQuery(Usuario.class);
+            Root<Usuario> root = query.from(Usuario.class);
+
+            query.select(root);
+            query.where(_builder.equal(root.get("_IMEI"), mac));
+
+            result = _em.createQuery(query).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw new CupraException(e.getMessage());
+        }
+
+        return result;
+    }
+
 }

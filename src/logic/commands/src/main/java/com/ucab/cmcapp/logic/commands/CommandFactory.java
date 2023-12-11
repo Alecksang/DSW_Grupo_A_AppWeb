@@ -19,11 +19,8 @@ import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByIdCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
-import com.ucab.cmcapp.logic.commands.usuario.atomic.AddUsuarioCommand;
-import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByIdCommand;
-import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand;
-import com.ucab.cmcapp.logic.commands.usuario.composite.CreateUsuarioCommand;
-import com.ucab.cmcapp.logic.commands.usuario.composite.GetUsuarioCommand;
+import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
+import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.logic.commands.victima.atomic.AddVictimaCommand;
 import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByIdCommand;
 import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByListCommand;
@@ -71,17 +68,19 @@ public class CommandFactory
     {
         return new CreateUserCommand(user);
     }
-    //Usuario
 
-    public static GetUsuarioCommand createGetUsuarioCommand(Usuarios user)
+
+    //USUARIO
+
+    public static GetUsuarioCommand createGetUsuarioCommand(Usuario user)
     {
         return new GetUsuarioCommand(user);
     }
-    public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuarios user)
+    public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuario user)
     {
         return new GetUsuarioByUsernameCommand(user);
     }
-    public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuarios user, DBHandler handler)
+    public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuario user, DBHandler handler)
     {
         return new GetUsuarioByUsernameCommand(user, handler);
     }
@@ -89,17 +88,43 @@ public class CommandFactory
     {
         return new GetUsuarioByIdCommand(handler, userId);
     }
-    public static AddUsuarioCommand createAddUsuarioCommand(Usuarios user, DBHandler handler)
+    public static GetAllUsuarioCommand createGetAllUsuarioCommand(){
+        return new GetAllUsuarioCommand();
+    }
+    public static GetUsuarioByListCommand createGetUsuarioByListCommand(DBHandler handler) {
+        return new GetUsuarioByListCommand(handler);
+    }
+    public static AddUsuarioCommand createAddUsuarioCommand(Usuario user, DBHandler handler)
     {
         return new AddUsuarioCommand(user, handler);
     }
-    public static AddUsuarioCommand createAddUsuarioCommand(Usuarios user)
+    public static AddUsuarioCommand createAddUsuarioCommand(Usuario user)
     {
         return new AddUsuarioCommand(user);
     }
-    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuarios user)
+    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuario user)
     {
         return new CreateUsuarioCommand(user);
+    }
+
+    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user, DBHandler handler)
+    {
+        return new DeleteUsuarioByIdCommand(user, handler);
+    }
+    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user)
+    {
+        return new DeleteUsuarioByIdCommand(user);
+    }
+    public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario user)
+    {
+        return new DeleteUsuarioCommand(user);
+    }
+
+    public static UpdateUsuarioCommand createUpdateUsuarioCommand(Usuario usuario){
+        return new UpdateUsuarioCommand(usuario);
+    }
+    public static ModifyUsuarioCommand createModifyUsuarioCommand(Usuario usuario, DBHandler handler){
+        return new ModifyUsuarioCommand(usuario, handler);
     }
 
 //VICTIMA
