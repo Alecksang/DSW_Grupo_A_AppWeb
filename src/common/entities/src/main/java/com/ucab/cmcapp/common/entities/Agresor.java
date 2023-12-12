@@ -13,7 +13,7 @@ public class Agresor {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "id_usuario")
-    private Usuarios _usuario;
+    private Usuario _usuario;
 
     public Agresor() {
     }
@@ -22,7 +22,7 @@ public class Agresor {
         this._id = _id;
     }
 
-    public Agresor(Usuarios _usuario) {
+    public Agresor(Usuario _usuario) {
         this._usuario = _usuario;
     }
 
@@ -34,11 +34,11 @@ public class Agresor {
         this._id = _id;
     }
 
-    public Usuarios get_usuario() {
+    public Usuario get_usuario() {
         return _usuario;
     }
 
-    public void set_usuario(Usuarios _usuario) {
+    public void set_usuario(Usuario _usuario) {
         this._usuario = _usuario;
     }
 }

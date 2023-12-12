@@ -37,9 +37,11 @@ public class UsuarioService extends BaseService {
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + userId + " de usuario no existe en la BBDD ")).build();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
-        } finally {
+        }
+        finally {
             if (command != null)
                 command.closeHandlerSession();
         }
@@ -62,9 +64,14 @@ public class UsuarioService extends BaseService {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
             }
 
-        } catch (Exception e) {
+        }
+
+        catch (Exception e) {
+
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al ejecutar la ruta todos: " + e.getMessage())).build();
-        } finally {
+        }
+
+        finally {
             if (command != null)
                 command.closeHandlerSession();
         }
@@ -114,9 +121,11 @@ public class UsuarioService extends BaseService {
             command = CommandFactory.createCreateUsuarioCommand(entity);
             command.execute();
             responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
-        } finally {
+        }
+        finally {
             if (command != null)
                 command.closeHandlerSession();
         }
@@ -172,9 +181,11 @@ public class UsuarioService extends BaseService {
                 responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
             else
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + usuarioDto.getId()) + " debido a que no existe en la base de datos").build();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el usuario: " + e.getMessage())).build();
-        } finally {
+        }
+        finally {
             if (command != null)
                 command.closeHandlerSession();
         }

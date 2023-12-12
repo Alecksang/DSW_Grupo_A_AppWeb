@@ -11,13 +11,13 @@ public class Alerta implements Serializable {
     private long _alertaId;
     private String _alertaTipo;
     @ManyToOne
-    private Usuarios _victima;
+    private Usuario _victima;
     private Date _alertaFechaHora;
 
     public Alerta() {
     }
 
-    public Alerta(String _alertaTipo, Usuarios _victima, Date _alertaFechaHora) {
+    public Alerta(String _alertaTipo, Usuario _victima, Date _alertaFechaHora) {
         this._alertaTipo = _alertaTipo;
         this._victima = _victima;
         this._alertaFechaHora = _alertaFechaHora;
@@ -43,11 +43,11 @@ public class Alerta implements Serializable {
         this._alertaTipo = _alertaTipo;
     }
 
-    public Usuarios get_victima() {
+    public Usuario get_victima() {
         return _victima;
     }
 
-    public void set_victima(Usuarios _victima) {
+    public void set_victima(Usuario _victima) {
         this._victima = _victima;
     }
 

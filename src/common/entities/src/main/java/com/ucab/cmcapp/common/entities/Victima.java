@@ -11,14 +11,14 @@ public class Victima {
     private long _id;
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "id_usuario")
-    private Usuarios _usuario;
+    private Usuario _usuario;
 
     public Victima(){}
 
     public Victima(long _id) {
         this._id = _id;
     }
-    public Victima(Usuarios _usuario) {
+    public Victima(Usuario _usuario) {
         this._usuario = _usuario;
     }
 
@@ -30,11 +30,11 @@ public class Victima {
         this._id = _id;
     }
 
-    public Usuarios get_usuario() {
+    public Usuario get_usuario() {
         return _usuario;
     }
 
-    public void set_usuario(Usuarios _usuario) {
+    public void set_usuario(Usuario _usuario) {
         this._usuario = _usuario;
     }
 }
