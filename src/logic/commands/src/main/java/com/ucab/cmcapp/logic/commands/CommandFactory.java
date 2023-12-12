@@ -29,6 +29,8 @@ import com.ucab.cmcapp.logic.commands.victima.composite.CreateVictimaCommand;
 import com.ucab.cmcapp.logic.commands.victima.composite.GetAllVictimaCommand;
 import com.ucab.cmcapp.logic.commands.victima.composite.GetVictimaCommand;
 import com.ucab.cmcapp.logic.commands.victima.composite.UpdateVictimaCommand;
+import com.ucab.cmcapp.logic.commands.zonasegura.atomic.*;
+import com.ucab.cmcapp.logic.commands.zonasegura.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
 
 public class CommandFactory
@@ -227,4 +229,76 @@ public class CommandFactory
     {
         return new GetAlertaByTipoCommand(alerta);
     }
+
+    //Zona Segura
+
+    public static GetZonaSeguraCommand createGetZonaSeguraCommand(ZonaSegura ZonaSegura)
+    {
+        return new GetZonaSeguraCommand(ZonaSegura);
+    }
+
+
+    public static GetZonaSeguraByIdCommand createGetZonaSeguraByIdCommand (DBHandler handler, long ZonaSeguraId )
+    {
+        return new GetZonaSeguraByIdCommand(handler, ZonaSeguraId);
+    }
+
+    public static GetAllZonaSeguraCommand createGetAllZonaSeguraCommand()
+    {
+        return new GetAllZonaSeguraCommand();
+    }
+
+
+    public static GetAllZonaSeguraByUsuarioIdCommand createGetAllZonaSeguraByUsuarioIdCommand (DBHandler handler )
+    {
+        return new GetAllZonaSeguraByUsuarioIdCommand(handler);
+    }
+
+    public static AddZonaSeguraCommand createAddZonaSeguraCommand(ZonaSegura ZonaSegura, DBHandler handler)
+    {
+        return new AddZonaSeguraCommand(ZonaSegura, handler);
+    }
+
+    public static AddZonaSeguraCommand createAddZonaSeguraCommand(ZonaSegura ZonaSegura)
+    {
+        return new AddZonaSeguraCommand(ZonaSegura);
+    }
+
+    public static CreateZonaSeguraCommand createCreateZonaSeguraCommand(ZonaSegura ZonaSegura)
+    {
+        return new CreateZonaSeguraCommand(ZonaSegura);
+    }
+
+
+
+    public static DeleteZonaSeguraByIdCommand createDeleteZonaSeguraByIdCommand(ZonaSegura user, DBHandler handler)
+    {
+        return new DeleteZonaSeguraByIdCommand(user, handler);
+    }
+
+    public static DeleteZonaSeguraByIdCommand createDeleteZonaSeguraByIdCommand(ZonaSegura user)
+    {
+        return new DeleteZonaSeguraByIdCommand(user);
+    }
+
+    public static DeleteZonaSeguraCommand createDeleteZonaSeguraCommand(ZonaSegura user)
+    {
+        return new DeleteZonaSeguraCommand(user);
+    }
+
+    public static ModifyZonaSeguraByIdCommand createModifyZonaSeguraByIdCommand(ZonaSegura user, DBHandler handler)
+    {
+        return new ModifyZonaSeguraByIdCommand(user, handler);
+    }
+
+    public static ModifyZonaSeguraByIdCommand createModifyZonaSeguraByIdCommand(ZonaSegura user)
+    {
+        return new ModifyZonaSeguraByIdCommand(user);
+    }
+
+    public static UpdateZonaSeguraCommand createUpdateZonaSeguraCommand(ZonaSegura user)
+    {
+        return new UpdateZonaSeguraCommand(user);
+    }
+
 }
