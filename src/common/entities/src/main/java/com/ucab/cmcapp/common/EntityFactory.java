@@ -73,6 +73,13 @@ public class EntityFactory
         return new Coordenada(id);
     }
 
+    //Metodos para la clase SENTENCIA
+    public static Sentencia_AV createSentencia_AV() {
+        return new Sentencia_AV();
+    }
+    public static Sentencia_AV createSentencia_AV(long id) {
+        return new Sentencia_AV(id);
+    }
 
 
 
