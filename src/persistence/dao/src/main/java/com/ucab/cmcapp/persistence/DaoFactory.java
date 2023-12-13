@@ -1,6 +1,7 @@
 package com.ucab.cmcapp.persistence;
 
 import com.ucab.cmcapp.common.entities.Agresor;
+import com.ucab.cmcapp.common.entities.Sentencia_AV;
 import com.ucab.cmcapp.persistence.dao.*;
 import com.ucab.cmcapp.common.entities.Victima;
 
@@ -44,5 +45,10 @@ public class DaoFactory
     public static CoordenadaDao createCoordenadaDao( DBHandler handler )
     {
         return new CoordenadaDao( handler );
+    }
+
+    public static Sentencia_AVDao createSentencia_AVDao(DBHandler handler )
+    {
+        return new Sentencia_AVDao( handler );
     }
 }
