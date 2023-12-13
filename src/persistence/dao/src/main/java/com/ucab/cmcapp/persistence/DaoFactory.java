@@ -40,4 +40,9 @@ public class DaoFactory
     public static ZonaSeguraDao createZonaSeguraDao(DBHandler handler) {
         return new ZonaSeguraDao(handler);
     }
+
+    public static CoordenadaDao createCoordenadaDao( DBHandler handler )
+    {
+        return new CoordenadaDao( handler );
+    }
 }

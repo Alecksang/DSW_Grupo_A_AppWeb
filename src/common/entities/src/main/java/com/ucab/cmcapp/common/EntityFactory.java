@@ -15,7 +15,7 @@ public class EntityFactory
 
 
 
-    /*Metodos para la clase Usuario*/
+    /*Metodos para la clase USUARIO*/
     public static Usuario createUsuario()
     {
         return new Usuario();
@@ -65,7 +65,13 @@ public class EntityFactory
     }
 
 
-
+    //Metodos para la clase COORDENADA
+    public static Coordenada createCoordenada() {
+        return new Coordenada();
+    }
+    public static Coordenada createCoordenada(long id) {
+        return new Coordenada(id);
+    }
 
 
 

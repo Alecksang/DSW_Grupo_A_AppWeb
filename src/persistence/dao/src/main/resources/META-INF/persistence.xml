@@ -11,6 +11,7 @@
         <class>com.ucab.cmcapp.common.entities.Victima</class>
         <class>com.ucab.cmcapp.common.entities.Agresor</class>
         <class>com.ucab.cmcapp.common.entities.Alerta</class>
+        <class>com.ucab.cmcapp.common.entities.Coordenada</class>
         <class>com.ucab.cmcapp.common.entities.ZonaSegura</class>
 
         <properties>

@@ -14,6 +14,8 @@ import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByIdCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
+import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
+import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByIdCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
@@ -230,7 +232,7 @@ public class CommandFactory
         return new GetAlertaByTipoCommand(alerta);
     }
 
-    //Zona Segura
+    //ZONA SEGURA
 
     public static GetZonaSeguraCommand createGetZonaSeguraCommand(ZonaSegura ZonaSegura)
     {
@@ -300,5 +302,53 @@ public class CommandFactory
     {
         return new UpdateZonaSeguraCommand(user);
     }
+
+    //COORDENADA
+    // GET COORDENADA
+    public static GetCoordenadaCommand createGetCoordenadaCommand(Coordenada coordenada) {
+        return new GetCoordenadaCommand(coordenada);
+    }
+
+    public static GetCoordenadaByIdCommand createGetCoordenadaByIdCommand(DBHandler handler, long coordenadaId) {
+        return new GetCoordenadaByIdCommand(handler, coordenadaId);
+    }
+
+    public static GetAllCoordenadaCommand createGetAllCoordenadaCommand(){
+        return new GetAllCoordenadaCommand();
+    }
+
+    public static GetCoordenadaByListCommand createGetCoordenadaByListCommand(DBHandler handler) {
+        return new GetCoordenadaByListCommand(handler);
+    }
+
+
+    // POST/AGREGAR COORDENADA
+    public static AddCoordenadaCommand createAddCoordenadaCommand(Coordenada coordenada, DBHandler handler) {
+        return new AddCoordenadaCommand(coordenada, handler);
+    }
+
+    public static CreateCoordenadaCommand createCreateCoordenadaCommand(Coordenada coordenada) {
+        return new CreateCoordenadaCommand(coordenada);
+    }
+
+    //DELETE COORDENADA
+
+    public static DeleteCoordenadaCommand createDeleteCoordenadaCommand(Coordenada coordenada) {
+        return new DeleteCoordenadaCommand(coordenada);
+    }
+
+    public static DeleteCoordenadaByIdCommand createDeleteCoordenadaByIdCommand(Coordenada coordenada, DBHandler handler) {
+        return new DeleteCoordenadaByIdCommand(coordenada, handler);
+    }
+
+    //UPDATE COORDENADA
+    public static UpdateCoordenadaCommand createUpdateCoordenadaCommand(Coordenada coordenada){
+        return new UpdateCoordenadaCommand(coordenada);
+    }
+
+    public static ModifyCoordenadaCommand createModifyCoordenadaCommand(Coordenada coordenada, DBHandler handler){
+        return new ModifyCoordenadaCommand(coordenada, handler);
+    }
+
 
 }
