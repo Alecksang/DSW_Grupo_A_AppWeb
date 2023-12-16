@@ -22,31 +22,40 @@ public class UsuarioService extends BaseService {
     private static Logger _logger = LoggerFactory.getLogger(UsuarioService.class);
 
     @GET
-    @Path("/{id}")
-    public Response getUsuario(@PathParam("id") long userId) {
+    @Path( "/{id}" )
+    public Response getUsuario(@PathParam( "id" ) long userId )
+    {
         Usuario entity;
-        UsuarioDto responseDTO = null;
+        UsuarioDto response;
         GetUsuarioCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in UsuarioService.getUsuario" );
+        //endregion
 
-        try {
-            entity = UsuarioMapper.mapDtoToEntity(userId);
-            command = CommandFactory.createGetUsuarioCommand(entity);
+        try
+        {
+            entity = UsuarioMapper.mapDtoToEntity( userId );
+            command = CommandFactory.createGetUsuarioCommand( entity );
             command.execute();
+            if(command.getReturnParam() != null){
+                response = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + userId)).build();
+            }
+        }
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + userId)).build();
 
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El ID " + userId + " de usuario no existe en la BBDD ")).build();
         }
-        catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno en la ruta ID " + e.getMessage())).build();
-        }
-        finally {
+        finally
+        {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El ID " + userId + " del usuario ha sido encontrado correctamente")).build();
+        _logger.debug( "Leaving UsuarioService.getUsuario" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Usuario: " + userId)).build();
     }
 
     @GET
@@ -60,12 +69,11 @@ public class UsuarioService extends BaseService {
             command.execute();
             responseDTO = UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
 
-            if (responseDTO.size() == 0) {
+            if (responseDTO.isEmpty()) {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
             }
 
         }
-
         catch (Exception e) {
 
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al ejecutar la ruta todos: " + e.getMessage())).build();
