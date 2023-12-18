@@ -100,32 +100,27 @@ public class CommandFactory
     public static GetUsuarioByListCommand createGetUsuarioByListCommand(DBHandler handler) {
         return new GetUsuarioByListCommand(handler);
     }
-    public static AddUsuarioCommand createAddUsuarioCommand(Usuario user, DBHandler handler)
-    {
-        return new AddUsuarioCommand(user, handler);
-    }
-    public static AddUsuarioCommand createAddUsuarioCommand(Usuario user)
-    {
-        return new AddUsuarioCommand(user);
-    }
-    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuario user)
-    {
-        return new CreateUsuarioCommand(user);
+
+    //POST USUARIO
+    public static AddUsuarioCommand createAddUsuarioCommand(Usuario usuario, DBHandler handler) {
+        return new AddUsuarioCommand(usuario, handler);
     }
 
-    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user, DBHandler handler)
-    {
-        return new DeleteUsuarioByIdCommand(user, handler);
-    }
-    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user)
-    {
-        return new DeleteUsuarioByIdCommand(user);
-    }
-    public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario user)
-    {
-        return new DeleteUsuarioCommand(user);
+    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuario usuario) {
+        return new CreateUsuarioCommand(usuario);
     }
 
+    //DELETE USUARIO
+
+    public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario usuario) {
+        return new DeleteUsuarioCommand(usuario);
+    }
+
+    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario usuario, DBHandler handler) {
+        return new DeleteUsuarioByIdCommand (usuario, handler);
+    }
+
+    //UPDATE USUARIO
     public static UpdateUsuarioCommand createUpdateUsuarioCommand(Usuario usuario){
         return new UpdateUsuarioCommand(usuario);
     }

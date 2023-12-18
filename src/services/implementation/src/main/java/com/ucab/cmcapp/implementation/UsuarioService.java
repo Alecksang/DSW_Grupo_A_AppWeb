@@ -67,7 +67,7 @@ public class UsuarioService extends BaseService {
         try {
             command = CommandFactory.createGetAllUsuarioCommand();
             command.execute();
-            responseDTO = UsuarioMapper.mapEntityListToDtoList(command.getReturnParam());
+            responseDTO = UsuarioMapper.mapListEntityToDto(command.getReturnParam());
 
             if (responseDTO.isEmpty()) {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
@@ -119,39 +119,53 @@ public class UsuarioService extends BaseService {
 
 
     @POST
-    public Response addUsuario(UsuarioDto usuarioDto) {
+    @Path("/insert")
+    public Response addUsuario( UsuarioDto userDto )
+    {
         Usuario entity;
-        UsuarioDto responseDTO = null;
+        UsuarioDto response;
         CreateUsuarioCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in UsuarioService.addUsuario" );
+        //endregion
 
-        try {
-            entity = UsuarioMapper.mapDtoToEntity(usuarioDto);
-            command = CommandFactory.createCreateUsuarioCommand(entity);
+        try
+        {
+            entity = UsuarioMapper.mapDtoToEntityInsert( userDto );
+            command = CommandFactory.createCreateUsuarioCommand( entity );
             command.execute();
-            responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            if(command.getReturnParam() != null){
+                response = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Insertar " + userDto.getId())).build();
+            }
         }
-        catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + userDto.getId())).build();
+
         }
-        finally {
+        finally
+        {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido creado correctamente")).build();
+        _logger.debug( "Leaving UsuarioService.addUsuario" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Insertado: " + userDto.getId())).build();
     }
 
 
 
     @DELETE
     @Path("/{id}")
-    public Response deleteUsuario(@PathParam("id") long userId) {
+    public Response deleteUsuario(@PathParam("id") long usuarioId) {
         Usuario entity;
         UsuarioDto responseDTO = null;
         DeleteUsuarioCommand command = null;
 
         try {
-            entity = UsuarioMapper.mapDtoToEntity(userId);
+            entity = UsuarioMapper.mapDtoToEntity(usuarioId);
             command = CommandFactory.createDeleteUsuarioCommand(entity);
             command.execute();
 
@@ -161,13 +175,9 @@ public class UsuarioService extends BaseService {
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el usuario con ese ID")).build();
 
 
-        }
-        
-        catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de crear un usuario", e.getMessage())).build();
-        }
-
-        finally {
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un usuario", e.getMessage())).build();
+        } finally {
             if (command != null)
                 command.closeHandlerSession();
         }

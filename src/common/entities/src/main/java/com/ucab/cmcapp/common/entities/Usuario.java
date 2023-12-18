@@ -17,7 +17,7 @@ public class Usuario {
     @Column(name = "nombre", nullable = false)
     private String _nombre;
 
-    @Column(name = "apellido", nullable = false)
+    @Column(name = "apellido", nullable = false) //Quitar el apellido y ponerlo junto en un solo campo nombre
     private String _apellido;
 
     @Column(name = "correo", nullable = false, unique = true)
@@ -25,7 +25,7 @@ public class Usuario {
 
     @Column(name = "IMEI")
     private String _IMEI;
-    @Transient
+    @Column
     private String _password;
 
     public Usuario() {

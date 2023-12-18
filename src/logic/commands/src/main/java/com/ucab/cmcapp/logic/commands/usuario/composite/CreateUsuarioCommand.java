@@ -1,5 +1,4 @@
 package com.ucab.cmcapp.logic.commands.usuario.composite;
-
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
@@ -40,11 +39,9 @@ public class CreateUsuarioCommand extends Command<Usuario> {
             _result = _addUsuarioCommand.getReturnParam();
             getHandler().finishTransaction();
             getHandler().closeSession();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             getHandler().rollbackTransaction();
             getHandler().closeSession();
-
             throw e;
         }
         //region Instrumentation DEBUG
