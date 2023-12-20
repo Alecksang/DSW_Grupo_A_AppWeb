@@ -10,7 +10,9 @@ import com.ucab.cmcapp.persistence.dao.AlertaDao;
 import com.ucab.cmcapp.persistence.dao.UserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class AddAlertaCommand extends Command<Alerta> {
+
+public class AddAlertaCommand extends Command<Alerta>
+{
     private static Logger _logger = LoggerFactory.getLogger( AddAlertaCommand.class );
     private Alerta _alerta;
     private AlertaDao _dao;
@@ -57,14 +59,16 @@ public class AddAlertaCommand extends Command<Alerta> {
         _alerta = _dao.insert( _alerta);
 
         //region Instrumentation DEBUG
-        _logger.debug( "Get in  AddAlertaCommand.execute" );
+        _logger.debug( "Get in  AddUserCommand.execute" );
         //endregion
     }
+
     @Override
     public Alerta getReturnParam()
     {
         return _alerta;
     }
+
     @Override
     public void closeHandlerSession()
     {

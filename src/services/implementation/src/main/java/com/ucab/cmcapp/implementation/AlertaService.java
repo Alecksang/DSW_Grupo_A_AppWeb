@@ -1,6 +1,7 @@
 package com.ucab.cmcapp.implementation;
 
 import com.ucab.cmcapp.common.entities.Alerta;
+import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
@@ -95,7 +96,8 @@ public class AlertaService extends BaseService{
         return response;
     }
     @POST
-    public AlertaDto addAlerta( AlertaDto alertaDto )
+    @Path("/insert")
+    public Response addAlerta( AlertaDto alertaDto )
     {
         Alerta entity;
         AlertaDto response;
@@ -106,17 +108,19 @@ public class AlertaService extends BaseService{
 
         try
         {
-            entity = AlertaMapper.mapDtoToEntity( alertaDto );
+            entity = AlertaMapper.mapDtoToEntityInsert( alertaDto );
             command = CommandFactory.createCreateAlertaCommand( entity );
             command.execute();
-            response = AlertaMapper.mapEntityToDto( command.getReturnParam() );
-            _logger.info( "Response addAlerta: {} ", response );
+            if(command.getReturnParam() != null){
+                response = AlertaMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Insertar " + alertaDto.getId())).build();
+            }
         }
         catch ( Exception e )
         {
-            _logger.error("error {} adding alerta: {}", e.getMessage(), e.getCause());
-            throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
-                    entity( e ).build() );
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + alertaDto.getId())).build();
+
         }
         finally
         {
@@ -125,6 +129,6 @@ public class AlertaService extends BaseService{
         }
 
         _logger.debug( "Leaving AlertaService.addAlerta" );
-        return response;
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Insertado: " + alertaDto.getId())).build();
     }
 }

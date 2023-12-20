@@ -52,8 +52,6 @@ public class EntityFactory
         return new ZonaSegura();
     }
 
-
-
     /*Metodos para la clase ALERTA*/
     public static Alerta createAlerta()
     {
