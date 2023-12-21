@@ -1,6 +1,8 @@
 package com.ucab.cmcapp.logic.commands;
 
 import com.ucab.cmcapp.common.entities.*;
+import com.ucab.cmcapp.logic.commands.admin.atomic.*;
+import com.ucab.cmcapp.logic.commands.admin.composite.*;
 import com.ucab.cmcapp.logic.commands.agresor.atomic.AddAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByIdCommand;
 import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByListCommand;
@@ -76,7 +78,9 @@ public class CommandFactory
     }
 
 
-    //USUARIO
+//USUARIO
+
+    //GET
 
     public static GetUsuarioCommand createGetUsuarioCommand(Usuario user)
     {
@@ -403,6 +407,64 @@ public class CommandFactory
         return new ModifySentencia_AVCommand(usuarioSentencia_AV, handler);
     }
 
+
+//ADMIN
+
+    //GET
+
+    public static GetAdminCommand createGetAdminCommand(Admin Admin) {
+        return new GetAdminCommand(Admin);
+    }
+
+    public static GetAdminByIdCommand createGetAdminByIdCommand(DBHandler handler, long adminId) {
+        return new GetAdminByIdCommand(handler, adminId);
+    }
+
+    public static GetAdminByCorreoCommand createGetAdminByCorreoCommand(Admin Admin) {
+        return new GetAdminByCorreoCommand(Admin);
+    }
+
+    public static GetAdminByUsernameCommand createGetAdminByUsernameCommand(Admin Admin){
+        return new GetAdminByUsernameCommand(Admin);
+    }
+
+    public static GetAdminByListCommand createGetAdminByListCommand(DBHandler handler) {
+        return new GetAdminByListCommand(handler);
+    }
+
+    public static GetAllAdminCommand createGetAllAdminCommand(){
+        return new GetAllAdminCommand();
+    }
+
+
+    //POST
+
+    public static AddAdminCommand createAddAdminCommand(Admin Admin, DBHandler handler) {
+        return new AddAdminCommand(Admin, handler);
+    }
+
+    public static CreateAdminCommand createCreateAdminCommand(Admin Admin) {
+        return new CreateAdminCommand(Admin);
+    }
+
+    //DELETE
+
+    // public static DeleteAdminCommand createDeleteAdminCommand(Admin Admin) {
+    //     return new DeleteAdminCommand(Admin);
+    // }
+
+    // public static EraseAdminCommand createEraseAdminCommand(Admin Admin, DBHandler handler) {
+    //     return new EraseAdminCommand(Admin, handler);
+    // }
+
+    //UPDATE
+    public static UpdateAdminCommand createUpdateAdminCommand(Admin Admin){
+        return new UpdateAdminCommand(Admin);
+    }
+
+    public static ModifyAdminCommand createModifyAdminCommand(Admin Admin, DBHandler handler){
+        return new ModifyAdminCommand(Admin, handler);
+    }
 
 
 }
