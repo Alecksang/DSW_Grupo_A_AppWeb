@@ -60,4 +60,12 @@ public class DaoFactory
         return new AdminDao(handler);
     }
 
+    //CONEXION DAO
+    public static ConexionDao createConexionDao(DBHandler handler)
+    {
+        return new ConexionDao(handler);
+    }
+
+
+
 }

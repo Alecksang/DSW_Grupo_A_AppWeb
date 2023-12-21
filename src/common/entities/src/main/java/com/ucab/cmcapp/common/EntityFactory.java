@@ -85,6 +85,14 @@ public class EntityFactory
         return new Admin(id);
     }
 
+    //Metodos para la clase CONEXION
+    public static Conexion createConexion() {
+        return new Conexion();
+    }
+    public static Conexion createConexion(long id) {
+        return new Conexion(id);
+    }
+
 
 
     /**
