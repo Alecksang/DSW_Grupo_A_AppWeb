@@ -56,6 +56,7 @@ public class EntityFactory
     {
         return new Alerta();
     }
+
     public static Alerta createAlerta(long id)
     {
         return new Alerta(id);

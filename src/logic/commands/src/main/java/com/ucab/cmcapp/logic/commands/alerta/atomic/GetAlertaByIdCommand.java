@@ -1,15 +1,16 @@
 package com.ucab.cmcapp.logic.commands.alerta.atomic;
 
-
 import com.ucab.cmcapp.common.entities.Alerta;
 import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.persistence.DBHandler;
 import com.ucab.cmcapp.persistence.DaoFactory;
 import com.ucab.cmcapp.persistence.dao.AlertaDao;
+import com.ucab.cmcapp.persistence.dao.UserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class GetAlertaByIdCommand extends Command<Alerta> {
+public class GetAlertaByIdCommand extends Command<Alerta>
+{
     private static Logger _logger = LoggerFactory.getLogger( GetAlertaByIdCommand.class );
     private long _IdAlerta;
     private Alerta _result;
@@ -41,11 +42,13 @@ public class GetAlertaByIdCommand extends Command<Alerta> {
         _logger.debug( "Leaving  GetAlertaByIdCommand.execute" );
         //endregion
     }
+
     @Override
     public Alerta getReturnParam()
     {
         return _result;
     }
+
     @Override
     public void closeHandlerSession()
     {

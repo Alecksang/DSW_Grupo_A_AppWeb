@@ -9,7 +9,9 @@ import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByIdCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class GetAlertaCommand extends Command<Alerta> {
+
+public class GetAlertaCommand extends Command<Alerta>
+{
     private static Logger _logger = LoggerFactory.getLogger( GetAlertaCommand.class );
     private Alerta _alerta;
     long _id;
@@ -19,7 +21,7 @@ public class GetAlertaCommand extends Command<Alerta> {
         //region Instrumentation DEBUG
         _logger.debug( String.format( "Get in GetAlertaCommand.ctor: parameter {%s}",
                 alerta.toString() ) );
-        _id = alerta.get_alertaId();
+        _id = alerta.get_IdAlerta();
         _alerta = alerta;
         setHandler(new DBHandler());
 

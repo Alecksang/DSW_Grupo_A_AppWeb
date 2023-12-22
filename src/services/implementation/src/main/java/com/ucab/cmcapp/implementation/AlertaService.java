@@ -1,35 +1,42 @@
 package com.ucab.cmcapp.implementation;
 
 import com.ucab.cmcapp.common.entities.Alerta;
+import com.ucab.cmcapp.common.entities.User;
+import com.ucab.cmcapp.common.entities.Alerta;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
+import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
+import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
+import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
+import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
+import com.ucab.cmcapp.logic.dtos.AlertaDto;
+import com.ucab.cmcapp.logic.dtos.UserDto;
 import com.ucab.cmcapp.logic.dtos.AlertaDto;
 import com.ucab.cmcapp.logic.mappers.AlertaMapper;
+import com.ucab.cmcapp.logic.mappers.UserMapper;
+import com.ucab.cmcapp.logic.mappers.AlertaMapper;
+import com.ucab.cmcapp.persistence.dao.AlertaDao;
+import com.ucab.cmcapp.persistence.dao.BaseDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.text.ParseException;
 
 @Path( "/alertas" )
 @Produces( MediaType.APPLICATION_JSON )
 @Consumes( MediaType.APPLICATION_JSON )
-public class AlertaService extends BaseService{
+public class AlertaService extends BaseService
+{
     private static Logger _logger = LoggerFactory.getLogger( AlertaService.class );
 
     @GET
     @Path( "/{id}" )
-    public AlertaDto getAlerta(@PathParam( "id" ) long alertaId )
+    public Response getAlerta(@PathParam( "id" ) long alertaId )
     {
         Alerta entity;
         AlertaDto response;
@@ -43,14 +50,16 @@ public class AlertaService extends BaseService{
             entity = AlertaMapper.mapDtoToEntity( alertaId );
             command = CommandFactory.createGetAlertaCommand( entity );
             command.execute();
-            response = AlertaMapper.mapEntityToDto( command.getReturnParam() );
-            _logger.info( "Response getAlerta: {} ", response );
+            if(command.getReturnParam() != null){
+                response = AlertaMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + alertaId)).build();
+            }
         }
         catch ( Exception e )
         {
-            _logger.error("error {} getting alerta {}: {}", e.getMessage(), alertaId, e.getCause());
-            throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
-                    entity( e ).build() );
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + alertaId)).build();
+
         }
         finally
         {
@@ -59,15 +68,17 @@ public class AlertaService extends BaseService{
         }
 
         _logger.debug( "Leaving AlertaService.getAlerta" );
-        return response;
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Alerta: " + alertaId)).build();
     }
+
+
     @GET
-    @Path( "TipoAlerta/{TipoAlerta}" )
-    public AlertaDto getAlerta(@PathParam( "TipoAlerta" ) String tipoAlerta )
+    @Path( "/TipoAlerta/{TipoAlerta}" )
+    public Response getAlerta(@PathParam( "TipoAlerta" ) String tipoAlerta )
     {
         Alerta entity;
         AlertaDto response;
-        GetAlertaByTipoCommand command = null;
+        GetAlertaByTipoAlertaCommand command = null;
         //region Instrumentation DEBUG
         _logger.debug( "Get in AlertaService.getAlerta" );
         //endregion
@@ -75,16 +86,18 @@ public class AlertaService extends BaseService{
         try
         {
             entity = AlertaMapper.mapDtoToEntityTipoAlerta( tipoAlerta );
-            command = CommandFactory.createGetAlertaByTipoCommand( entity );
+            command = CommandFactory.createGetAlertaByTipoAlertaCommand( entity );
             command.execute();
-            response = AlertaMapper.mapEntityToDto( command.getReturnParam() );
-            _logger.info( "Response getAlerta: {} ", response );
+            if(command.getReturnParam() != null){
+                response = AlertaMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + tipoAlerta)).build();
+            }
         }
         catch ( Exception e )
         {
-            _logger.error("error {} getting alerta {}: {}", e.getMessage(), tipoAlerta, e.getCause());
-            throw new WebApplicationException( Response.status( Response.Status.INTERNAL_SERVER_ERROR ).
-                    entity( e ).build() );
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + tipoAlerta)).build();
+
         }
         finally
         {
@@ -93,8 +106,9 @@ public class AlertaService extends BaseService{
         }
 
         _logger.debug( "Leaving AlertaService.getAlerta" );
-        return response;
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por tipo de alerta: " + tipoAlerta)).build();
     }
+
     @POST
     @Path("/insert")
     public Response addAlerta( AlertaDto alertaDto )
@@ -131,4 +145,10 @@ public class AlertaService extends BaseService{
         _logger.debug( "Leaving AlertaService.addAlerta" );
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Insertado: " + alertaDto.getId())).build();
     }
+
+
+
+
+
 }
+
