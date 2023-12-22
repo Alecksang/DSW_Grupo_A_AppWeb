@@ -15,7 +15,7 @@ public class EntityFactory
 
 
 
-    /*Metodos para la clase USUARIO*/
+    //Metodos para la clase USUARIO
     public static Usuario createUsuario()
     {
         return new Usuario();
@@ -24,7 +24,6 @@ public class EntityFactory
     {
         return new Usuario(id);
     }
-
 
     //Metodos para la clase VICTIMA
     public static Victima createVictima()
@@ -52,7 +51,7 @@ public class EntityFactory
         return new ZonaSegura();
     }
 
-    /*Metodos para la clase ALERTA*/
+    //Metodos para la clase ALERTA
     public static Alerta createAlerta()
     {
         return new Alerta();
@@ -61,7 +60,6 @@ public class EntityFactory
     {
         return new Alerta(id);
     }
-
 
     //Metodos para la clase COORDENADA
     public static Coordenada createCoordenada() {
@@ -77,6 +75,22 @@ public class EntityFactory
     }
     public static Sentencia_AV createSentencia_AV(long id) {
         return new Sentencia_AV(id);
+    }
+
+    //Metodos para la clase ADMINISTRADOR
+    public static Admin createAdmin() {
+        return new Admin();
+    }
+    public static Admin createAdmin(long id) {
+        return new Admin(id);
+    }
+
+    //Metodos para la clase CONEXION
+    public static Conexion createConexion() {
+        return new Conexion();
+    }
+    public static Conexion createConexion(long id) {
+        return new Conexion(id);
     }
 
 
