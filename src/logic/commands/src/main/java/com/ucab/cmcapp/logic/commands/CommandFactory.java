@@ -11,7 +11,7 @@ import com.ucab.cmcapp.logic.commands.agresor.composite.GetAllAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.composite.UpdateAgresorCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.AddAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByIdCommand;
-import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
+import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
@@ -113,12 +113,19 @@ public class CommandFactory
 
     //DELETE USUARIO
 
-    public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario usuario) {
-        return new DeleteUsuarioCommand(usuario);
+    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user, DBHandler handler)
+    {
+        return new DeleteUsuarioByIdCommand(user, handler);
     }
 
-    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario usuario, DBHandler handler) {
-        return new DeleteUsuarioByIdCommand (usuario, handler);
+    public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user)
+    {
+        return new DeleteUsuarioByIdCommand(user);
+    }
+
+    public static DeleteUsuarioCommand createDeleteUsuarioCommand(Usuario user)
+    {
+        return new DeleteUsuarioCommand(user);
     }
 
     //UPDATE USUARIO
@@ -232,9 +239,9 @@ public class CommandFactory
         return new GetAlertaByIdCommand(handler, alertaId);
     }
 
-    public static GetAlertaByTipoCommand createGetAlertaByTipoCommand(Alerta alerta)
+    public static GetAlertaByTipoAlertaCommand createGetAlertaByTipoAlertaCommand(Alerta alerta)
     {
-        return new GetAlertaByTipoCommand(alerta);
+        return new GetAlertaByTipoAlertaCommand(alerta);
     }
 
 

@@ -1,61 +1,71 @@
 package com.ucab.cmcapp.common.entities;
 
+
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Alerta implements Serializable {
+@Table(name = "Alertas")
+public class Alerta  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long _alertaId;
-    private String _alertaTipo;
-    @ManyToOne
-    private Usuario _victima;
-    private Date _alertaFechaHora;
+    @Column(name = "IdAlerta")
+    private long _IdAlerta;
+
+    @Column(name = "TipoAlerta")
+    private String _tipoAlerta;
+
+    @Column(name = "FechaHora")
+    private Date _fechaHora;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn( name = "IdUsuario", nullable = false )
+    private Usuario usuario;
 
     public Alerta() {
     }
 
-    public Alerta(String _alertaTipo, Usuario _victima, Date _alertaFechaHora) {
-        this._alertaTipo = _alertaTipo;
-        this._victima = _victima;
-        this._alertaFechaHora = _alertaFechaHora;
+    public Alerta(String _tipoAlerta, Date _fechaHora, Usuario usuario) {
+        this._tipoAlerta = _tipoAlerta;
+        this._fechaHora = _fechaHora;
+        this.usuario = usuario;
     }
 
-    public Alerta(long id) {
-        this._alertaId = id;
+    public Alerta(long _IdAlerta) {
+        this._IdAlerta = _IdAlerta;
     }
 
-    public long get_alertaId() {
-        return _alertaId;
+    public long get_IdAlerta() {
+        return _IdAlerta;
     }
 
-    public void set_alertaId(long _alertaId) {
-        this._alertaId = _alertaId;
+    public void set_IdAlerta(long _IdAlerta) {
+        this._IdAlerta = _IdAlerta;
     }
 
-    public String get_alertaTipo() {
-        return _alertaTipo;
+    public String get_tipoAlerta() {
+        return _tipoAlerta;
     }
 
-    public void set_alertaTipo(String _alertaTipo) {
-        this._alertaTipo = _alertaTipo;
+    public void set_tipoAlerta(String _tipoAlerta) {
+        this._tipoAlerta = _tipoAlerta;
     }
 
-    public Usuario get_victima() {
-        return _victima;
+    public Date get_fechaHora() {
+        return _fechaHora;
     }
 
-    public void set_victima(Usuario _victima) {
-        this._victima = _victima;
+    public void set_fechaHora(Date _fechaHora) {
+        this._fechaHora = _fechaHora;
     }
 
-    public Date get_alertaFechaHora() {
-        return _alertaFechaHora;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void set_alertaFechaHora(Date _alertaFechaHora) {
-        this._alertaFechaHora = _alertaFechaHora;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -2,9 +2,7 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Alerta;
-import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.logic.dtos.AlertaDto;
-import com.ucab.cmcapp.logic.dtos.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,12 +23,12 @@ public class AlertaMapper extends BaseMapper
         _logger.debug( "Get in AlertaMapper.mapDtoToEntity: dto {}", dto );
         //endregion
 
-        entity.set_alertaTipo( dto.get_alertaTipo());
-        entity.set_alertaFechaHora(dto.get_alertaFechaHora());
+        entity.set_tipoAlerta( dto.get_tipoAlerta());
+        entity.set_fechaHora(dto.get_fechaHora());
 
-        if ( Objects.nonNull( dto.get_usuario() ) )
+        if ( Objects.nonNull( dto.getUsuario() ) )
         {
-            entity.set_victima( UsuarioMapper.mapDtoToEntity( dto.get_usuario() ) );
+            entity.setUsuario( UsuarioMapper.mapDtoToEntity( dto.getUsuario() ) );
         }
 
 
@@ -49,11 +47,11 @@ public class AlertaMapper extends BaseMapper
         _logger.debug( "Get in AlertaMapper.mapDtoToEntity: dto {}", dto );
         //endregion
 
-        entity.set_alertaTipo( dto.get_alertaTipo());
-        entity.set_alertaFechaHora(dto.get_alertaFechaHora());
-        if ( Objects.nonNull( dto.get_usuario() ) )
+        entity.set_tipoAlerta( dto.get_tipoAlerta());
+        entity.set_fechaHora(dto.get_fechaHora());
+        if ( Objects.nonNull( dto.getUsuario() ) )
         {
-            entity.set_victima( UsuarioMapper.mapDtoToEntity( dto.get_usuario() ) );
+            entity.setUsuario( UsuarioMapper.mapDtoToEntity( dto.getUsuario() ) );
         }
 
 
@@ -73,13 +71,13 @@ public class AlertaMapper extends BaseMapper
         _logger.debug( "Get in AlertaMapper.mapEntityToDto: entity {}", entity );
         //endregion
 
-        dto.setId( entity.get_alertaId());
+        dto.setId( entity.get_IdAlerta());
 
-        dto.set_alertaTipo(  entity.get_alertaTipo() );
-        dto.set_alertaFechaHora( entity.get_alertaFechaHora() );
+        dto.set_tipoAlerta(  entity.get_tipoAlerta() );
+        dto.set_fechaHora( entity.get_fechaHora() );
 
-        if(Objects.nonNull(entity.get_victima()))
-            dto.set_usuario( UsuarioMapper.mapEntityToDto( entity.get_victima() ));
+        if(Objects.nonNull(entity.getUsuario()))
+            dto.setUsuario( UsuarioMapper.mapEntityToDto( entity.getUsuario() ));
 
 
         //region Instrumentation DEBUG
@@ -96,7 +94,7 @@ public class AlertaMapper extends BaseMapper
         _logger.debug( "Get in AlertaMapper.mapDtoToEntity: id {}", id );
         //endregion
 
-        entity.set_alertaId( id );
+        entity.set_IdAlerta( id );
 
         //region Instrumentation DEBUG
         _logger.debug( "Leaving AlertaMapper.mapDtoToEntity: entity {}", entity );
@@ -113,7 +111,7 @@ public class AlertaMapper extends BaseMapper
         _logger.debug( "Get in AlertaMapper.mapDtoToEntityEmail: email {}", TipoAlerta );
         //endregion
 
-        entity.set_alertaTipo( TipoAlerta );
+        entity.set_tipoAlerta( TipoAlerta );
 
         //region Instrumentation DEBUG
         _logger.debug( "Leaving AlertaMapper.mapDtoToEntityEmail: entity {}", entity );
@@ -141,6 +139,7 @@ public class AlertaMapper extends BaseMapper
 
         return dtos;
     }
+
 
 
 }

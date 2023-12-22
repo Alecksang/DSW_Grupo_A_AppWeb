@@ -2,39 +2,49 @@ package com.ucab.cmcapp.logic.dtos;
 
 import java.util.Date;
 
-public class AlertaDto extends BaseDto{
-    private String _alertaTipo;
-    private UsuarioDto _usuario;
-    private Date _alertaFechaHora;
+
+import java.util.Date;
+import java.util.List;
+
+public class AlertaDto extends BaseDto
+{
+    private String _tipoAlerta;
+    private Date _fechaHora;
+
+    private UsuarioDto usuario;
+
     public AlertaDto()
     {
     }
+
+
+
     public AlertaDto(long id )
     {
         super( id );
     }
 
-    public String get_alertaTipo() {
-        return _alertaTipo;
+    public String get_tipoAlerta() {
+        return _tipoAlerta;
     }
 
-    public void set_alertaTipo(String _alertaTipo) {
-        this._alertaTipo = _alertaTipo;
+    public void set_tipoAlerta(String _tipoAlerta) {
+        this._tipoAlerta = _tipoAlerta;
     }
 
-    public UsuarioDto get_usuario() {
-        return _usuario;
+    public Date get_fechaHora() {
+        return _fechaHora;
     }
 
-    public void set_usuario(UsuarioDto _usuario) {
-        this._usuario = _usuario;
+    public void set_fechaHora(Date _fechaHora) {
+        this._fechaHora = _fechaHora;
     }
 
-    public Date get_alertaFechaHora() {
-        return _alertaFechaHora;
+    public UsuarioDto getUsuario() {
+        return usuario;
     }
 
-    public void set_alertaFechaHora(Date _alertaFechaHora) {
-        this._alertaFechaHora = _alertaFechaHora;
+    public void setUsuario(UsuarioDto usuario) {
+        this.usuario = usuario;
     }
 }
