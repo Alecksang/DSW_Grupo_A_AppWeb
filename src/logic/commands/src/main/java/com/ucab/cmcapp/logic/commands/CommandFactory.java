@@ -16,6 +16,8 @@ import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByIdCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
+import com.ucab.cmcapp.logic.commands.conexion.atomic.*;
+import com.ucab.cmcapp.logic.commands.conexion.composite.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
 import com.ucab.cmcapp.logic.commands.sentencia_av.atomic.*;
@@ -464,6 +466,65 @@ public class CommandFactory
 
     public static ModifyAdminCommand createModifyAdminCommand(Admin Admin, DBHandler handler){
         return new ModifyAdminCommand(Admin, handler);
+    }
+
+
+    //CONEXION
+
+    // COMMAND DE Conexion
+
+    // GET Conexion
+    public static GetConexionCommand createGetConexionCommand(Conexion Conexion) {
+        return new GetConexionCommand(Conexion);
+    }
+
+    public static GetConexionByIdCommand createGetConexionByIdCommand(DBHandler handler, long ConexionId) {
+        return new GetConexionByIdCommand(handler, ConexionId);
+    }
+
+    public static GetAllConexionCommand createGetAllConexionCommand(){
+        return new GetAllConexionCommand();
+    }
+
+    public static GetConexionByListCommand createGetConexionByListCommand(DBHandler handler) {
+        return new GetConexionByListCommand(handler);
+    }
+
+    public static GetConexionByUsuarioIdCommand createGetConexionByUsuarioCommand(Conexion Conexion) {
+        return new GetConexionByUsuarioIdCommand(Conexion);
+    }
+
+
+    // POST/AGREGAR Conexion
+    public static AddConexionCommand createAddConexionCommand(Conexion Conexion, DBHandler handler) {
+        return new AddConexionCommand(Conexion, handler);
+    }
+
+    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
+        return new AddUsuarioCommand(user);
+    }*/
+
+    public static CreateConexionCommand createCreateConexionCommand(Conexion Conexion) {
+        return new CreateConexionCommand(Conexion);
+    }
+
+    //DELETE Conexion
+
+//    public static DeleteConexionCommand createDeleteConexionCommand(Conexion Conexion) {
+//        return new DeleteConexionCommand(Conexion);
+//    }
+//
+//    public static EraseConexionCommand createEraseConexionCommand(Conexion Conexion, DBHandler handler) {
+//        return new EraseConexionCommand(Conexion, handler);
+//    }
+
+    //UPDATE Conexion
+    public static UpdateConexionCommand createUpdateConexionCommand(Conexion Conexion){
+        return new UpdateConexionCommand(Conexion);
+    }
+
+    public static ModifyConexionCommand createModifyConexionCommand(Conexion Conexion, DBHandler handler){
+        return new ModifyConexionCommand(Conexion, handler);
     }
 
 
