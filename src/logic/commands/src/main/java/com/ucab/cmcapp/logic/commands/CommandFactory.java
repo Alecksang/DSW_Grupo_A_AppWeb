@@ -78,12 +78,11 @@ public class CommandFactory
     {
         return new CreateUserCommand(user);
     }
+  
+  
     //USUARIO
 
-
-
-    //GET
-
+    //GET USUARIO
     public static GetUsuarioCommand createGetUsuarioCommand(Usuario user)
     {
         return new GetUsuarioCommand(user);
@@ -136,7 +135,7 @@ public class CommandFactory
 
 //VICTIMA
 
-    //POST
+    //POST VICTIMA
     public static AddVictimaCommand createAddVictimaCommand(Victima usuarioVictima, DBHandler handler) {
         return new AddVictimaCommand(usuarioVictima, handler);
     }
@@ -144,7 +143,7 @@ public class CommandFactory
         return new CreateVictimaCommand(usuarioVictima);
     }
 
-    //GET
+    //GET VICTIMA
     public static GetVictimaCommand createGetVictimaCommand(Victima usuarioVictima) {
         return new GetVictimaCommand(usuarioVictima);
     }
@@ -161,7 +160,7 @@ public class CommandFactory
         return new GetVictimaByListCommand(handler);
     }
 
-    //PUT
+    //PUT VICTIMA
     public static UpdateVictimaCommand createUpdateVictimaCommand(Victima usuarioVictima){
         return new UpdateVictimaCommand(usuarioVictima);
     }
@@ -169,9 +168,9 @@ public class CommandFactory
         return new ModifyVictimaCommand(usuarioVictima, handler);
     }
 
-//AGRESOR
+//AGRESOR//
 
-    //POST
+    //POST AGRESOR
     public static AddAgresorCommand createAddAgresorCommand(Agresor usuarioAgresor, DBHandler handler) {
         return new AddAgresorCommand(usuarioAgresor, handler);
     }
@@ -180,7 +179,7 @@ public class CommandFactory
         return new CreateAgresorCommand(agresor);
     }
 
-    //GET
+    //GET AGRESOR
     public static GetAgresorCommand createGetAgresorCommand(Agresor usuarioAgresor) {
         return new GetAgresorCommand(usuarioAgresor);
     }
@@ -197,7 +196,7 @@ public class CommandFactory
         return new GetAgresorByListCommand(handler);
     }
 
-    //PUT
+    //PUT AGRESOR
     public static UpdateAgresorCommand createUpdateAgresorCommand(Agresor usuarioAgresor){
         return new UpdateAgresorCommand(usuarioAgresor);
     }
@@ -207,19 +206,26 @@ public class CommandFactory
     }
 
 
-//ALERTA
+//ALERTA//
 
-    //POST
+    //POST ALERTA
     public static AddAlertaCommand createAddAlertaCommand(Alerta alerta, DBHandler handler)
     {
         return new AddAlertaCommand(alerta, handler);
     }
+
+    public static AddAlertaCommand createAddAlertaCommand(Alerta alerta)
+    {
+        return new AddAlertaCommand(alerta);
+    }
+
     public static CreateAlertaCommand createCreateAlertaCommand(Alerta alerta)
     {
         return new CreateAlertaCommand(alerta);
     }
 
-    //GET
+
+    //GET ALERTA
     public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
     {
         return new GetAlertaCommand(alerta);
@@ -235,8 +241,10 @@ public class CommandFactory
         return new GetAlertaByTipoCommand(alerta);
     }
 
-    //ZONA SEGURA
 
+//ZONA SEGURA//
+
+    //GET ZONA SEGURA
     public static GetZonaSeguraCommand createGetZonaSeguraCommand(ZonaSegura ZonaSegura)
     {
         return new GetZonaSeguraCommand(ZonaSegura);
@@ -259,6 +267,7 @@ public class CommandFactory
         return new GetAllZonaSeguraByUsuarioIdCommand(handler);
     }
 
+    //POST
     public static AddZonaSeguraCommand createAddZonaSeguraCommand(ZonaSegura ZonaSegura, DBHandler handler)
     {
         return new AddZonaSeguraCommand(ZonaSegura, handler);
@@ -275,7 +284,7 @@ public class CommandFactory
     }
 
 
-
+    //DELETE ZONA SEGURA
     public static DeleteZonaSeguraByIdCommand createDeleteZonaSeguraByIdCommand(ZonaSegura user, DBHandler handler)
     {
         return new DeleteZonaSeguraByIdCommand(user, handler);
@@ -291,6 +300,8 @@ public class CommandFactory
         return new DeleteZonaSeguraCommand(user);
     }
 
+
+    //PUT ZONA SEGURA
     public static ModifyZonaSeguraByIdCommand createModifyZonaSeguraByIdCommand(ZonaSegura user, DBHandler handler)
     {
         return new ModifyZonaSeguraByIdCommand(user, handler);
@@ -306,7 +317,9 @@ public class CommandFactory
         return new UpdateZonaSeguraCommand(user);
     }
 
-    //COORDENADA
+
+//COORDENADA//
+
     // GET COORDENADA
     public static GetCoordenadaCommand createGetCoordenadaCommand(Coordenada coordenada) {
         return new GetCoordenadaCommand(coordenada);

@@ -1,14 +1,17 @@
 package com.ucab.cmcapp.logic.commands.alerta.composite;
 
 import com.ucab.cmcapp.common.entities.Alerta;
+import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.AddAlertaCommand;
+import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CreateAlertaCommand extends Command<Alerta> {
+public class CreateAlertaCommand extends Command<Alerta>
+{
     private static Logger _logger = LoggerFactory.getLogger( CreateAlertaCommand.class );
     private Alerta _alerta;
     private Alerta _result;
@@ -27,6 +30,7 @@ public class CreateAlertaCommand extends Command<Alerta> {
         _logger.debug( "Leaving CreateAlertaCommand.ctor");
         //endregion
     }
+
     @Override
     public void execute()
     {
