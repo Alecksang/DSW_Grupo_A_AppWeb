@@ -133,13 +133,20 @@ public class CommandFactory
     }
 
     //UPDATE USUARIO
-    public static UpdateUsuarioCommand createUpdateUsuarioCommand(Usuario usuario){
-        return new UpdateUsuarioCommand(usuario);
-    }
-    public static ModifyUsuarioCommand createModifyUsuarioCommand(Usuario usuario, DBHandler handler){
-        return new ModifyUsuarioCommand(usuario, handler);
+    public static UpdateUsuarioByIdCommand createUpdateUsuarioByIdCommand(Usuario user, DBHandler handler)
+    {
+        return new UpdateUsuarioByIdCommand(user, handler);
     }
 
+    public static UpdateUsuarioByIdCommand createUpdateUsuarioByIdCommand(Usuario user)
+    {
+        return new UpdateUsuarioByIdCommand(user);
+    }
+
+    public static UpdateUsuarioCommand createUpdateUsuarioCommand(Usuario user)
+    {
+        return new UpdateUsuarioCommand(user);
+    }
 //VICTIMA
 
     //POST VICTIMA
@@ -471,13 +478,13 @@ public class CommandFactory
 
     //DELETE
 
-    // public static DeleteAdminCommand createDeleteAdminCommand(Admin Admin) {
-    //     return new DeleteAdminCommand(Admin);
-    // }
+    public static DeleteAdminCommand createDeleteAdminCommand(Admin administrador) {
+        return new DeleteAdminCommand(administrador);
+    }
 
-    // public static EraseAdminCommand createEraseAdminCommand(Admin Admin, DBHandler handler) {
-    //     return new EraseAdminCommand(Admin, handler);
-    // }
+    public static EraseAdminCommand createEraseAdminCommand(Admin admin, DBHandler handler) {
+        return new EraseAdminCommand(admin, handler);
+    }
 
     //UPDATE
     public static UpdateAdminCommand createUpdateAdminCommand(Admin Admin){

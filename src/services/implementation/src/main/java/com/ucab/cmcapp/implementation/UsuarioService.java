@@ -7,6 +7,7 @@ import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
+import com.ucab.cmcapp.persistence.dao.UsuarioDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -158,13 +159,13 @@ public class UsuarioService extends BaseService {
 
     @DELETE
     @Path("/delete")
-    public Response deleteUsuario( UsuarioDto userDto )
+    public Response deleteUsuario(UsuarioDto userDto )
     {
         Usuario entity;
         UsuarioDto response;
         DeleteUsuarioCommand command = null;
         //region Instrumentation DEBUG
-        _logger.debug( "Get in UsuarioService.deleteUsuario" );
+        _logger.debug( "Get in AlertaService.deleteAlerta" );
         //endregion
 
         try
@@ -177,6 +178,7 @@ public class UsuarioService extends BaseService {
             }else{
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + userDto.getId())).build();
             }
+
         }
         catch ( Exception e )
         {
@@ -192,28 +194,46 @@ public class UsuarioService extends BaseService {
         _logger.debug( "Leaving UsuarioService.deleteUsuario" );
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Eliminado: " + userDto.getId())).build();
     }
-
     @PUT
-    public Response updateUsuario(UsuarioDto usuarioDto) {
+    @Path("/update")
+    public Response updateUsuario( UsuarioDto userDto )
+    {
         Usuario entity;
-        UsuarioDto responseDTO = null;
+        UsuarioDto response;
         UpdateUsuarioCommand command = null;
-        try {
-            entity = UsuarioMapper.mapDtoToEntity(usuarioDto);
-            command = CommandFactory.createUpdateUsuarioCommand(entity);
+        UsuarioDao base = new UsuarioDao();
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in UsuarioService.deleteUsuario" );
+        //endregion
+
+        try
+        {
+            if (base.find(userDto.getId(), Usuario.class) == null){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se encuentra el Objeto registrado " + userDto.getId())).build();
+
+            }
+            entity = UsuarioMapper.mapDtoToEntity( userDto );
+            command = CommandFactory.createUpdateUsuarioCommand( entity );
             command.execute();
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo editar el ID: " + usuarioDto.getId()) + " debido a que no existe en la base de datos").build();
+            if(command.getReturnParam() != null){
+                response = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede editar " + userDto.getId())).build();
+            }
         }
-        catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al actualizar el usuario: " + e.getMessage())).build();
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + userDto.getId())).build();
+
         }
-        finally {
+        finally
+        {
             if (command != null)
                 command.closeHandlerSession();
         }
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario con el ID " + usuarioDto.getId() + " se actualizo correctamente")).build();
+
+        _logger.debug( "Leaving UsuarioService.deleteUsuario" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Editado: " + userDto.getId())).build();
     }
 }
+
