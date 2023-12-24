@@ -171,7 +171,7 @@ public class AdminService extends BaseService {
 
 
 
-/*     @DELETE
+    @DELETE
     @Path("/{id}")
     public Response deleteAdmin(@PathParam("id") long adminId) {
         Admin entity;
@@ -201,7 +201,7 @@ public class AdminService extends BaseService {
         _logger.debug( "Dejando AdminService.deleteAdmin" );
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Admin ha sido eliminado exitosamente")).build();
-    } */
+    }
 
 
     @PUT

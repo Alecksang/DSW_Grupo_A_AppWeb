@@ -203,6 +203,14 @@ public abstract class BaseDao<T>
 
         //implementar logger
         return entity;
+
+    }
+    public void findDelete(Long id, Class<T> type){
+        T entity;
+
+        entity = find(id,type);
+
+        delete(entity);
     }
 
     /**
