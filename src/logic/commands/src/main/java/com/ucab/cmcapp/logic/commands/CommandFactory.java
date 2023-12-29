@@ -280,7 +280,7 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
         return new CreateAlertaCommand(alerta);
     }
 
-
+//DELETE ALERTA
 
     public static DeleteAlertaByIdCommand createDeleteAlertaByIdCommand(Alerta user, DBHandler handler)
     {
