@@ -1,61 +1,97 @@
 package com.ucab.cmcapp.logic.dtos;
 
-public class UsuarioDto extends BaseDto {
-    private String _username;
-    private Boolean _estatus;
-    private String _nombre;
-    private String _apellido;
-    private String _correo;
-    private String _IMEI;
+
+import javax.persistence.Column;
+import java.util.List;
 
 
-    public UsuarioDto() {
 
-    }
 
-    public UsuarioDto(long id) {
-        super(id);
-    }
-    public String get_username() {
-        return _username;
-    }
-    public void set_username(String _username) {
-        this._username = _username;
-    }
+public class UsuarioDto extends BaseDto
+{
+    private String _Username;
+    private String _Nombre;
+    private UserTypeDto _userType;
 
-    public Boolean get_estatus() {
-        return _estatus;
-    }
-    public void set_estatus(Boolean _estatus) {
-        this._estatus = _estatus;
-    }
+    private String DocIdentidad;
 
-    public String get_nombre() {
-        return _nombre;
-    }
-    public void set_nombre(String _nombre) {
-        this._nombre = _nombre;
+    private String IMEI;
+
+    private boolean Estatus;
+
+    //private List<AlertaDto> alertas;
+
+
+    public UsuarioDto()
+    {
     }
 
-    public String get_apellido() {
-        return _apellido;
-    }
-    public void set_apellido(String _apellido) {
-        this._apellido = _apellido;
+    public UsuarioDto( long id )
+    {
+        super( id );
     }
 
 
-    public String get_correo() {
-        return _correo;
-    }
-    public void set_correo(String _correo) {
-        this._correo = _correo;
+
+    public String get_Username() {
+        return _Username;
     }
 
-    public String get_IMEI() {
-        return _IMEI;
+    public void set_Username(String _Username) {
+        this._Username = _Username;
     }
-    public void set_IMEI(String _IMEI) {
-        this._IMEI = _IMEI;
+
+    public String get_Nombre() {
+        return _Nombre;
     }
+
+    public void set_Nombre(String _Nombre) {
+        this._Nombre = _Nombre;
+    }
+
+
+    public UserTypeDto getUsuarioTypeDto()
+    {
+        return _userType;
+    }
+
+    public void setUsuarioTypeDto( UserTypeDto userType )
+    {
+        _userType = userType;
+    }
+
+    public String getDocIdentidad() {
+        return DocIdentidad;
+    }
+
+    public void setDocIdentidad(String docIdentidad) {
+        DocIdentidad = docIdentidad;
+    }
+
+    public String getIMEI() {
+        return IMEI;
+    }
+
+    public void setIMEI(String IMEI) {
+        this.IMEI = IMEI;
+    }
+
+    public boolean isEstatus() {
+        return Estatus;
+    }
+
+    public void setEstatus(boolean estatus) {
+        Estatus = estatus;
+    }
+
+    /*
+    public List<AlertaDto> getAlertas() {
+        return alertas;
+    }
+
+    public void setAlertas(List<AlertaDto> alertas) {
+        this.alertas = alertas;
+    }
+
+ */
 }

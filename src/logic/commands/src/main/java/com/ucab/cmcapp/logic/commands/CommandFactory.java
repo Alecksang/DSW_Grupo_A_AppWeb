@@ -1,6 +1,14 @@
 package com.ucab.cmcapp.logic.commands;
 
 import com.ucab.cmcapp.common.entities.*;
+import com.ucab.cmcapp.logic.commands.UserType.atomic.AddUserTypeCommand;
+import com.ucab.cmcapp.logic.commands.UserType.atomic.DeleteUserTypeByIdCommand;
+import com.ucab.cmcapp.logic.commands.UserType.atomic.GetUserTypeByIdCommand;
+import com.ucab.cmcapp.logic.commands.UserType.atomic.UpdateUserTypeByIdCommand;
+import com.ucab.cmcapp.logic.commands.UserType.composite.CreateUserTypeCommand;
+import com.ucab.cmcapp.logic.commands.UserType.composite.DeleteUserTypeCommand;
+import com.ucab.cmcapp.logic.commands.UserType.composite.GetUserTypeCommand;
+import com.ucab.cmcapp.logic.commands.UserType.composite.UpdateUserTypeCommand;
 import com.ucab.cmcapp.logic.commands.admin.atomic.*;
 import com.ucab.cmcapp.logic.commands.admin.composite.*;
 import com.ucab.cmcapp.logic.commands.agresor.atomic.AddAgresorCommand;
@@ -82,40 +90,33 @@ public class CommandFactory
   
     //USUARIO
 
-    //GET USUARIO
+
     public static GetUsuarioCommand createGetUsuarioCommand(Usuario user)
     {
         return new GetUsuarioCommand(user);
     }
+
+    public static GetAllUsuarioCommand createGetAllUsuarioCommand()
+    {
+        return new GetAllUsuarioCommand();
+    }
+
+    public static GetAllUsuarioByIdCommand createGetAllUsuarioByIdCommand (DBHandler handler )
+    {
+        return new GetAllUsuarioByIdCommand(handler);
+    }
+
+
+
     public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuario user)
     {
         return new GetUsuarioByUsernameCommand(user);
     }
+
     public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuario user, DBHandler handler)
     {
         return new GetUsuarioByUsernameCommand(user, handler);
     }
-    public static GetUsuarioByIdCommand createGetUsuarioByIdCommand (DBHandler handler, long userId )
-    {
-        return new GetUsuarioByIdCommand(handler, userId);
-    }
-    public static GetAllUsuarioCommand createGetAllUsuarioCommand(){
-        return new GetAllUsuarioCommand();
-    }
-    public static GetUsuarioByListCommand createGetUsuarioByListCommand(DBHandler handler) {
-        return new GetUsuarioByListCommand(handler);
-    }
-
-    //POST USUARIO
-    public static AddUsuarioCommand createAddUsuarioCommand(Usuario usuario, DBHandler handler) {
-        return new AddUsuarioCommand(usuario, handler);
-    }
-
-    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuario usuario) {
-        return new CreateUsuarioCommand(usuario);
-    }
-
-    //DELETE USUARIO
 
     public static DeleteUsuarioByIdCommand createDeleteUsuarioByIdCommand(Usuario user, DBHandler handler)
     {
@@ -132,7 +133,6 @@ public class CommandFactory
         return new DeleteUsuarioCommand(user);
     }
 
-    //UPDATE USUARIO
     public static UpdateUsuarioByIdCommand createUpdateUsuarioByIdCommand(Usuario user, DBHandler handler)
     {
         return new UpdateUsuarioByIdCommand(user, handler);
@@ -147,6 +147,29 @@ public class CommandFactory
     {
         return new UpdateUsuarioCommand(user);
     }
+
+
+    public static GetUsuarioByIdCommand createGetUsuarioByIdCommand (DBHandler handler, long userId )
+    {
+        return new GetUsuarioByIdCommand(handler, userId);
+    }
+
+
+    public static AddUsuarioCommand createAddUsuarioCommand(Usuario user, DBHandler handler)
+    {
+        return new AddUsuarioCommand(user, handler);
+    }
+
+    public static AddUsuarioCommand createAddUsuarioCommand(Usuario user)
+    {
+        return new AddUsuarioCommand(user);
+    }
+
+    public static CreateUsuarioCommand createCreateUsuarioCommand(Usuario user)
+    {
+        return new CreateUsuarioCommand(user);
+    }
+
 //VICTIMA
 
     //POST VICTIMA
@@ -552,6 +575,65 @@ public class CommandFactory
 
     public static ModifyConexionCommand createModifyConexionCommand(Conexion Conexion, DBHandler handler){
         return new ModifyConexionCommand(Conexion, handler);
+    }
+
+    //UserType
+    public static GetUserTypeCommand createGetUserTypeCommand(UserType UserType)
+    {
+        return new GetUserTypeCommand(UserType);
+    }
+
+
+    public static GetUserTypeByIdCommand createGetUserTypeByIdCommand (DBHandler handler, long UserTypeId )
+    {
+        return new GetUserTypeByIdCommand(handler, UserTypeId);
+    }
+
+    public static AddUserTypeCommand createAddUserTypeCommand(UserType UserType, DBHandler handler)
+    {
+        return new AddUserTypeCommand(UserType, handler);
+    }
+
+    public static AddUserTypeCommand createAddUserTypeCommand(UserType UserType)
+    {
+        return new AddUserTypeCommand(UserType);
+    }
+
+    public static CreateUserTypeCommand createCreateUserTypeCommand(UserType UserType)
+    {
+        return new CreateUserTypeCommand(UserType);
+    }
+
+
+
+    public static DeleteUserTypeByIdCommand createDeleteUserTypeByIdCommand(UserType user, DBHandler handler)
+    {
+        return new DeleteUserTypeByIdCommand(user, handler);
+    }
+
+    public static DeleteUserTypeByIdCommand createDeleteUserTypeByIdCommand(UserType user)
+    {
+        return new DeleteUserTypeByIdCommand(user);
+    }
+
+    public static DeleteUserTypeCommand createDeleteUserTypeCommand(UserType user)
+    {
+        return new DeleteUserTypeCommand(user);
+    }
+
+    public static UpdateUserTypeByIdCommand createUpdateUserTypeByIdCommand(UserType user, DBHandler handler)
+    {
+        return new UpdateUserTypeByIdCommand(user, handler);
+    }
+
+    public static UpdateUserTypeByIdCommand createUpdateUserTypeByIdCommand(UserType user)
+    {
+        return new UpdateUserTypeByIdCommand(user);
+    }
+
+    public static UpdateUserTypeCommand createUpdateUserTypeCommand(UserType user)
+    {
+        return new UpdateUserTypeCommand(user);
     }
 
 

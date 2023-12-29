@@ -1,12 +1,18 @@
 package com.ucab.cmcapp.implementation;
 
+import com.ucab.cmcapp.common.entities.Alerta;
+import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
+import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
+import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
+import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
+import com.ucab.cmcapp.logic.dtos.UserDto;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
-import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
+import com.ucab.cmcapp.logic.mappers.*;
 import com.ucab.cmcapp.persistence.dao.UsuarioDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,13 +20,16 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import java.util.List;
 
-@Path("/usuario")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public class UsuarioService extends BaseService {
-    private static Logger _logger = LoggerFactory.getLogger(UsuarioService.class);
+
+@Path( "/usuarios" )
+@Produces( MediaType.APPLICATION_JSON )
+@Consumes( MediaType.APPLICATION_JSON )
+public class UsuarioService extends BaseService
+{
+    private static Logger _logger = LoggerFactory.getLogger( UsuarioService.class );
 
     @GET
     @Path( "/{id}" )
@@ -59,65 +68,78 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Usuario: " + userId)).build();
     }
 
-    @GET
-    @Path("/findAll")
-    public Response getAllUsuario() {
-        List <UsuarioDto> responseDTO = null;
-        GetAllUsuarioCommand command = null;
 
-        try {
+    @GET
+    @Path( "/findAll" )
+    public Response getAllUsuario()
+    {
+        List<UsuarioDto> response;
+        GetAllUsuarioCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in UsuarioService.getUsuario" );
+        //endregion
+
+        try
+        {
             command = CommandFactory.createGetAllUsuarioCommand();
             command.execute();
-            responseDTO = UsuarioMapper.mapListEntityToDto(command.getReturnParam());
-
-            if (responseDTO.isEmpty()) {
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia")).build();
+            if(command.getReturnParam() != null){
+                response = UsuarioMapper.mapListEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " )).build();
             }
+        }
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario ")).build();
 
         }
-        catch (Exception e) {
-
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al ejecutar la ruta todos: " + e.getMessage())).build();
-        }
-
-        finally {
+        finally
+        {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Los usuarios se han obtenido correctamente")).build();
+        _logger.debug( "Leaving UsuarioService.getUsuario" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Usuario: " )).build();
     }
 
     @GET
-    @Path("username/{username}")
-    public Response getUsuarioByUsername(@PathParam("username") String username) {
+    @Path( "username/{username}" )
+    public Response getUsuario(@PathParam( "username" ) String Username )
+    {
         Usuario entity;
-        UsuarioDto responseDTO = null;
+        UsuarioDto response;
         GetUsuarioByUsernameCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in UsuarioService.getUsuario" );
+        //endregion
 
-        try {
-            entity = UsuarioMapper.mapDtoToEntityUsername(username);
-            command = CommandFactory.createGetUsuarioByUsernameCommand(entity);
+        try
+        {
+            entity = UsuarioMapper.mapDtoToEntityUsername( Username );
+            command = CommandFactory.createGetUsuarioByUsernameCommand( entity );
             command.execute();
-
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El usuario con Username " + username + " no existen en la BBDD")).build();
+            if(command.getReturnParam() != null){
+                response = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + Username)).build();
+            }
         }
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + Username)).build();
 
-        catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno en la ruta alias: " + e.getMessage())).build();
         }
-
-        finally {
+        finally
+        {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL usuario con el alias " + username + " ha sido encontrado exitosamente")).build();
+        _logger.debug( "Leaving UsuarioService.getUsuario" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Username Usuario: " + Username)).build();
     }
-
 
     @POST
     @Path("/insert")
@@ -156,16 +178,15 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Insertado: " + userDto.getId())).build();
     }
 
-
     @DELETE
     @Path("/delete")
-    public Response deleteUsuario(UsuarioDto userDto )
+    public Response deleteUsuario( UsuarioDto userDto )
     {
         Usuario entity;
         UsuarioDto response;
         DeleteUsuarioCommand command = null;
         //region Instrumentation DEBUG
-        _logger.debug( "Get in AlertaService.deleteAlerta" );
+        _logger.debug( "Get in UsuarioService.deleteUsuario" );
         //endregion
 
         try
@@ -178,7 +199,6 @@ public class UsuarioService extends BaseService {
             }else{
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + userDto.getId())).build();
             }
-
         }
         catch ( Exception e )
         {
@@ -194,6 +214,8 @@ public class UsuarioService extends BaseService {
         _logger.debug( "Leaving UsuarioService.deleteUsuario" );
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Eliminado: " + userDto.getId())).build();
     }
+
+
     @PUT
     @Path("/update")
     public Response updateUsuario( UsuarioDto userDto )
@@ -236,4 +258,3 @@ public class UsuarioService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Editado: " + userDto.getId())).build();
     }
 }
-
