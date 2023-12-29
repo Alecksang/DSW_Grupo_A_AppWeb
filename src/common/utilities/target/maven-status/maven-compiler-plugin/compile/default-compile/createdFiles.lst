@@ -1,2 +1,4 @@
 com\ucab\cmcapp\common\util\JWT.class
 com\ucab\cmcapp\common\util\Utilities.class
+com\ucab\cmcapp\common\util\CORSFilter.class
+com\ucab\cmcapp\common\util\CustomResponse.class

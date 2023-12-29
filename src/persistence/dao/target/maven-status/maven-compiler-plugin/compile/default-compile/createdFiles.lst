@@ -1,5 +1,13 @@
 com\ucab\cmcapp\persistence\dao\UserDao.class
-com\ucab\cmcapp\persistence\dao\BaseDao.class
+com\ucab\cmcapp\persistence\dao\VictimaDao.class
+com\ucab\cmcapp\persistence\dao\AgresorDao.class
+com\ucab\cmcapp\persistence\dao\CoordenadaDao.class
+com\ucab\cmcapp\persistence\dao\Sentencia_AVDao.class
 com\ucab\cmcapp\persistence\DaoFactory.class
 com\ucab\cmcapp\persistence\dao\UsuarioDao.class
+com\ucab\cmcapp\persistence\dao\AlertaDao.class
 com\ucab\cmcapp\persistence\DBHandler.class
+com\ucab\cmcapp\persistence\dao\ConexionDao.class
+com\ucab\cmcapp\persistence\dao\AdminDao.class
+com\ucab\cmcapp\persistence\dao\BaseDao.class
+com\ucab\cmcapp\persistence\dao\ZonaSeguraDao.class

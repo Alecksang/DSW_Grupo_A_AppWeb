@@ -31,12 +31,15 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(boolean _estatus, String _nombre, String _apellido, String _correo, String _IMEI) {
+
+    public Usuario(String _username, boolean _estatus, String _nombre, String _apellido, String _correo, String _IMEI, String _password) {
+        this._username = _username;
         this._estatus = _estatus;
         this._nombre = _nombre;
         this._apellido = _apellido;
         this._correo = _correo;
         this._IMEI = _IMEI;
+        this._password = _password;
     }
 
     public Usuario(long id) {

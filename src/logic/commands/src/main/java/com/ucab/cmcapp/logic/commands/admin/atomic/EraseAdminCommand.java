@@ -17,25 +17,25 @@ public class EraseAdminCommand extends Command<Admin> {
 
     public EraseAdminCommand(Admin Administrador, DBHandler handler) {
 
-        _logger.debug(String.format("Tomar de EraseAdministradorCommand.ctor: parameter {%s}",
+        _logger.debug(String.format("Tomar de EraseAdminCommand.ctor: parameter {%s}",
                 Administrador.toString()));
 
         setHandler(handler);
         _Administrador = Administrador;
         _dao = DaoFactory.createAdminDao(getHandler());
 
-        _logger.debug(String.format("Dejando EraseAdministradorCommand.ctor: attribute {%s}",
+        _logger.debug(String.format("Dejando EraseAdminCommand.ctor: attribute {%s}",
                 _Administrador.toString()));
     }
 
     @Override
     public void execute() {
 
-        _logger.debug("Tomando de  EraseAdministradorCommand.execute");
+        _logger.debug("Tomando de  EraseAdminCommand.execute");
 
         _Administrador = _dao.delete(_Administrador);
 
-        _logger.debug("Dejando de  EraseAdministradorCommand.execute");
+        _logger.debug("Dejando de  EraseAdminCommand.execute");
     }
 
     @Override

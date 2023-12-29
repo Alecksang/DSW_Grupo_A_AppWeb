@@ -1,9 +1,6 @@
 package com.ucab.cmcapp.logic.dtos;
 
 import java.util.Date;
-
-
-import java.util.Date;
 import java.util.List;
 
 public class AlertaDto extends BaseDto
