@@ -19,11 +19,11 @@ import com.ucab.cmcapp.logic.commands.agresor.composite.CreateAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.composite.GetAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.composite.GetAllAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.composite.UpdateAgresorCommand;
-import com.ucab.cmcapp.logic.commands.alerta.atomic.AddAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByIdCommand;
-import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.atomic.*;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.composite.DeleteAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.composite.UpdateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.conexion.atomic.*;
 import com.ucab.cmcapp.logic.commands.conexion.composite.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
@@ -244,8 +244,27 @@ public class CommandFactory
 
 
 //ALERTA//
+//Alerta
+public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
+{
+    return new GetAlertaCommand(alerta);
+}
 
-    //POST ALERTA
+    public static GetAlertaByTipoAlertaCommand createGetAlertaByTipoAlertaCommand(Alerta alerta)
+    {
+        return new GetAlertaByTipoAlertaCommand(alerta);
+    }
+
+    public static GetAlertaByTipoAlertaCommand createGetAlertaByTipoAlertaCommand(Alerta alerta, DBHandler handler)
+    {
+        return new GetAlertaByTipoAlertaCommand(alerta, handler);
+    }
+
+    public static GetAlertaByIdCommand createGetAlertaByIdCommand (DBHandler handler, long alertaId )
+    {
+        return new GetAlertaByIdCommand(handler, alertaId);
+    }
+
     public static AddAlertaCommand createAddAlertaCommand(Alerta alerta, DBHandler handler)
     {
         return new AddAlertaCommand(alerta, handler);
@@ -262,22 +281,36 @@ public class CommandFactory
     }
 
 
-    //GET ALERTA
-    public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
+
+    public static DeleteAlertaByIdCommand createDeleteAlertaByIdCommand(Alerta user, DBHandler handler)
     {
-        return new GetAlertaCommand(alerta);
+        return new DeleteAlertaByIdCommand(user, handler);
     }
 
-    public static GetAlertaByIdCommand createGetAlertaByIdCommand (DBHandler handler, long alertaId )
+    public static DeleteAlertaByIdCommand createDeleteAlertaByIdCommand(Alerta user)
     {
-        return new GetAlertaByIdCommand(handler, alertaId);
+        return new DeleteAlertaByIdCommand(user);
     }
 
-    public static GetAlertaByTipoAlertaCommand createGetAlertaByTipoAlertaCommand(Alerta alerta)
+    public static DeleteAlertaCommand createDeleteAlertaCommand(Alerta user)
     {
-        return new GetAlertaByTipoAlertaCommand(alerta);
+        return new DeleteAlertaCommand(user);
     }
 
+    public static UpdateAlertaByIdCommand createUpdateAlertaByIdCommand(Alerta user, DBHandler handler)
+    {
+        return new UpdateAlertaByIdCommand(user, handler);
+    }
+
+    public static UpdateAlertaByIdCommand createUpdateAlertaByIdCommand(Alerta user)
+    {
+        return new UpdateAlertaByIdCommand(user);
+    }
+
+    public static UpdateAlertaCommand createUpdateAlertaCommand(Alerta user)
+    {
+        return new UpdateAlertaCommand(user);
+    }
 
 //ZONA SEGURA//
 
