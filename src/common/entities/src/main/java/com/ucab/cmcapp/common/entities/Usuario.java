@@ -1,116 +1,140 @@
 package com.ucab.cmcapp.common.entities;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario {
 
+
+
     @Id
-    @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long _id;
-    @Column(name = "username", nullable = false, unique = true)
-    private String _username;
-    @Column(name = "estado")
-    private boolean _estatus;
-    @Column(name = "nombre", nullable = false)
-    private String _nombre;
+    @Column(name = "IdUsuario")
+    private long _idUsuario;
 
-    @Column(name = "apellido", nullable = false) //Quitar el apellido y ponerlo junto en un solo campo nombre
-    private String _apellido;
+    @Column(name = "Username")
+    private String _Username;
 
-    @Column(name = "correo", nullable = false, unique = true)
-    private String _correo;
+    @Column(name = "NombreUsuario")
+    private String _Nombre;
+
+    //AGREGAR ESTOS ATRIBUTOS
+
+    @Column(name = "DocIdentidad")
+    private String DocIdentidad;
 
     @Column(name = "IMEI")
-    private String _IMEI;
-    @Column
-    private String _password;
+    private String IMEI;
 
+    @Column(name = "Estatus")
+    private boolean Estatus;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn( name = "user_type_id", nullable = false )
+    private UserType _userType;
+
+    /*
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn( name = "IdAlerta" )
+    private List<Alerta> alertas;
+*/
     public Usuario() {
+
     }
 
 
-    public Usuario(String _username, boolean _estatus, String _nombre, String _apellido, String _correo, String _IMEI, String _password) {
-        this._username = _username;
-        this._estatus = _estatus;
-        this._nombre = _nombre;
-        this._apellido = _apellido;
-        this._correo = _correo;
-        this._IMEI = _IMEI;
-        this._password = _password;
+
+    public Usuario(Usuario usuario){
+        _Username = usuario._Username;
+        _Nombre = usuario._Nombre;
+        _userType = usuario._userType;
+        //alertas = usuario.alertas;
+        DocIdentidad = usuario.DocIdentidad;
+        IMEI = usuario.IMEI;
+        Estatus = usuario.Estatus;
     }
 
-    public Usuario(long id) {
-        _id = id;
+    public Usuario( long id )
+    {
+        _idUsuario = id;
     }
 
-    public Usuario(String username) {
-        _username = username;
-    }
-    public long get_id() {
-        return _id;
+    public long get_idUsuario() {
+        return _idUsuario;
     }
 
-    public void set_id(long _id) {
-        this._id = _id;
+    public void set_idUsuario(long _idUsuario) {
+        this._idUsuario = _idUsuario;
     }
 
-    public String get_nombre() {
-        return _nombre;
+    public String get_Username() {
+        return _Username;
     }
 
-    public void set_nombre(String _nombre) {
-        this._nombre = _nombre;
+    public void set_Username(String _Username) {
+        this._Username = _Username;
     }
 
-    public String get_apellido() {
-        return _apellido;
+    public String get_Nombre() {
+        return _Nombre;
     }
 
-    public void set_apellido(String _apellido) {
-        this._apellido = _apellido;
+    public void set_Nombre(String _Nombre) {
+        this._Nombre = _Nombre;
     }
 
-    public String get_username() {
-        return _username;
+    public UserType get_userType() {
+        return _userType;
     }
 
-    public void set_username(String _username) {
-        this._username = _username;
+    public void set_userType(UserType _userType) {
+        this._userType = _userType;
     }
 
 
-    public String get_correo() {
-        return _correo;
+    public String getDocIdentidad() {
+        return DocIdentidad;
     }
 
-    public void set_correo(String _correo) {
-        this._correo = _correo;
+    public void setDocIdentidad(String docIdentidad) {
+        DocIdentidad = docIdentidad;
     }
 
-    public String get_IMEI() {
-        return _IMEI;
+    public String getIMEI() {
+        return IMEI;
     }
 
-    public void set_IMEI(String _IMEI) {
-        this._IMEI = _IMEI;
+    public void setIMEI(String IMEI) {
+        this.IMEI = IMEI;
     }
 
-    public String get_password() {
-        return _password;
+    public boolean isEstatus() {
+        return Estatus;
     }
 
-    public void set_password(String _password) {
-        this._password = _password;
+    public void setEstatus(boolean estatus) {
+        Estatus = estatus;
     }
 
-    public Boolean get_estatus() {
-        return _estatus;
+
+
+    /*
+    public List<Alerta> getAlertas() {
+        return alertas;
     }
 
-    public void set_estatus(Boolean _estatus) {
-        this._estatus = _estatus;
+    public void setAlertas(List<Alerta> alertas) {
+        this.alertas = alertas;
     }
+
+    public void addAlertas(Alerta alerta){
+        alertas.add(alerta);
+    }
+
+ */
 }

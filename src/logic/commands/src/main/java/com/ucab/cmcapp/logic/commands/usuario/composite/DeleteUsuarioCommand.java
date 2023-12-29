@@ -58,7 +58,6 @@ public class DeleteUsuarioCommand extends Command<Usuario>
         _logger.debug( "Leaving DeleteUsuarioCommand.execute");
         //endregion
     }
-
     @Override
     public Usuario getReturnParam()
     {

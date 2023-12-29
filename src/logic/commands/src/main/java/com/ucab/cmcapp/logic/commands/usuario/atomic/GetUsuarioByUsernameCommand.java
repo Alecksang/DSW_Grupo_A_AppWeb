@@ -48,7 +48,7 @@ public class GetUsuarioByUsernameCommand extends Command<Usuario>
         //region Instrumentation DEBUG
         _logger.debug( "Get in  GetUsuarioByUsernameCommand.execute" );
         //endregion
-        _usuario = _dao.getUsuarioByUsername(_usuario.get_username());
+        _usuario = _dao.getUsuarioByUsername(_usuario.get_Username());
         //region Instrumentation DEBUG
         _logger.debug( "Leavin  GetUsuarioByUsernameCommand.execute" );
         //endregion

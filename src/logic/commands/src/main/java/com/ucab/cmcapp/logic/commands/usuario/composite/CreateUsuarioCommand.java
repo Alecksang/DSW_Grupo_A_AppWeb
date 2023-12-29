@@ -1,61 +1,72 @@
 package com.ucab.cmcapp.logic.commands.usuario.composite;
+
+import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
+import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.AddUsuarioCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CreateUsuarioCommand extends Command<Usuario> {
-    private static Logger _logger = LoggerFactory.getLogger(CreateUsuarioCommand.class);
-    private Usuario _usuario;
+public class CreateUsuarioCommand extends Command<Usuario>
+{
+    private static Logger _logger = LoggerFactory.getLogger( CreateUsuarioCommand.class );
+    private Usuario _user;
     private Usuario _result;
     private AddUsuarioCommand _addUsuarioCommand;
 
-    public CreateUsuarioCommand(Usuario usuario) {
+    public CreateUsuarioCommand(Usuario user )
+    {
         //region Instrumentation DEBUG
-        _logger.debug("Entering CreateUsuarioCommand.ctor");
+        _logger.debug( "Entering CreateUsuarioCommand.ctor");
         //endregion
 
-        _usuario = usuario;
+        _user = user;
         setHandler(new DBHandler());
 
         //region Instrumentation DEBUG
-        _logger.debug("Leaving CreateUsuarioCommand.ctor");
+        _logger.debug( "Leaving CreateUsuarioCommand.ctor");
         //endregion
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         //region Instrumentation DEBUG
-        _logger.debug("Entering CreateUsuarioCommand.execute");
+        _logger.debug( "Entering CreateUsuarioCommand.execute");
         //endregion
 
-        try {
+        try
+        {
             getHandler().beginTransaction();
-            _addUsuarioCommand = CommandFactory.createAddUsuarioCommand(_usuario, getHandler());
+            _addUsuarioCommand = CommandFactory.createAddUsuarioCommand(_user, getHandler());
             _addUsuarioCommand.execute();
             _result = _addUsuarioCommand.getReturnParam();
             getHandler().finishTransaction();
             getHandler().closeSession();
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             getHandler().rollbackTransaction();
             getHandler().closeSession();
             throw e;
         }
         //region Instrumentation DEBUG
-        _logger.debug("Leaving CreateUsuarioCommand.execute");
+        _logger.debug( "Leaving CreateUserCommand.execute");
         //endregion
     }
 
     @Override
-    public Usuario getReturnParam() {
+    public Usuario getReturnParam()
+    {
         return _result;
     }
 
     @Override
-    public void closeHandlerSession() {
+    public void closeHandlerSession()
+    {
         getHandler().closeSession();
     }
 }
