@@ -7,7 +7,9 @@ import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.composite.DeleteAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.composite.UpdateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
@@ -146,8 +148,112 @@ public class AlertaService extends BaseService
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Insertado: " + alertaDto.getId())).build();
     }
 
+    @DELETE
+    @Path("/delete")
+    public Response deleteAlerta(AlertaDto userDto )
+    {
+        Alerta entity;
+        AlertaDto response;
+        DeleteAlertaCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in AlertaService.deleteAlerta" );
+        //endregion
 
+        try
+        {
+            entity = AlertaMapper.mapDtoToEntity( userDto );
+            command = CommandFactory.createDeleteAlertaCommand( entity );
+            command.execute();
+            if(command.getReturnParam() != null){
+                response = AlertaMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + userDto.getId())).build();
+            }
 
+        }
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + userDto.getId())).build();
+
+        }
+        finally
+        {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        _logger.debug( "Leaving AlertaService.deleteAlerta" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Eliminado: " + userDto.getId())).build();
+    }
+
+    @PUT
+    @Path("/delete2")
+    public Response deleteAlerta2 (AlertaDto alertaDto){
+        Alerta entity;
+        AlertaDto responseDto = null;
+        UpdateAlertaCommand command = null;
+        AlertaDao base = new AlertaDao();
+
+        try{
+            if (base.find(alertaDto.getId(),Alerta.class) == null){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se encuentra el Objeto registrado " + alertaDto.getId())).build();
+
+            }
+            entity = AlertaMapper.mapDtoToEntity(alertaDto);
+            command = CommandFactory.createUpdateAlertaCommand(entity);
+            command.execute();
+
+            if(command.getReturnParam() != null){
+                responseDto = AlertaMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + alertaDto.getId())).build();
+            }
+
+        } catch (Exception e) {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + alertaDto.getId())).build();
+        } finally {
+            if(command != null){
+                command.closeHandlerSession();
+            }
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDto,"Eliminado: " + alertaDto.getId())).build();
+
+    }
+    @PUT
+    @Path("/update")
+    public Response updateAlerta (AlertaDto alertaDto){
+        Alerta entity;
+        AlertaDto responseDto = null;
+        UpdateAlertaCommand command = null;
+        AlertaDao base = new AlertaDao();
+
+        try{
+            if (base.find(alertaDto.getId(),Alerta.class) == null){
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se encuentra el Objeto registrado " + alertaDto.getId())).build();
+
+            }
+            entity = AlertaMapper.mapDtoToEntity(alertaDto);
+            command = CommandFactory.createUpdateAlertaCommand(entity);
+            command.execute();
+
+            if(command.getReturnParam() != null){
+                responseDto = AlertaMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede editar " + alertaDto.getId())).build();
+            }
+
+        } catch (Exception e) {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + alertaDto.getId())).build();
+        } finally {
+            if(command != null){
+                command.closeHandlerSession();
+            }
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDto,"Editado: " + alertaDto.getId())).build();
+
+    }
 
 
 }
