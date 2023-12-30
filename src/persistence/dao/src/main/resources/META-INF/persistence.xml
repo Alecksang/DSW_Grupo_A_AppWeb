@@ -13,7 +13,7 @@
         <class>com.ucab.cmcapp.common.entities.Alerta</class>
         <class>com.ucab.cmcapp.common.entities.Coordenada</class>
         <class>com.ucab.cmcapp.common.entities.ZonaSegura</class>
-        <class>com.ucab.cmcapp.common.entities.Sentencia_AV</class>
+        <class>com.ucab.cmcapp.common.entities.Sentencia</class>
         <class>com.ucab.cmcapp.common.entities.Admin</class>
         <class>com.ucab.cmcapp.common.entities.Conexion</class>
 

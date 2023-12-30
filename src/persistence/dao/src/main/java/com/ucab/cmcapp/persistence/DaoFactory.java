@@ -1,7 +1,7 @@
 package com.ucab.cmcapp.persistence;
 
 import com.ucab.cmcapp.common.entities.Agresor;
-import com.ucab.cmcapp.common.entities.Sentencia_AV;
+import com.ucab.cmcapp.common.entities.Sentencia;
 import com.ucab.cmcapp.common.entities.Victima;
 import com.ucab.cmcapp.persistence.dao.*;
 
@@ -54,9 +54,9 @@ public class DaoFactory
     }
 
     //SENTENCIA_AV DAO
-    public static Sentencia_AVDao createSentencia_AVDao(DBHandler handler )
+    public static SentenciaDao createSentenciaDao(DBHandler handler )
     {
-        return new Sentencia_AVDao( handler );
+        return new SentenciaDao( handler );
     }
 
     //ADMIN DAO

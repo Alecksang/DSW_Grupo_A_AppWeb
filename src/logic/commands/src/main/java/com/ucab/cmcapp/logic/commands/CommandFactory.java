@@ -28,8 +28,8 @@ import com.ucab.cmcapp.logic.commands.conexion.atomic.*;
 import com.ucab.cmcapp.logic.commands.conexion.composite.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
-import com.ucab.cmcapp.logic.commands.sentencia_av.atomic.*;
-import com.ucab.cmcapp.logic.commands.sentencia_av.composite.*;
+import com.ucab.cmcapp.logic.commands.sentencia.atomic.*;
+import com.ucab.cmcapp.logic.commands.sentencia.composite.*;
 import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByIdCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
@@ -440,58 +440,71 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
 
     // COMMAND DE SENTENCIA_AV
 
-    // GET SENTENCIA_AV
-    public static GetSentencia_AVCommand createGetSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV) {
-        return new GetSentencia_AVCommand(usuarioSentencia_AV);
+    public static GetSentenciaCommand createGetSentenciaCommand(Sentencia distancia)
+    {
+        return new GetSentenciaCommand(distancia);
     }
 
-    public static GetSentencia_AVByIdCommand createGetSentencia_AVByIdCommand(DBHandler handler, long atacanteId) {
-        return new GetSentencia_AVByIdCommand(handler, atacanteId);
+    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(Sentencia distancia)
+    {
+        return new GetSentenciaByUsuariosCommand(distancia);
     }
 
-    public static GetAllSentencia_AVCommand createGetAllSentencia_AVCommand(){
-        return new GetAllSentencia_AVCommand();
+    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(Sentencia distancia, DBHandler handler)
+    {
+        return new GetSentenciaByUsuariosCommand(distancia, handler);
     }
 
-    public static GetSentencia_AVByListCommand createGetSentencia_AVByListCommand(DBHandler handler) {
-        return new GetSentencia_AVByListCommand(handler);
+    public static GetSentenciaByIdCommand createGetSentenciaByIdCommand (DBHandler handler, long distanciaId )
+    {
+        return new GetSentenciaByIdCommand(handler, distanciaId);
+    }
+
+    public static AddSentenciaCommand createAddSentenciaCommand(Sentencia distancia, DBHandler handler)
+    {
+        return new AddSentenciaCommand(distancia, handler);
+    }
+
+    public static AddSentenciaCommand createAddSentenciaCommand(Sentencia distancia)
+    {
+        return new AddSentenciaCommand(distancia);
+    }
+
+    public static CreateSentenciaCommand createCreateSentenciaCommand(Sentencia distancia)
+    {
+        return new CreateSentenciaCommand(distancia);
     }
 
 
-    // POST/AGREGAR Sentencia_AV
-    public static AddSentencia_AVCommand createAddSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV, DBHandler handler) {
-        return new AddSentencia_AVCommand(usuarioSentencia_AV, handler);
+    public static DeleteSentenciaByIdCommand createDeleteSentenciaByIdCommand(Sentencia user, DBHandler handler)
+    {
+        return new DeleteSentenciaByIdCommand(user, handler);
     }
 
-    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
-        return new AddUsuarioCommand(user);
-    }*/
-
-    public static CreateSentencia_AVCommand createCreateSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV) {
-        return new CreateSentencia_AVCommand(usuarioSentencia_AV);
+    public static DeleteSentenciaByIdCommand createDeleteSentenciaByIdCommand(Sentencia user)
+    {
+        return new DeleteSentenciaByIdCommand(user);
     }
 
-    //DELETE Sentencia_AV
-
-    /*
-    public static DeleteSentencia_AVCommand createDeleteSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV) {
-        return new DeleteSentencia_AVCommand(usuarioSentencia_AV);
+    public static DeleteSentenciaCommand createDeleteSentenciaCommand(Sentencia user)
+    {
+        return new DeleteSentenciaCommand(user);
     }
 
-    public static EraseSentencia_AVCommand createEraseSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV, DBHandler handler) {
-        return new EraseSentencia_AVCommand(usuarioSentencia_AV, handler);
-    }
-    */
-
-    //UPDATE Sentencia_AV_VICTIMA-ATACANTE
-    public static UpdateSentencia_AVCommand createUpdateSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV){
-        return new UpdateSentencia_AVCommand(usuarioSentencia_AV);
+    public static UpdateSentenciaByIdCommand createUpdateSentenciaByIdCommand(Sentencia user, DBHandler handler)
+    {
+        return new UpdateSentenciaByIdCommand(user, handler);
     }
 
-    public static ModifySentencia_AVCommand createModifySentencia_AVCommand(Sentencia_AV usuarioSentencia_AV, DBHandler handler){
-        return new ModifySentencia_AVCommand(usuarioSentencia_AV, handler);
+    public static UpdateSentenciaByIdCommand createUpdateSentenciaByIdCommand(Sentencia user)
+    {
+        return new UpdateSentenciaByIdCommand(user);
     }
 
+    public static UpdateSentenciaCommand createUpdateSentenciaCommand(Sentencia user)
+    {
+        return new UpdateSentenciaCommand(user);
+    }
 
 //ADMIN
 

@@ -3,6 +3,7 @@ package com.ucab.cmcapp.implementation;
 import com.ucab.cmcapp.common.entities.Alerta;
 import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuario;
+import com.ucab.cmcapp.common.exceptions.CupraException;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
@@ -126,9 +127,9 @@ public class UsuarioService extends BaseService
                 return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + Username)).build();
             }
         }
-        catch ( Exception e )
+        catch ( CupraException e )
         {
-            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + Username)).build();
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + e)).build();
 
         }
         finally
