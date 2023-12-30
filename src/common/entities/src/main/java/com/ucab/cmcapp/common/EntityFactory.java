@@ -71,11 +71,11 @@ public class EntityFactory
     }
 
     //Metodos para la clase SENTENCIA
-    public static Sentencia_AV createSentencia_AV() {
-        return new Sentencia_AV();
+    public static Sentencia createSentencia() {
+        return new Sentencia();
     }
-    public static Sentencia_AV createSentencia_AV(long id) {
-        return new Sentencia_AV(id);
+    public static Sentencia createSentencia(long id) {
+        return new Sentencia(id);
     }
 
     //Metodos para la clase ADMINISTRADOR
