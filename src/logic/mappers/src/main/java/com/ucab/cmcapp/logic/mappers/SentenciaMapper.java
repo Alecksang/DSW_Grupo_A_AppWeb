@@ -44,7 +44,7 @@ public class SentenciaMapper extends BaseMapper
 
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leaving DistanciaAlejamientoMapper.mapDtoToEntity: entity {}", entity );
+        _logger.debug( "Leaving SentenciaMapper.mapDtoToEntity: entity {}", entity );
         //endregion
 
         return entity;
@@ -126,7 +126,7 @@ public class SentenciaMapper extends BaseMapper
         Sentencia entity = EntityFactory.createSentencia();
 
         //region Instrumentation DEBUG
-        _logger.debug( "Get in DistanciaAlejamientoMapper.mapDtoToEntityEmail: email" );
+        _logger.debug( "Get in SentenciaMapper.mapDtoToEntityEmail: email" );
         //endregion
 
         /*
@@ -136,7 +136,7 @@ public class SentenciaMapper extends BaseMapper
          */
 
         //region Instrumentation DEBUG
-        _logger.debug( "Leaving DistanciaAlejamientoMapper.mapDtoToEntityEmail: entity {}", entity );
+        _logger.debug( "Leaving SentenciaMapper.mapDtoToEntityEmail: entity {}", entity );
         //endregion
 
         return entity;
