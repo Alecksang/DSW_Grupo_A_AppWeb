@@ -1,13 +1,17 @@
 package com.ucab.cmcapp.implementation;
 
 import com.ucab.cmcapp.common.entities.Admin;
+import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.admin.atomic.GetAdminByUsernameCommand;
 import com.ucab.cmcapp.logic.commands.admin.atomic.GetAdminByCorreoCommand;
 import com.ucab.cmcapp.logic.commands.admin.composite.*;
+import com.ucab.cmcapp.logic.commands.usuario.composite.DeleteUsuarioCommand;
 import com.ucab.cmcapp.logic.dtos.AdminDto;
+import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.AdminMapper;
+import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -168,6 +172,7 @@ public class AdminService extends BaseService {
 
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El Admin ha sido creado exitosamente")).build();
     }
+
 
 
 
