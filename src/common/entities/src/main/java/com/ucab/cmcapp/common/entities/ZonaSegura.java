@@ -14,22 +14,19 @@ public class ZonaSegura {
     private String _nombreZona;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn( name = "id_usuario", nullable = false )
+    @JoinColumn(name = "IdUsuario", nullable = false)
     private Usuario _usuario;
 
     public ZonaSegura() {
     }
 
-    public ZonaSegura(long _idZona) {
-        this._idZona = _idZona;
-    }
-
-    public ZonaSegura(Usuario _usuario) {
+    public ZonaSegura(String _nombreZona, Usuario _usuario) {
+        this._nombreZona = _nombreZona;
         this._usuario = _usuario;
     }
 
-    public ZonaSegura(String _nombreZona) {
-        this._nombreZona = _nombreZona;
+    public ZonaSegura(long _idZona) {
+        this._idZona = _idZona;
     }
 
     public long get_idZona() {
@@ -48,11 +45,11 @@ public class ZonaSegura {
         this._nombreZona = _nombreZona;
     }
 
-    public Usuario get_usuario() {
+    public Usuario getUsuario() {
         return _usuario;
     }
 
-    public void set_usuario(Usuario _usuario) {
+    public void setUsuario(Usuario _usuario) {
         this._usuario = _usuario;
     }
 }
