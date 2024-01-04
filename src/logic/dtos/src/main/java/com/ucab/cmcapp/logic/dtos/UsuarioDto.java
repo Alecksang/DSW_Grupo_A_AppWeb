@@ -10,14 +10,13 @@ import java.util.List;
 public class UsuarioDto extends BaseDto
 {
     private String _Username;
+    private String _Correo;
     private String _Nombre;
     private UserTypeDto _userType;
-
     private String DocIdentidad;
-
     private String IMEI;
-
     private boolean Estatus;
+    private String _Password;
 
     //private List<AlertaDto> alertas;
 
@@ -39,6 +38,14 @@ public class UsuarioDto extends BaseDto
 
     public void set_Username(String _Username) {
         this._Username = _Username;
+    }
+
+    public String get_Correo() {
+        return _Correo;
+    }
+
+    public void set_Correo(String _Correo) {
+        this._Correo = _Correo;
     }
 
     public String get_Nombre() {
@@ -82,6 +89,14 @@ public class UsuarioDto extends BaseDto
 
     public void setEstatus(boolean estatus) {
         Estatus = estatus;
+    }
+
+    public String get_Password() {
+        return _Password;
+    }
+
+    public void set_Password(String _Password) {
+        this._Password = _Password;
     }
 
     /*

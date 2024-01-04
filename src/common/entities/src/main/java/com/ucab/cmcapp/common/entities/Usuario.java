@@ -18,7 +18,8 @@ public class Usuario {
 
     @Column(name = "Username")
     private String _Username;
-
+    @Column(name = "Correo")
+    private String _Correo;
     @Column(name = "NombreUsuario")
     private String _Nombre;
 
@@ -32,7 +33,8 @@ public class Usuario {
 
     @Column(name = "Estatus")
     private boolean Estatus;
-
+    @Column(name = "Password")
+    private String _Password;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "user_type_id", nullable = false )
@@ -51,12 +53,14 @@ public class Usuario {
 
     public Usuario(Usuario usuario){
         _Username = usuario._Username;
+        _Correo= usuario._Correo;
         _Nombre = usuario._Nombre;
         _userType = usuario._userType;
         //alertas = usuario.alertas;
         DocIdentidad = usuario.DocIdentidad;
         IMEI = usuario.IMEI;
         Estatus = usuario.Estatus;
+        _Password= usuario._Password;
     }
 
     public Usuario( long id )
@@ -121,7 +125,21 @@ public class Usuario {
         Estatus = estatus;
     }
 
+    public String get_Correo() {
+        return _Correo;
+    }
 
+    public void set_Correo(String _Correo) {
+        this._Correo = _Correo;
+    }
+
+    public String get_Password() {
+        return _Password;
+    }
+
+    public void set_Password(String _Password) {
+        this._Password = _Password;
+    }
 
     /*
     public List<Alerta> getAlertas() {
