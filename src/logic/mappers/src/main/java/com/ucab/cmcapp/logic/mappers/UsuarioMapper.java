@@ -33,7 +33,8 @@ public class UsuarioMapper extends BaseMapper
         entity.setDocIdentidad(dto.getDocIdentidad());
         entity.setIMEI(dto.getIMEI());
         entity.setEstatus(dto.isEstatus());
-
+        entity.set_Correo( dto.get_Correo() );
+        entity.set_Password( dto.get_Password() );
 
         if ( Objects.nonNull( dto.getUsuarioTypeDto() ) )
         {
@@ -67,6 +68,8 @@ public class UsuarioMapper extends BaseMapper
         entity.setDocIdentidad(dto.getDocIdentidad());
         entity.setIMEI(dto.getIMEI());
         entity.setEstatus(dto.isEstatus());
+        entity.set_Correo( dto.get_Correo() );
+        entity.set_Password( dto.get_Password() );
 
         if ( Objects.nonNull( dto.getUsuarioTypeDto() ) )
         {
@@ -100,7 +103,8 @@ public class UsuarioMapper extends BaseMapper
         dto.setIMEI( entity.getIMEI() );
         dto.setDocIdentidad( entity.getDocIdentidad() );
         dto.setEstatus( entity.isEstatus() );
-
+        dto.set_Correo(  entity.get_Correo() );
+        dto.set_Password(  entity.get_Password() );
 
         if(Objects.nonNull(entity.get_userType()))
             dto.setUsuarioTypeDto( UserTypeMapper.mapEntityToDto( entity.get_userType() ));
