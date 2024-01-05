@@ -128,12 +128,12 @@ public class SentenciaMapper extends BaseMapper
         //region Instrumentation DEBUG
         _logger.debug( "Get in SentenciaMapper.mapDtoToEntityEmail: email" );
         //endregion
+//si te da algun error el crud comenta las dos lineas de abajo
 
-        /*
         entity.set_agresor( Agresor );
         entity.set_victima( Victima );
 
-         */
+
 
         //region Instrumentation DEBUG
         _logger.debug( "Leaving SentenciaMapper.mapDtoToEntityEmail: entity {}", entity );
