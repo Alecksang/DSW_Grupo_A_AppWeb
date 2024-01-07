@@ -100,6 +100,17 @@ public class AdminMapperTest {
         assertEquals(entityList.get(1).get_password(), dtoList.get(1).get_password());
     }
     @Test
+    public void testMapDtoToEntity2() {
+        // Arrange
+        long id = 1;
+
+        // Act
+        Admin entity = AdminMapper.mapDtoToEntity(id);
+
+        // Assert
+        assertEquals(id, entity.get_id());
+    }
+    @Test
     public void testMapDtoToEntityCorreo() {
         // Arrange
         String email = "admin@example.com";
