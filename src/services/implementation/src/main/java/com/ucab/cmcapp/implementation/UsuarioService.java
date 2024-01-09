@@ -62,31 +62,7 @@ public class UsuarioService extends BaseService
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Usuario: " + userId)).build();
     }
 
-    @GET
-    @Path("correo/{correo}")
-    public Response getUsuarioByCorreo(@PathParam("correo") String correo) {
-        Usuario entity;
-        UsuarioDto responseDTO = null;
-        GetUsuarioByCorreoCommand command = null;
 
-        try {
-            entity = UsuarioMapper.mapDtoToEntityCorreo(correo);
-            command = CommandFactory.createGetUsuarioByCorreoCommand(entity);
-            command.execute();
-
-            if (command.getReturnParam() != null)
-                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El correo " + correo + " no ha sido encontrado en la BBDD")).build();
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al obtener el correo: " + e.getMessage())).build();
-        } finally {
-            if (command != null)
-                command.closeHandlerSession();
-        }
-
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL correo " + correo + " del usuario ha sido encontrado exitosamente")).build();
-    }
     @GET
     @Path( "/findAll" )
     public Response getAllUsuario()
