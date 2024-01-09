@@ -106,9 +106,7 @@ public class CommandFactory
         return new GetAllUsuarioByIdCommand(handler);
     }
 
-    public static GetUsuarioByCorreoCommand createGetUsuarioByCorreoCommand(Usuario usuario) {
-        return new GetUsuarioByCorreoCommand(usuario);
-    }
+
 
     public static GetUsuarioByUsernameCommand createGetUsuarioByUsernameCommand(Usuario user)
     {
