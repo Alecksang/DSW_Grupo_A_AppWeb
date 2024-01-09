@@ -149,4 +149,16 @@ public class UsuarioMapperTest {
         assertNotNull(entity);
         assertEquals(username, entity.get_Username());
     }
+
+    @Test
+    public void testMapDtoToEntityCorreo() {
+        // Crear un correo electrónico para la prueba
+        String email = "test@example.com";
+
+        // Llamar al método que se está probando
+        Usuario entity = UsuarioMapper.mapDtoToEntityCorreo(email);
+
+        // Verificar que el correo electrónico de la entidad coincide con el correo electrónico dado
+        assertEquals(email, entity.get_Correo());
+    }
 }

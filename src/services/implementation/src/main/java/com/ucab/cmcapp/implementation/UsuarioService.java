@@ -1,17 +1,10 @@
 package com.ucab.cmcapp.implementation;
 
-import com.ucab.cmcapp.common.entities.Alerta;
-import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuario;
-import com.ucab.cmcapp.common.exceptions.CupraException;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
-import com.ucab.cmcapp.logic.dtos.UserDto;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.*;
 import com.ucab.cmcapp.persistence.dao.UsuarioDao;
