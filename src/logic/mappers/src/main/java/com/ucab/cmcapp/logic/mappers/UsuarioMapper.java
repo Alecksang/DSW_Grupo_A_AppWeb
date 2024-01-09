@@ -165,4 +165,10 @@ public class UsuarioMapper extends BaseMapper
         return entity;
     }
 
+    public static Usuario mapDtoToEntityCorreo(String email) {
+        Usuario entity = EntityFactory.createUsuario();
+        entity.set_Correo(email);
+        return entity;
+    }
+
 }

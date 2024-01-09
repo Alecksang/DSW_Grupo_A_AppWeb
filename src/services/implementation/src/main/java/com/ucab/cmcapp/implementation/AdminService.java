@@ -177,7 +177,7 @@ public class AdminService extends BaseService {
 
 
     @DELETE
-    @Path("/{id}")
+    @Path("/delete")
     public Response deleteAdmin(@PathParam("id") long adminId) {
         Admin entity;
         AdminDto responseDTO = null;

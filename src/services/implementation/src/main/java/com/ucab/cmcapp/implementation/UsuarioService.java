@@ -1,17 +1,10 @@
 package com.ucab.cmcapp.implementation;
 
-import com.ucab.cmcapp.common.entities.Alerta;
-import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuario;
-import com.ucab.cmcapp.common.exceptions.CupraException;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
-import com.ucab.cmcapp.logic.dtos.UserDto;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.*;
 import com.ucab.cmcapp.persistence.dao.UsuarioDao;
@@ -69,7 +62,31 @@ public class UsuarioService extends BaseService
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Usuario: " + userId)).build();
     }
 
+    @GET
+    @Path("correo/{correo}")
+    public Response getUsuarioByCorreo(@PathParam("correo") String correo) {
+        Usuario entity;
+        UsuarioDto responseDTO = null;
+        GetUsuarioByCorreoCommand command = null;
 
+        try {
+            entity = UsuarioMapper.mapDtoToEntityCorreo(correo);
+            command = CommandFactory.createGetUsuarioByCorreoCommand(entity);
+            command.execute();
+
+            if (command.getReturnParam() != null)
+                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            else
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("El correo " + correo + " no ha sido encontrado en la BBDD")).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al obtener el correo: " + e.getMessage())).build();
+        } finally {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "EL correo " + correo + " del usuario ha sido encontrado exitosamente")).build();
+    }
     @GET
     @Path( "/findAll" )
     public Response getAllUsuario()
