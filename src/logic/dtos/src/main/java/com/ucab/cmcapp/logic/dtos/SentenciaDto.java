@@ -7,7 +7,7 @@ public class SentenciaDto extends BaseDto
 {
     private float _distanciaMinima;
 
-
+    private int _tiempo_control;
     private UsuarioDto _victima;
 
     private UsuarioDto _agresor;
@@ -30,6 +30,14 @@ public class SentenciaDto extends BaseDto
 
     public void set_distanciaMinima(float _distanciaMinima) {
         this._distanciaMinima = _distanciaMinima;
+    }
+
+    public int get_tiempo_control() {
+        return _tiempo_control;
+    }
+
+    public void set_tiempo_control(int _tiempo_control) {
+        this._tiempo_control = _tiempo_control;
     }
 
     public UsuarioDto get_victima() {

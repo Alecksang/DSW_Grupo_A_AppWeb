@@ -27,6 +27,7 @@ public class SentenciaMapper extends BaseMapper
         //endregion
 
         entity.set_distanciaMinima( dto.get_distanciaMinima() );
+        entity.set_tiempo_control( dto.get_tiempo_control() );
 
 
         //AQUI VA LA EL OBJETO DE LA TABLA RELACIONADA
@@ -59,6 +60,7 @@ public class SentenciaMapper extends BaseMapper
         //endregion
 
         entity.set_distanciaMinima( dto.get_distanciaMinima() );
+        entity.set_tiempo_control( dto.get_tiempo_control() );
 
         if ( Objects.nonNull( dto.get_agresor() ) )
         {
@@ -88,6 +90,7 @@ public class SentenciaMapper extends BaseMapper
 
         dto.setId( entity.get_IdAlej());
         dto.set_distanciaMinima(  entity.get_distanciaMinima() );
+        dto.set_tiempo_control(  entity.get_tiempo_control() );
 
         //AQUI VA LA EL OBJETO DE LA TABLA RELACIONADA
 
