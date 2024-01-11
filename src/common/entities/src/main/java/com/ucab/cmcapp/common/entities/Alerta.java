@@ -13,6 +13,12 @@ public class Alerta  {
     @Column(name = "IdAlerta")
     private long _IdAlerta;
 
+    @Column(name = "latitud", nullable = false)
+    private float _latitudY;
+
+    @Column(name = "longitud", nullable = false)
+    private float _longitudX;
+
     @Column(name = "TipoAlerta")
     private String _tipoAlerta;
 
@@ -31,6 +37,11 @@ public class Alerta  {
         this._tipoAlerta = _tipoAlerta;
         this._fechaHora = _fechaHora;
         this.usuario = usuario;
+    }
+
+    public Alerta(float _latitudY, float _longitudX) {
+        this._latitudY = _latitudY;
+        this._longitudX = _longitudX;
     }
 
     public Alerta(long _IdAlerta) {
@@ -67,5 +78,21 @@ public class Alerta  {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public float get_latitudY() {
+        return _latitudY;
+    }
+
+    public void set_latitudY(float _latitudY) {
+        this._latitudY = _latitudY;
+    }
+
+    public float get_longitudX() {
+        return _longitudX;
+    }
+
+    public void set_longitudX(float _longitudX) {
+        this._longitudX = _longitudX;
     }
 }
