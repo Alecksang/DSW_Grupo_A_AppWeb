@@ -25,6 +25,8 @@ public class AlertaMapper extends BaseMapper
 
         entity.set_tipoAlerta( dto.get_tipoAlerta());
         entity.set_fechaHora(dto.get_fechaHora());
+        entity.set_latitudY(dto.get_latitud());
+        entity.set_longitudX(dto.get_longitud());
 
         if ( Objects.nonNull( dto.getUsuario() ) )
         {
@@ -49,6 +51,8 @@ public class AlertaMapper extends BaseMapper
 
         entity.set_tipoAlerta( dto.get_tipoAlerta());
         entity.set_fechaHora(dto.get_fechaHora());
+        entity.set_latitudY(dto.get_latitud());
+        entity.set_longitudX(dto.get_longitud());
         if ( Objects.nonNull( dto.getUsuario() ) )
         {
             entity.setUsuario( UsuarioMapper.mapDtoToEntity( dto.getUsuario() ) );
@@ -75,6 +79,8 @@ public class AlertaMapper extends BaseMapper
 
         dto.set_tipoAlerta(  entity.get_tipoAlerta() );
         dto.set_fechaHora( entity.get_fechaHora() );
+        dto.set_latitud(entity.get_latitudY());
+        dto.set_longitud(entity.get_longitudX());
 
         if(Objects.nonNull(entity.getUsuario()))
             dto.setUsuario( UsuarioMapper.mapEntityToDto( entity.getUsuario() ));

@@ -8,6 +8,9 @@ public class AlertaDto extends BaseDto
     private String _tipoAlerta;
     private Date _fechaHora;
 
+    private float _latitud;
+    private float _longitud;
+
     private UsuarioDto usuario;
 
     public AlertaDto()
@@ -35,6 +38,22 @@ public class AlertaDto extends BaseDto
 
     public void set_fechaHora(Date _fechaHora) {
         this._fechaHora = _fechaHora;
+    }
+
+    public float get_latitud() {
+        return _latitud;
+    }
+
+    public void set_latitud(float _latitud) {
+        this._latitud = _latitud;
+    }
+
+    public float get_longitud() {
+        return _longitud;
+    }
+
+    public void set_longitud(float _longitud) {
+        this._longitud = _longitud;
     }
 
     public UsuarioDto getUsuario() {
