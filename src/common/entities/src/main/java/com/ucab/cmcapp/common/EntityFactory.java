@@ -25,16 +25,6 @@ public class EntityFactory
         return new Usuario(id);
     }
 
-    //Metodos para la clase VICTIMA
-    public static Victima createVictima()
-    {
-        return new Victima();
-    }
-    public static Victima createVictima(long id)
-    {
-        return new Victima(id);
-    }
-
     //Metodos para la clase AGRESOR
     public static Agresor createAgresor() {
         return new Agresor();

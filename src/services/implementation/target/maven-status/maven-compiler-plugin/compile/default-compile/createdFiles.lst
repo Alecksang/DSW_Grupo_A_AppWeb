@@ -1,11 +1,12 @@
 com\ucab\cmcapp\implementation\AgresorService.class
+com\ucab\cmcapp\implementation\CoordenadaService.class
+com\ucab\cmcapp\implementation\SentenciaService.class
+com\ucab\cmcapp\implementation\UserTypeService.class
+com\ucab\cmcapp\implementation\VictimaService.class
 com\ucab\cmcapp\implementation\UsuarioService.class
 com\ucab\cmcapp\implementation\ConexionService.class
-com\ucab\cmcapp\implementation\Sentencia_AVService.class
-com\ucab\cmcapp\implementation\CoordenadaService.class
 com\ucab\cmcapp\implementation\UserService.class
-com\ucab\cmcapp\implementation\VictimaService.class
 com\ucab\cmcapp\implementation\AdminService.class
 com\ucab\cmcapp\implementation\AlertaService.class
 com\ucab\cmcapp\implementation\BaseService.class
-com\ucab\cmcapp\implementation\ZonaSeguraService.class
+com\u

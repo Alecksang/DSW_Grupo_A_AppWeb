@@ -1,6 +1,7 @@
 com\ucab\cmcapp\common\entities\Conexion.class
 com\ucab\cmcapp\common\entities\User.class
 com\ucab\cmcapp\common\EntityFactory.class
+com\ucab\cmcapp\common\entities\Sentencia.class
 com\ucab\cmcapp\common\entities\Admin.class
 com\ucab\cmcapp\common\entities\Agresor.class
 com\ucab\cmcapp\common\entities\Coordenada.class
@@ -8,5 +9,4 @@ com\ucab\cmcapp\common\entities\Alerta.class
 com\ucab\cmcapp\common\entities\ZonaSegura.class
 com\ucab\cmcapp\common\entities\Victima.class
 com\ucab\cmcapp\common\entities\Usuario.class
-com\ucab\cmcapp\common\entities\Sentencia_AV.class
 com\ucab\cmcapp\common\entities\UserType.class
