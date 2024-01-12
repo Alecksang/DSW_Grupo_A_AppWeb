@@ -37,14 +37,6 @@ import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
-import com.ucab.cmcapp.logic.commands.victima.atomic.AddVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByIdCommand;
-import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByListCommand;
-import com.ucab.cmcapp.logic.commands.victima.atomic.ModifyVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.CreateVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.GetAllVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.GetVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.UpdateVictimaCommand;
 import com.ucab.cmcapp.logic.commands.zonasegura.atomic.*;
 import com.ucab.cmcapp.logic.commands.zonasegura.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
@@ -170,40 +162,6 @@ public class CommandFactory
         return new CreateUsuarioCommand(user);
     }
 
-//VICTIMA
-
-    //POST VICTIMA
-    public static AddVictimaCommand createAddVictimaCommand(Victima usuarioVictima, DBHandler handler) {
-        return new AddVictimaCommand(usuarioVictima, handler);
-    }
-    public static CreateVictimaCommand createCreateVictimaCommand(Victima usuarioVictima) {
-        return new CreateVictimaCommand(usuarioVictima);
-    }
-
-    //GET VICTIMA
-    public static GetVictimaCommand createGetVictimaCommand(Victima usuarioVictima) {
-        return new GetVictimaCommand(usuarioVictima);
-    }
-
-    public static GetVictimaByIdCommand createGetVictimaByIdCommand(DBHandler handler, long victimaId) {
-        return new GetVictimaByIdCommand(handler, victimaId);
-    }
-
-    public static GetAllVictimaCommand createGetAllVictimaCommand(){
-        return new GetAllVictimaCommand();
-    }
-
-    public static GetVictimaByListCommand createGetVictimaByListCommand(DBHandler handler) {
-        return new GetVictimaByListCommand(handler);
-    }
-
-    //PUT VICTIMA
-    public static UpdateVictimaCommand createUpdateVictimaCommand(Victima usuarioVictima){
-        return new UpdateVictimaCommand(usuarioVictima);
-    }
-    public static ModifyVictimaCommand createModifyVictimaCommand(Victima usuarioVictima, DBHandler handler){
-        return new ModifyVictimaCommand(usuarioVictima, handler);
-    }
 
 //AGRESOR//
 

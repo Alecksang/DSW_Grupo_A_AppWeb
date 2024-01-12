@@ -1,89 +1,102 @@
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\composite\GetAllSentencia_AVCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\AddZonaSeguraCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\atomic\AddSentencia_AVCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\CommandFactory.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\GetAllZonaSeguraByUsuarioIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\composite\UpdateSentencia_AVCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\GetZonaSeguraByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\atomic\GetSentencia_AVByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\GetVictimaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\GetZonaSeguraCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\GetCoordenadaByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\ModifyVictimaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByUsernameCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\AddUsuarioCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\AddCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\GetVictimaByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\GetAlertaByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\DeleteAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\AddConexionCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\AddVictimaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\GetAllConexionCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\GetConexionByUsuarioIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\CreateVictimaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\composite\CreateSentencia_AVCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\GetAllZonaSeguraCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\DeleteZonaSeguraByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\GetCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\GetAlertaByTipoAlertaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\composite\CreateAlertaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\UpdateCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\GetZonaSeguraByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\GetAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\AddAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\UpdateAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\AddUserCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\DeleteCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\GetUserByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\UpdateConexionCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\UpdateVictimaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\GetCoordenadaByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\CreateCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\composite\GetSentencia_AVCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\EraseAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\GetConexionCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\CreateZonaSeguraCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\GetAgresorByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\UpdateAgresorCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\composite\GetUserCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\CreateUsuarioCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\CreateAgresorCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\AddAlertaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\DeleteUsuarioCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\GetAllAgresorCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\GetAllUsuarioCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByUsernameCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\ModifyAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\UpdateUsuarioCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByCorreoCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\composite\CreateUserCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\GetConexionByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\AddAgresorCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\GetAllCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\CreateConexionCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\GetAgresorCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\ModifyZonaSeguraByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\CreateAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\GetConexionByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\ModifyCoordenadaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\DeleteCoordenadaByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\composite\GetAlertaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\atomic\GetSentencia_AVByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\UpdateZonaSeguraCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia_av\atomic\ModifySentencia_AVCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\ModifyAgresorCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\GetVictimaByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\ModifyConexionCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\GetUserByEmailCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\Command.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\UpdateUsuarioByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\GetAllVictimaCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\GetAgresorByListCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\GetAllAdminCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\DeleteUsuarioByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\GetUsuarioCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByIdCommand.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\DeleteZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\GetZonaSeguraByListCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\DeleteAlertaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\GetConexionByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByCorreoCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\UpdateUsuarioCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\GetUserByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\AddAgresorCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\GetAlertaByTipoAlertaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\Command.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\GetAllUsuarioCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\CreateAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\UpdateAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\DeleteZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\AddAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\composite\GetSentenciaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\GetVictimaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\atomic\DeleteSentenciaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\AddAlertaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\composite\DeleteAlertaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\CreateZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\CreateCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\composite\CreateUserCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\GetAllAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\ModifyAgresorCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\composite\UpdateAlertaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\atomic\AddUserTypeCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\GetAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\AddZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\UpdateUsuarioByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\UpdateVictimaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\CommandFactory.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\AddCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\GetZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\GetVictimaByListCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\atomic\AddSentenciaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\composite\GetAlertaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\DeleteCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\composite\CreateUserTypeCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\DeleteCoordenadaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\GetAllVictimaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\composite\GetUserCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\GetAgresorByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\GetAllConexionCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\AddVictimaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetUsuarioByUsernameCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\GetCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\GetUsuarioCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\ModifyConexionCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\DeleteUsuarioCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\UpdateAgresorCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\atomic\GetUserTypeByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\GetAllAgresorCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\GetConexionCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\UpdateZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\ModifyAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\GetAllUsuarioByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByUsernameCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\CreateAgresorCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\GetAlertaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\GetAllCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\GetConexionByListCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\GetZonaSeguraByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\GetConexionByUsuarioIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\GetAdminByListCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\CreateConexionCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\composite\CreateSentenciaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\composite\UpdateUserTypeCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\atomic\UpdateUserTypeByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\atomic\UpdateSentenciaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\atomic\AddConexionCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\GetVictimaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\composite\CreateVictimaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\victima\atomic\ModifyVictimaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\composite\DeleteSentenciaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\atomic\DeleteUserTypeByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\ModifyCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\atomic\UpdateAlertaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\composite\CreateUsuarioCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\composite\UpdateSentenciaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\alerta\composite\CreateAlertaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\DeleteZonaSeguraByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\GetCoordenadaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\composite\UpdateCoordenadaCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\atomic\GetSentenciaByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\AddUsuarioCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\conexion\composite\UpdateConexionCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\composite\GetAllZonaSeguraCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\composite\GetUserTypeCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\UserType\composite\DeleteUserTypeCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\coordenada\atomic\GetCoordenadaByListCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\AddUserCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\user\atomic\GetUserByEmailCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\atomic\EraseAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\admin\composite\DeleteAdminCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\sentencia\atomic\GetSentenciaByUsuariosCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\ModifyZonaSeguraByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\usuario\atomic\DeleteUsuarioByIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\zonasegura\atomic\GetAllZonaSeguraByUsuarioIdCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\atomic\GetAgresorByListCommand.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\logic\commands\src\main\java\com\ucab\cmcapp\logic\commands\agresor\composite\GetAgresorCommand.java
