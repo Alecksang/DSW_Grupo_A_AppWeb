@@ -22,11 +22,6 @@ public class DaoFactory
         return new UsuarioDao( handler );
     }
 
-    //AGRESOR DAO
-    public static AgresorDao createAgresorDao(DBHandler handler) {
-        return new AgresorDao(handler);
-    }
-
     //ALERTA DAO
     public static AlertaDao createAlertaDao( DBHandler handler )
     {

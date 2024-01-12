@@ -11,14 +11,6 @@ import com.ucab.cmcapp.logic.commands.UserType.composite.GetUserTypeCommand;
 import com.ucab.cmcapp.logic.commands.UserType.composite.UpdateUserTypeCommand;
 import com.ucab.cmcapp.logic.commands.admin.atomic.*;
 import com.ucab.cmcapp.logic.commands.admin.composite.*;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.AddAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByIdCommand;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByListCommand;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.ModifyAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.CreateAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.GetAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.GetAllAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.UpdateAgresorCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.*;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.DeleteAlertaCommand;
@@ -162,43 +154,6 @@ public class CommandFactory
         return new CreateUsuarioCommand(user);
     }
 
-
-//AGRESOR//
-
-    //POST AGRESOR
-    public static AddAgresorCommand createAddAgresorCommand(Agresor usuarioAgresor, DBHandler handler) {
-        return new AddAgresorCommand(usuarioAgresor, handler);
-    }
-    public static CreateAgresorCommand createCreateAgresorCommand(Agresor agresor)
-    {
-        return new CreateAgresorCommand(agresor);
-    }
-
-    //GET AGRESOR
-    public static GetAgresorCommand createGetAgresorCommand(Agresor usuarioAgresor) {
-        return new GetAgresorCommand(usuarioAgresor);
-    }
-
-    public static GetAgresorByIdCommand createGetAgresorByIdCommand(DBHandler handler, long agresorId) {
-        return new GetAgresorByIdCommand(handler, agresorId);
-    }
-
-    public static GetAllAgresorCommand createGetAllAgresorCommand(){
-        return new GetAllAgresorCommand();
-    }
-
-    public static GetAgresorByListCommand createGetAgresorByListCommand(DBHandler handler) {
-        return new GetAgresorByListCommand(handler);
-    }
-
-    //PUT AGRESOR
-    public static UpdateAgresorCommand createUpdateAgresorCommand(Agresor usuarioAgresor){
-        return new UpdateAgresorCommand(usuarioAgresor);
-    }
-
-    public static ModifyAgresorCommand createModifyAgresorCommand(Agresor usuarioAgresor, DBHandler handler){
-        return new ModifyAgresorCommand(usuarioAgresor, handler);
-    }
 
 
 //ALERTA//

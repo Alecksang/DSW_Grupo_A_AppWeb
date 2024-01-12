@@ -25,14 +25,6 @@ public class EntityFactory
         return new Usuario(id);
     }
 
-    //Metodos para la clase AGRESOR
-    public static Agresor createAgresor() {
-        return new Agresor();
-    }
-    public static Agresor createAgresor(long id) {
-        return new Agresor(id);
-    }
-
     //Metodos para la clase ZONA SEGURA
     public static ZonaSegura createZonaSegura(long id) {
         return new ZonaSegura(id);
