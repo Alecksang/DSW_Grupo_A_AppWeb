@@ -38,7 +38,7 @@ public class Sentencia {
         _victima = sentencia._victima;
         _agresor = sentencia._agresor;
     }
-//hay que arreglar develop mano
+
     public Sentencia(int _tiempo_control) {
         this._tiempo_control = _tiempo_control;
     }
