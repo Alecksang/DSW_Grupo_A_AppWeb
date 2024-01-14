@@ -6,10 +6,7 @@ import com.ucab.cmcapp.common.entities.Alerta;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.GetAlertaByTipoAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.DeleteAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.UpdateAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.composite.*;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
@@ -28,6 +25,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.text.ParseException;
+import java.util.List;
 
 @Path( "/alertas" )
 @Produces( MediaType.APPLICATION_JSON )
@@ -109,6 +107,41 @@ public class AlertaService extends BaseService
 
         _logger.debug( "Leaving AlertaService.getAlerta" );
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por tipo de alerta: " + tipoAlerta)).build();
+    }
+
+    @GET
+    @Path( "/findAll" )
+    public Response getAllAlerta()
+    {
+        List<AlertaDto> response;
+        GetAllAlertaCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in AlertaService.getAlerta" );
+        //endregion
+
+        try
+        {
+            command = CommandFactory.createGetAllAlertaCommand();
+            command.execute();
+            if(command.getReturnParam() != null){
+                response = AlertaMapper.mapListEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " )).build();
+            }
+        }
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta ")).build();
+
+        }
+        finally
+        {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        _logger.debug( "Leaving AlertaService.getAlerta" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Alerta: " )).build();
     }
 
     @POST

@@ -20,10 +20,7 @@ import com.ucab.cmcapp.logic.commands.agresor.composite.GetAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.composite.GetAllAgresorCommand;
 import com.ucab.cmcapp.logic.commands.agresor.composite.UpdateAgresorCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.*;
-import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.DeleteAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.GetAlertaCommand;
-import com.ucab.cmcapp.logic.commands.alerta.composite.UpdateAlertaCommand;
+import com.ucab.cmcapp.logic.commands.alerta.composite.*;
 import com.ucab.cmcapp.logic.commands.conexion.atomic.*;
 import com.ucab.cmcapp.logic.commands.conexion.composite.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
@@ -265,6 +262,16 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
         return new GetAlertaByIdCommand(handler, alertaId);
     }
 
+    public static GetAllAlertaCommand createGetAllAlertaCommand()
+    {
+        return new GetAllAlertaCommand();
+    }
+
+    public static GetAllAlertaByIdCommand createGetAllAlertaByIdCommand (DBHandler handler )
+    {
+        return new GetAllAlertaByIdCommand(handler);
+    }
+
     public static AddAlertaCommand createAddAlertaCommand(Alerta alerta, DBHandler handler)
     {
         return new AddAlertaCommand(alerta, handler);
@@ -326,17 +333,18 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
         return new GetZonaSeguraByIdCommand(handler, ZonaSeguraId);
     }
 
+    public static GetZonaSeguraByListCommand createGetZona_SeguraByListCommand(DBHandler handler) {
+        return new GetZonaSeguraByListCommand(handler);
+    }
     public static GetAllZonaSeguraCommand createGetAllZonaSeguraCommand()
     {
         return new GetAllZonaSeguraCommand();
     }
 
 
-    public static GetAllZonaSeguraByUsuarioIdCommand createGetAllZonaSeguraByUsuarioIdCommand (DBHandler handler )
-    {
-        return new GetAllZonaSeguraByUsuarioIdCommand(handler);
+    public static GetAllZonaSeguraByUsuarioIdCommand createGetAllZonaSeguraByUsuarioIdCommand(ZonaSegura zonaSegura) {
+        return new GetAllZonaSeguraByUsuarioIdCommand(zonaSegura);
     }
-
     //POST
     public static AddZonaSeguraCommand createAddZonaSeguraCommand(ZonaSegura ZonaSegura, DBHandler handler)
     {

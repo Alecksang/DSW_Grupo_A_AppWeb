@@ -1,6 +1,8 @@
 package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
+import com.ucab.cmcapp.common.entities.UserType;
+import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.entities.ZonaSegura;
 import com.ucab.cmcapp.logic.dtos.ZonaSeguraDto;
 import org.slf4j.Logger;
@@ -100,6 +102,31 @@ public class ZonaSeguraMapper extends BaseMapper
             dtos.add(mapEntityToDto(entity));
         }
         return dtos;
+    }
+    public static List<ZonaSeguraDto> mapEntityListToDtoList(List<ZonaSegura> entityList){
+        List<ZonaSeguraDto> dtoList = new ArrayList<ZonaSeguraDto>();
+        ZonaSeguraDto Zona_SeguraDto;
+
+        for (ZonaSegura zonasSegura : entityList) {
+
+            Zona_SeguraDto = new ZonaSeguraDto();
+            Zona_SeguraDto.setId(zonasSegura.get_idZona());
+            Zona_SeguraDto.set_nombre(zonasSegura.get_nombreZona());
+
+            if (Objects.nonNull(zonasSegura.getUsuario()))
+                Zona_SeguraDto.setUsuario(UsuarioMapper.mapEntityToDto(zonasSegura.getUsuario()));
+
+            dtoList.add(Zona_SeguraDto);
+
+        }
+
+        return dtoList;
+    }
+    public static ZonaSegura mapDtoToEntityUsuarioId(long usuarioId){
+        Usuario victima = new Usuario(usuarioId);
+        ZonaSegura zonaSegura = EntityFactory.createZonaSegura();
+        zonaSegura.setUsuario(victima);
+        return zonaSegura;
     }
 }
 

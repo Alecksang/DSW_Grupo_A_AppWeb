@@ -146,6 +146,12 @@ public class AlertaMapper extends BaseMapper
         return dtos;
     }
 
-
+    public static List<AlertaDto> mapListEntityToDto(List<Alerta> entities) {
+        List<AlertaDto> dtos = new ArrayList<>();
+        for (Alerta entity : entities) {
+            dtos.add(mapEntityToDto(entity));
+        }
+        return dtos;
+    }
 
 }
