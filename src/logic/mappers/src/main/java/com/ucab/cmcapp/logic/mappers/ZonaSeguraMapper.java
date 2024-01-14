@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ZonaSeguraMapper extends BaseMapper
@@ -91,6 +93,13 @@ public class ZonaSeguraMapper extends BaseMapper
         //endregion
 
         return entity;
+    }
+    public static List<ZonaSeguraDto> mapListEntityToDto(List<ZonaSegura> entities) {
+        List<ZonaSeguraDto> dtos = new ArrayList<>();
+        for (ZonaSegura entity : entities) {
+            dtos.add(mapEntityToDto(entity));
+        }
+        return dtos;
     }
 }
 
