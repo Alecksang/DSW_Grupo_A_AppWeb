@@ -174,6 +174,18 @@ public class ZonaSeguraMapperTest {
         }
     }
 
+    @Test
+    public void testMapDtoToEntityUsuarioId() {
+        // Crear un id de usuario para la prueba
+        long usuarioId = 1L;
+
+        // Llamar al método que se está probando
+        ZonaSegura zonaSegura = ZonaSeguraMapper.mapDtoToEntityUsuarioId(usuarioId);
+
+        // Verificar que el id del usuario en la entidad ZonaSegura coincide con el id de usuario proporcionado
+        assertEquals(usuarioId, zonaSegura.getUsuario().get_idUsuario());
+    }
+
 }
 
 
