@@ -10,17 +10,23 @@ import java.util.List;
 
 public class GetAllZonaSeguraByUsuarioIdCommand extends Command<ZonaSegura> {
 
+    private ZonaSegura _zonaSegura;
     private List<ZonaSegura> _result;
     private ZonaSeguraDao _dao;
 
-    public GetAllZonaSeguraByUsuarioIdCommand(DBHandler handler) {
-        setHandler(handler);
+    public GetAllZonaSeguraByUsuarioIdCommand(ZonaSegura safeZone) {
+        _zonaSegura = safeZone;
+        setHandler(new DBHandler());
         _dao = DaoFactory.createZonaSeguraDao(getHandler());
     }
 
     @Override
     public void execute() {
-        _result = _dao.findAll(ZonaSegura.class);
+        try {
+            _result = _dao.getZonaByVictimaId(_zonaSegura.getUsuario());
+        }catch (NullPointerException e){
+
+        }
     }
 
     @Override
@@ -32,5 +38,6 @@ public class GetAllZonaSeguraByUsuarioIdCommand extends Command<ZonaSegura> {
     public void closeHandlerSession() {
         getHandler().closeSession();
     }
+
 
 }
