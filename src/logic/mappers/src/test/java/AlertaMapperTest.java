@@ -1,3 +1,4 @@
+import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Alerta;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.logic.dtos.AlertaDto;
@@ -157,6 +158,39 @@ public class AlertaMapperTest {
         // Llamar al método que se está probando
         List<AlertaDto> dtos = AlertaMapper.mapEntitiesToDtos(entities);
     }
+    @Test
+    public void testMapListEntityToDto() {
+        // Crear una lista de entidades Alerta para la prueba
+        List<Alerta> entities = new ArrayList<>();
+        Alerta alerta1 = EntityFactory.createAlerta();
+        alerta1.set_tipoAlerta("tipo1");
+        alerta1.set_fechaHora(new Date());
+        alerta1.set_latitudY(10.0f);
+        alerta1.set_longitudX(20.0f);
+        entities.add(alerta1);
+
+        Alerta alerta2 = EntityFactory.createAlerta();
+        alerta2.set_tipoAlerta("tipo2");
+        alerta2.set_fechaHora(new Date());
+        alerta2.set_latitudY(30.0f);
+        alerta2.set_longitudX(40.0f);
+        entities.add(alerta2);
+
+        // Llamar al método que se está probando
+        List<AlertaDto> dtos = AlertaMapper.mapListEntityToDto(entities);
+
+        // Verificar que la lista de dtos tiene el mismo tamaño que la lista de entidades
+        assertEquals(entities.size(), dtos.size());
+
+        // Verificar que las propiedades de los dtos coinciden con las de las entidades correspondientes
+        for (int i = 0; i < entities.size(); i++) {
+            assertEquals(entities.get(i).get_tipoAlerta(), dtos.get(i).get_tipoAlerta());
+            assertEquals(entities.get(i).get_fechaHora(), dtos.get(i).get_fechaHora());
+            assertEquals(entities.get(i).get_latitudY(), dtos.get(i).get_latitud(), 0.001);
+            assertEquals(entities.get(i).get_longitudX(), dtos.get(i).get_longitud(), 0.001);
+        }
+    }
+
 
 }
 
