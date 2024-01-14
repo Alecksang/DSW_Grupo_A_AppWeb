@@ -13,6 +13,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class ZonaSeguraMapperTest {
@@ -41,9 +46,9 @@ public class ZonaSeguraMapperTest {
 
         // Assert
         Assertions.assertNotNull(entity);
-        Assertions.assertEquals(dto.getId(), entity.get_idZona());
-        Assertions.assertEquals(dto.get_nombre(), entity.get_nombreZona());
-        Assertions.assertEquals(dto.getUsuario().getId(), entity.getUsuario().get_idUsuario());
+        assertEquals(dto.getId(), entity.get_idZona());
+        assertEquals(dto.get_nombre(), entity.get_nombreZona());
+        assertEquals(dto.getUsuario().getId(), entity.getUsuario().get_idUsuario());
     }
 
     @Test
@@ -68,8 +73,8 @@ public class ZonaSeguraMapperTest {
 
         // Assert
         Assertions.assertNotNull(entity);
-        Assertions.assertEquals(dto.get_nombre(), entity.get_nombreZona());
-        Assertions.assertEquals(dto.getUsuario().getId(), entity.getUsuario().get_idUsuario());
+        assertEquals(dto.get_nombre(), entity.get_nombreZona());
+        assertEquals(dto.getUsuario().getId(), entity.getUsuario().get_idUsuario());
     }
 
     @Test
@@ -94,9 +99,9 @@ public class ZonaSeguraMapperTest {
         ZonaSeguraDto dto = ZonaSeguraMapper.mapEntityToDto(entity);
         // Assert
         Assertions.assertNotNull(dto);
-        Assertions.assertEquals(entity.get_idZona(), dto.getId());
-        Assertions.assertEquals(entity.get_nombreZona(), dto.get_nombre());
-        Assertions.assertEquals(entity.getUsuario().get_idUsuario(), dto.getUsuario().getId());
+        assertEquals(entity.get_idZona(), dto.getId());
+        assertEquals(entity.get_nombreZona(), dto.get_nombre());
+        assertEquals(entity.getUsuario().get_idUsuario(), dto.getUsuario().getId());
     }
 
     @Test
@@ -109,9 +114,71 @@ public class ZonaSeguraMapperTest {
 
         // Assert
         Assertions.assertNotNull(entity);
-        Assertions.assertEquals(id, entity.get_idZona());
+        assertEquals(id, entity.get_idZona());
     }
+
+    @Test
+    public void testMapListEntityToDto() {
+        // Crear una lista de entidades ZonaSegura para la prueba
+        List<ZonaSegura> entities = new ArrayList<>();
+        ZonaSegura zona1 = new ZonaSegura("Zona 1", new Usuario());
+        entities.add(zona1);
+
+        ZonaSegura zona2 = new ZonaSegura("Zona 2", new Usuario());
+        entities.add(zona2);
+
+        // Llamar al método que se está probando
+        List<ZonaSeguraDto> dtos = ZonaSeguraMapper.mapListEntityToDto(entities);
+
+        // Verificar que la lista de dtos tiene el mismo tamaño que la lista de entidades
+        assertEquals(entities.size(), dtos.size());
+
+        // Verificar que las propiedades de los dtos coinciden con las de las entidades correspondientes
+        for (int i = 0; i < entities.size(); i++) {
+            assertEquals(entities.get(i).get_nombreZona(), dtos.get(i).get_nombre());
+            // Asegúrate de que las propiedades del UsuarioDto también coinciden
+            // Aquí necesitarías algún método para comparar los objetos UsuarioDto y Usuario
+            assertTrue(compareUsuarios(entities.get(i).getUsuario(), dtos.get(i).getUsuario()));
+        }
+    }
+
+    // Este es un método de ejemplo para comparar los objetos UsuarioDto y Usuario
+// Deberías implementar este método según tus necesidades
+    private boolean compareUsuarios(Usuario usuario, UsuarioDto usuarioDto) {
+        // Implementa la lógica de comparación aquí
+        return true;
+    }
+
+    @Test
+    public void testMapEntityListToDtoList() {
+        // Crear una lista de entidades ZonaSegura para la prueba
+        List<ZonaSegura> entities = new ArrayList<>();
+        ZonaSegura zona1 = new ZonaSegura("Zona 1", new Usuario());
+        entities.add(zona1);
+
+        ZonaSegura zona2 = new ZonaSegura("Zona 2", new Usuario());
+        entities.add(zona2);
+
+        // Llamar al método que se está probando
+        List<ZonaSeguraDto> dtos = ZonaSeguraMapper.mapEntityListToDtoList(entities);
+
+        // Verificar que la lista de dtos tiene el mismo tamaño que la lista de entidades
+        assertEquals(entities.size(), dtos.size());
+
+        // Verificar que las propiedades de los dtos coinciden con las de las entidades correspondientes
+        for (int i = 0; i < entities.size(); i++) {
+            assertEquals(entities.get(i).get_nombreZona(), dtos.get(i).get_nombre());
+            // Asegúrate de que las propiedades del UsuarioDto también coinciden
+            // Aquí necesitarías algún método para comparar los objetos UsuarioDto y Usuario
+            assertTrue(compareUsuarios(entities.get(i).getUsuario(), dtos.get(i).getUsuario()));
+        }
+    }
+
 }
+
+
+
+
 
 
 
