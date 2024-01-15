@@ -7,10 +7,7 @@ import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.sentencia.atomic.GetSentenciaByUsuariosCommand;
-import com.ucab.cmcapp.logic.commands.sentencia.composite.CreateSentenciaCommand;
-import com.ucab.cmcapp.logic.commands.sentencia.composite.DeleteSentenciaCommand;
-import com.ucab.cmcapp.logic.commands.sentencia.composite.GetSentenciaCommand;
-import com.ucab.cmcapp.logic.commands.sentencia.composite.UpdateSentenciaCommand;
+import com.ucab.cmcapp.logic.commands.sentencia.composite.*;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
@@ -30,6 +27,8 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import java.util.List;
 
 import static com.ucab.cmcapp.logic.commands.CommandFactory.createGetUsuarioByIdCommand;
 
@@ -78,6 +77,31 @@ public class SentenciaService extends BaseService
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por Id Distancia: " + distanciaId)).build();
     }
 
+
+    @GET
+    @Path("/todos")
+    public Response getAllRelacion() {
+        List<SentenciaDto> responseDTO = null;
+        GetAllSentenciaCommand command = null;
+
+        try {
+            command = CommandFactory.createGetAllSentenciaCommand();
+            command.execute();
+            responseDTO = SentenciaMapper.mapEntityListToDtoList(command.getReturnParam());
+
+            if (responseDTO.size() == 0) {
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("La base de datos esta vacia ")).build();
+            }
+
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>(e, "Error interno al ejecutar la ruta todas las victimas: " + e.getMessage())).build();
+        } finally {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "Todos las relaciones victima-atacante se han obtenida correctamente")).build();
+    }
     @POST
     @Path("/insert")
     public Response addSentencia( SentenciaDto distanciaDto )

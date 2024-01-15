@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class SentenciaMapper extends BaseMapper
@@ -143,6 +145,31 @@ public class SentenciaMapper extends BaseMapper
         //endregion
 
         return entity;
+    }
+
+    public static List<SentenciaDto> mapEntityListToDtoList(List<Sentencia> entityList){
+        List<SentenciaDto> dtoList = new ArrayList<SentenciaDto>();
+        SentenciaDto SentenciaDto;
+
+        for (Sentencia relacionUsuario : entityList) {
+
+            SentenciaDto = new SentenciaDto();
+            SentenciaDto.setId(relacionUsuario.get_IdAlej());
+            SentenciaDto.set_distanciaMinima(relacionUsuario.get_distanciaMinima());
+
+            if (Objects.nonNull(relacionUsuario.get_victima()))
+                SentenciaDto.set_victima(UsuarioMapper.mapEntityToDto(relacionUsuario.get_victima()));
+
+
+            if (Objects.nonNull(relacionUsuario.get_agresor()))
+                SentenciaDto.set_agresor(UsuarioMapper.mapEntityToDto(relacionUsuario.get_agresor()));
+
+
+            dtoList.add(SentenciaDto);
+
+        }
+
+        return dtoList;
     }
 
 }
