@@ -468,6 +468,13 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
         return new GetSentenciaByIdCommand(handler, distanciaId);
     }
 
+    public static GetAllSentenciaCommand createGetAllSentenciaCommand(){
+        return new GetAllSentenciaCommand();
+    }
+    public static GetSentenciaByListCommand createGetSentenciaByListCommand(DBHandler handler) {
+        return new GetSentenciaByListCommand(handler);
+    }
+
     public static AddSentenciaCommand createAddSentenciaCommand(Sentencia distancia, DBHandler handler)
     {
         return new AddSentenciaCommand(distancia, handler);
