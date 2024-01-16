@@ -452,15 +452,15 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
     {
         return new GetSentenciaCommand(distancia);
     }
-
-    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(Sentencia distancia)
+//aa
+    public static GetSentenciaUsuariosCommand createGetSentenciaUsuariosCommand(long id)
     {
-        return new GetSentenciaByUsuariosCommand(distancia);
+        return new GetSentenciaUsuariosCommand(id);
     }
 
-    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(Sentencia distancia, DBHandler handler)
+    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(DBHandler handler,long id)
     {
-        return new GetSentenciaByUsuariosCommand(distancia, handler);
+        return new GetSentenciaByUsuariosCommand(handler, id);
     }
 
     public static GetSentenciaByIdCommand createGetSentenciaByIdCommand (DBHandler handler, long distanciaId )
