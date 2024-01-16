@@ -172,4 +172,12 @@ public class SentenciaMapper extends BaseMapper
         return dtoList;
     }
 
+    public static List<SentenciaDto> mapListEntityToDto(List<Sentencia> entities) {
+        List<SentenciaDto> dtos = new ArrayList<>();
+        for (Sentencia entity : entities) {
+            dtos.add(mapEntityToDto(entity));
+        }
+        return dtos;
+    }
+
 }

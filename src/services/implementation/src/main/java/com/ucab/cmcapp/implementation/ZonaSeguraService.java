@@ -128,33 +128,6 @@ public class ZonaSeguraService extends BaseService
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zonas seguras de la victima con el ID " + victimaId + " se han obtenido correctamente")).build();
     }
 
-//    @GET
-//    @Path("victima/{victima_id}")
-//    public Response getAllZonasByUsuarioId(@PathParam("victima_id") long victimaId) {
-//        Zona_Segura entity;
-//        List<Zona_SeguraDto> responseDTO = null;
-//        GetZonaByVictimaIdCommand command = null;
-//
-//        try {
-//            entity = Zona_SeguraMapper.mapDtoToEntityUsuarioId(victimaId);
-//            command = CommandFactory.createGetZona_SeguraByVictimaCommand(entity);
-//            command.execute();
-//
-//            if (command.getReturnParam() != null)
-//                responseDTO = Zona_SeguraMapper.mapEntityListToDtoList(command.getReturnParam());
-//            else
-//                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No hay zona segura asociada al ID " + victimaId + " de la victima")).build();
-//        } catch (Exception e) {
-//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de ejecutar la ruta id usuario" + e.getMessage())).build();
-//        } finally {
-//            if (command != null)
-//                command.closeHandlerSession();
-//        }
-//
-//        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La zonas seguras de la victima con el ID " + victimaId + " se han obtenido correctamente")).build();
-//    }
-
-
     @POST
     @Path("/insert")
     public Response addZonaSeguridad( ZonaSeguraDto userDto )

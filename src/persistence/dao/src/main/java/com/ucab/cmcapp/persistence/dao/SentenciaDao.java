@@ -10,9 +10,11 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 
 public class SentenciaDao extends BaseDao<Sentencia>
@@ -35,22 +37,20 @@ public class SentenciaDao extends BaseDao<Sentencia>
         _builder = _em.getCriteriaBuilder();
     }
 
-    public Sentencia getSentenciaByUsuarios(long Victima_id, long Agresor_id) {
-        Sentencia result = EntityFactory.createSentencia();
-        _logger.debug(String.format("Get in DistanciaAlejamientoDao.getDistanciaAlejamientoByUsuarios: parameters (Victima_id: %d, Agresor_id: %d)", Victima_id, Agresor_id));
+    public List<Sentencia> getSentenciaByUsuarios(long id) {
+        List<Sentencia> result = null;
+        _logger.debug(String.format("Get in SentenciaDao.getSentenciaByUsuarios: parameters ", id));
         try {
-            CriteriaQuery<Sentencia> query = _builder.createQuery(Sentencia.class);
-            Root<Sentencia> root = query.from(Sentencia.class);
+            CriteriaQuery<Sentencia> criteriaQuery = _builder.createQuery(Sentencia.class);
+            Root<Sentencia> root = criteriaQuery.from(Sentencia.class);
 
-            query.select(root);
-            query.where(_builder.and(
-                    _builder.equal(root.get("_victima"), Victima_id),
-                    _builder.equal(root.get("_agresor"), Agresor_id)
-            ));
+            Query query = _em.createQuery("FROM Sentencia WHERE _victima.id = :idUsuario", Sentencia.class);
+            query.setParameter("idUsuario", id);
 
-            result = _em.createQuery(query).getSingleResult();
+            result = query.getResultList();
+
         } catch (NoResultException e) {
-            _logger.error(String.format("Error SentenciaDao.getDistanciaAlejamientoByUsuarios: No Result {%s}", e.getMessage()));
+            _logger.error(String.format("Error SentenciaDao.getSentenciaByUsuarios: No Result {%s}", e.getMessage()));
         } catch (Exception e) {
             _logger.error(String.format("Error SentenciaDao.getSentenciaByUsuarios: {%s}", e.getMessage()));
             throw new CupraException(e.getMessage());
