@@ -621,13 +621,13 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
 
     //DELETE Conexion
 
-//    public static DeleteConexionCommand createDeleteConexionCommand(Conexion Conexion) {
-//        return new DeleteConexionCommand(Conexion);
-//    }
-//
-//    public static EraseConexionCommand createEraseConexionCommand(Conexion Conexion, DBHandler handler) {
-//        return new EraseConexionCommand(Conexion, handler);
-//    }
+    public static DeleteConexionCommand createDeleteConexionCommand(Conexion Conexion) {
+        return new DeleteConexionCommand(Conexion);
+    }
+
+    public static EraseConexionCommand createEraseConexionCommand(Conexion Conexion, DBHandler handler) {
+        return new EraseConexionCommand(Conexion, handler);
+    }
 
     //UPDATE Conexion
     public static UpdateConexionCommand createUpdateConexionCommand(Conexion Conexion){

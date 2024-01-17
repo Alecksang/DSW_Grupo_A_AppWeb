@@ -60,9 +60,19 @@ public class DaoFactory
     }
 
     //ADMIN DAO
-    public static AdminDao createAdminDao(DBHandler handler)
-    {
-        return new AdminDao(handler);
+    public static AdminDao createAdminDao(DBHandler handler) {
+        try{
+            return new AdminDao(handler);
+        }catch(NoClassDefFoundError e){
+            return null;
+        }
+        catch(ExceptionInInitializerError e){
+            return null;
+        }
+        catch(Exception e){
+            return null;
+        }
+
     }
 
     //CONEXION DAO

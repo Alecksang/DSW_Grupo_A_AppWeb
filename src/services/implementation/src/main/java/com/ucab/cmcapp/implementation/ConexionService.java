@@ -120,33 +120,34 @@ public class ConexionService extends BaseService {
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La Conexion ha sido creada correctamente")).build();
     }
 
-//    @DELETE
-//    @Path("/{id}")
-//    public Response deleteConexion(@PathParam("id") long ConexionId) {
-//        Conexion entity;
-//        ConexionDto responseDTO = null;
-//        DeleteConexionCommand command = null;
-//
-//        try {
-//            entity = ConexionMapper.mapDtoToEntity(ConexionId);
-//            command = CommandFactory.createDeleteConexionCommand(entity);
-//            command.execute();
-//
-//            if (command.getReturnParam() != null)
-//                responseDTO = ConexionMapper.mapEntityToDto(command.getReturnParam());
-//            else
-//                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar la Conexion con ese ID")).build();
-//
-//
-//        } catch (Exception e) {
-//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un usuario", e.getMessage())).build();
-//        } finally {
-//            if (command != null)
-//                command.closeHandlerSession();
-//        }
-//
-//        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "La Conexion ha sido eliminado correctamente")).build();
-//    }
+    @DELETE
+    @Path("/{id}")
+    public Response deleteConexion(@PathParam("id") long historicoId) {
+        Conexion entity;
+        ConexionDto responseDTO = null;
+        DeleteConexionCommand command = null;
+
+        try {
+            entity = ConexionMapper.mapDtoToEntity(historicoId);
+            command = CommandFactory.createDeleteConexionCommand(entity);
+            command.execute();
+
+            if (command.getReturnParam() != null)
+                responseDTO = ConexionMapper.mapEntityToDto(command.getReturnParam());
+            else
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el historico con ese ID")).build();
+
+
+        }
+        catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un usuario", e.getMessage())).build();
+        } finally {
+            if (command != null)
+                command.closeHandlerSession();
+        }
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico ha sido eliminado correctamente")).build();
+    }
 
     @PUT
     public Response updateConexion(ConexionDto ConexionDto) {
