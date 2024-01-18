@@ -1,51 +1,72 @@
 package com.ucab.cmcapp.logic.commands.conexion.composite;
 
+import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Conexion;
 import com.ucab.cmcapp.logic.commands.Command;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
+import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
+import com.ucab.cmcapp.logic.commands.conexion.atomic.AddConexionCommand;
 import com.ucab.cmcapp.logic.commands.conexion.atomic.EraseConexionCommand;
 import com.ucab.cmcapp.persistence.DBHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class DeleteConexionCommand extends Command<Conexion> {
-
-    private Conexion _Historico_Usuario;
+public class DeleteConexionCommand extends Command<Conexion>
+{
+    private static Logger _logger = LoggerFactory.getLogger( com.ucab.cmcapp.logic.commands.conexion.composite.DeleteConexionCommand.class );
+    private Conexion _user;
     private Conexion _result;
+    private EraseConexionCommand _addUsuarioCommand;
 
-    private EraseConexionCommand _eraseHistorico_UsuarioCommand;
+    public DeleteConexionCommand(Conexion conexion )
+    {
+        //region Instrumentation DEBUG
+        _logger.debug( "Entering DeleteConexionCommand.ctor");
+        //endregion
 
-    public DeleteConexionCommand(Conexion Historico_Usuario) {
-        _Historico_Usuario = Historico_Usuario;
+        _user = conexion;
         setHandler(new DBHandler());
+
+        //region Instrumentation DEBUG
+        _logger.debug( "Leaving DeleteConexionCommand.ctor");
+        //endregion
     }
 
     @Override
-    public void execute() {
-        try {
+    public void execute()
+    {
+        //region Instrumentation DEBUG
+        _logger.debug( "Entering DeleteConexionCommand.execute");
+        //endregion
+
+        try
+        {
             getHandler().beginTransaction();
-            _eraseHistorico_UsuarioCommand = CommandFactory.createEraseConexionCommand(_Historico_Usuario, getHandler());
-            _eraseHistorico_UsuarioCommand.execute();
-            _result = _eraseHistorico_UsuarioCommand.getReturnParam();
+            _addUsuarioCommand = CommandFactory.createEraseConexionCommand(_user, getHandler());
+            _addUsuarioCommand.execute();
+            _result = _addUsuarioCommand.getReturnParam();
             getHandler().finishTransaction();
             getHandler().closeSession();
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             getHandler().rollbackTransaction();
             getHandler().closeSession();
             throw e;
         }
+        //region Instrumentation DEBUG
+        _logger.debug( "Leaving DeleteUsuarioCommand.execute");
+        //endregion
     }
-
     @Override
-    public Conexion getReturnParam() {
+    public Conexion getReturnParam()
+    {
         return _result;
     }
 
     @Override
-    public void closeHandlerSession() {
+    public void closeHandlerSession()
+    {
         getHandler().closeSession();
     }
-
-    public void setEraseConexionCommand(EraseConexionCommand eraseHistoricoCommand) {
-
-    }
 }
-
