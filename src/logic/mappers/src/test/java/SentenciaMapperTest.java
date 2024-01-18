@@ -146,4 +146,29 @@ public class SentenciaMapperTest {
         assertEquals(null, dto.get_victima());
         assertEquals(null, dto.get_agresor());
     }
+
+    @Test
+    public void testMapListEntityToDto() {
+        // Crear mock de la lista de entidades
+        List<Sentencia> mockEntityList = new ArrayList<>();
+        Sentencia mockSentencia = Mockito.mock(Sentencia.class);
+        mockEntityList.add(mockSentencia);
+
+        // Configurar los mocks
+        when(mockSentencia.get_IdAlej()).thenReturn(1L);
+        when(mockSentencia.get_distanciaMinima()).thenReturn(1.0f);
+        when(mockSentencia.get_victima()).thenReturn(null);
+        when(mockSentencia.get_agresor()).thenReturn(null);
+
+        // Llamar al método que se está probando
+        List<SentenciaDto> dtoList = SentenciaMapper.mapListEntityToDto(mockEntityList);
+
+        // Verificar el resultado
+        assertEquals(1, dtoList.size());
+        SentenciaDto dto = dtoList.get(0);
+        assertEquals(1L, dto.getId());
+        assertEquals(1.0f, dto.get_distanciaMinima());
+        assertEquals(null, dto.get_victima());
+        assertEquals(null, dto.get_agresor());
+    }
 }
