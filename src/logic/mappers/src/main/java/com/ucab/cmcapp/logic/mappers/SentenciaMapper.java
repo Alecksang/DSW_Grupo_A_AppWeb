@@ -156,6 +156,7 @@ public class SentenciaMapper extends BaseMapper
             SentenciaDto = new SentenciaDto();
             SentenciaDto.setId(relacionUsuario.get_IdAlej());
             SentenciaDto.set_distanciaMinima(relacionUsuario.get_distanciaMinima());
+            SentenciaDto.set_tiempo_control(relacionUsuario.get_tiempo_control());
 
             if (Objects.nonNull(relacionUsuario.get_victima()))
                 SentenciaDto.set_victima(UsuarioMapper.mapEntityToDto(relacionUsuario.get_victima()));
