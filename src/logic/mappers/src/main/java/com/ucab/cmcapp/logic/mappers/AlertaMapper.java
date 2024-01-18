@@ -126,6 +126,28 @@ public class AlertaMapper extends BaseMapper
         return entity;
     }
 
+    public static List<Alerta> mapDtoToEntityTipoAlerta(List<String> tipoAlertas) {
+        List<Alerta> entities = new ArrayList<>();
+
+        for (String tipoAlerta : tipoAlertas) {
+            Alerta entity = EntityFactory.createAlerta();
+
+            //region Instrumentation DEBUG
+            _logger.debug( "Get in AlertaMapper.mapDtoToEntityEmail: email {}", tipoAlerta );
+            //endregion
+
+            entity.set_tipoAlerta(tipoAlerta);
+
+            //region Instrumentation DEBUG
+            _logger.debug( "Leaving AlertaMapper.mapDtoToEntityEmail: entity {}", entity );
+            //endregion
+
+            entities.add(entity);
+        }
+
+        return entities;
+    }
+
     public static List<Alerta> mapDtosToEntities(List<AlertaDto> dtos) throws ParseException {
         List<Alerta> entities = new ArrayList<>();
 

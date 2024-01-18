@@ -15,6 +15,7 @@ public class AddAdminCommand extends Command<Admin> {
 
     public AddAdminCommand(Admin Admin, DBHandler handler) {
         //region Instrumentation DEBUG
+
         _logger.debug(String.format("Tomar de AddAdminCommand.ctor: parameter {%s}",
                 Admin.toString()));
         setHandler(handler);

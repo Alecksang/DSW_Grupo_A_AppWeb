@@ -25,6 +25,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path( "/alertas" )
@@ -72,42 +73,79 @@ public class AlertaService extends BaseService
     }
 
 
+//    @GET
+//    @Path( "/TipoAlerta/{TipoAlerta}" )
+//    public Response getAlerta(@PathParam( "TipoAlerta" ) String tipoAlerta )
+//    {
+//        Alerta entity;
+//        AlertaDto response;
+//        GetAlertaByTipoAlertaCommand command = null;
+//        //region Instrumentation DEBUG
+//        _logger.debug( "Get in AlertaService.getAlerta" );
+//        //endregion
+//
+//        try
+//        {
+//            entity = AlertaMapper.mapDtoToEntityTipoAlerta( tipoAlerta );
+//            command = CommandFactory.createGetAlertaByTipoAlertaCommand( entity );
+//            command.execute();
+//            if(command.getReturnParam() != null){
+//                response = AlertaMapper.mapEntityToDto(command.getReturnParam());
+//            }else{
+//                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + tipoAlerta)).build();
+//            }
+//        }
+//        catch ( Exception e )
+//        {
+//            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + tipoAlerta)).build();
+//
+//        }
+//        finally
+//        {
+//            if (command != null)
+//                command.closeHandlerSession();
+//        }
+//
+//        _logger.debug( "Leaving AlertaService.getAlerta" );
+//        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por tipo de alerta: " + tipoAlerta)).build();
+//    }
+
     @GET
-    @Path( "/TipoAlerta/{TipoAlerta}" )
-    public Response getAlerta(@PathParam( "TipoAlerta" ) String tipoAlerta )
-    {
-        Alerta entity;
-        AlertaDto response;
+    @Path("/TipoAlerta/{TipoAlerta}")
+    public Response getAlertas(@PathParam("TipoAlerta") List<String> tipoAlertas) {
+        List<AlertaDto> responses = new ArrayList<>();
         GetAlertaByTipoAlertaCommand command = null;
+
         //region Instrumentation DEBUG
-        _logger.debug( "Get in AlertaService.getAlerta" );
+        _logger.debug("Get in AlertaService.getAlertas");
         //endregion
 
-        try
-        {
-            entity = AlertaMapper.mapDtoToEntityTipoAlerta( tipoAlerta );
-            command = CommandFactory.createGetAlertaByTipoAlertaCommand( entity );
-            command.execute();
-            if(command.getReturnParam() != null){
-                response = AlertaMapper.mapEntityToDto(command.getReturnParam());
-            }else{
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + tipoAlerta)).build();
+        try {
+            for (String tipoAlerta : tipoAlertas) {
+                Alerta entity = AlertaMapper.mapDtoToEntityTipoAlerta(tipoAlerta);
+                command = CommandFactory.createGetAlertaByTipoAlertaCommand(entity);
+                command.execute();
+                if (command.getReturnParam() != null) {
+                    AlertaDto response = AlertaMapper.mapEntityToDto(command.getReturnParam());
+                    responses.add(response);
+                } else {
+                    return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede Buscar por " + tipoAlerta)).build();
+                }
             }
-        }
-        catch ( Exception e )
-        {
-            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + tipoAlerta)).build();
-
-        }
-        finally
-        {
+        } catch (Exception e) {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Alerta " + tipoAlertas)).build();
+        } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        _logger.debug( "Leaving AlertaService.getAlerta" );
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Busqueda por tipo de alerta: " + tipoAlerta)).build();
+        //region Instrumentation DEBUG
+        _logger.debug("Leaving AlertaService.getAlertas");
+        //endregion
+
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responses, "Busqueda por tipos de alerta: " + tipoAlertas)).build();
     }
+
 
     @GET
     @Path( "/findAll" )
