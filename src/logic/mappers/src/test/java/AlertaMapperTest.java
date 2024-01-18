@@ -119,6 +119,22 @@ public class AlertaMapperTest {
     }
 
     @Test
+    public void testMapDtoToEntityTipoAlerta() {
+        // Crear mock de la lista de tipoAlertas
+        List<String> mockTipoAlertas = new ArrayList<>();
+        mockTipoAlertas.add("tipoAlerta1");
+        mockTipoAlertas.add("tipoAlerta2");
+
+        // Llamar al método que se está probando
+        List<Alerta> entities = AlertaMapper.mapDtoToEntityTipoAlerta(mockTipoAlertas);
+
+        // Verificar el resultado
+        assertEquals(2, entities.size());
+        assertEquals("tipoAlerta1", entities.get(0).get_tipoAlerta());
+        assertEquals("tipoAlerta2", entities.get(1).get_tipoAlerta());
+    }
+
+    @Test
     void mapDtosToEntities() throws ParseException {
         // Crear una lista de AlertaDto con datos de prueba
         List<AlertaDto> dtos = new ArrayList<>();
