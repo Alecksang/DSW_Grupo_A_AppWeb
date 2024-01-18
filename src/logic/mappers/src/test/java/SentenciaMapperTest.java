@@ -7,10 +7,14 @@ import com.ucab.cmcapp.logic.mappers.SentenciaMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 
 public class SentenciaMapperTest {
@@ -116,5 +120,30 @@ public class SentenciaMapperTest {
         assertEquals(victima.get_idUsuario(), entity.get_victima().get_idUsuario());
         assertEquals(agresor.get_idUsuario(), entity.get_agresor().get_idUsuario());
 
+    }
+
+    @Test
+    public void testMapEntityListToDtoList() {
+        // Crear mock de la lista de entidades
+        List<Sentencia> mockEntityList = new ArrayList<>();
+        Sentencia mockSentencia = Mockito.mock(Sentencia.class);
+        mockEntityList.add(mockSentencia);
+
+        // Configurar los mocks
+        when(mockSentencia.get_IdAlej()).thenReturn(1L);
+        when(mockSentencia.get_distanciaMinima()).thenReturn(1.0f);
+        when(mockSentencia.get_victima()).thenReturn(null);
+        when(mockSentencia.get_agresor()).thenReturn(null);
+
+        // Llamar al método que se está probando
+        List<SentenciaDto> dtoList = SentenciaMapper.mapEntityListToDtoList(mockEntityList);
+
+        // Verificar el resultado
+        assertEquals(1, dtoList.size());
+        SentenciaDto dto = dtoList.get(0);
+        assertEquals(1L, dto.getId());
+        assertEquals(1.0f, dto.get_distanciaMinima());
+        assertEquals(null, dto.get_victima());
+        assertEquals(null, dto.get_agresor());
     }
 }

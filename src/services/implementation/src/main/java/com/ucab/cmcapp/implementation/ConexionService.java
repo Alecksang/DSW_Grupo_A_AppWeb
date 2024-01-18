@@ -2,12 +2,16 @@ package com.ucab.cmcapp.implementation;
 
 
 import com.ucab.cmcapp.common.entities.Conexion;
+import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
 import com.ucab.cmcapp.logic.commands.conexion.atomic.*;
 import com.ucab.cmcapp.logic.commands.conexion.composite.*;
+import com.ucab.cmcapp.logic.commands.usuario.composite.DeleteUsuarioCommand;
 import com.ucab.cmcapp.logic.dtos.ConexionDto;
+import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.ConexionMapper;
+import com.ucab.cmcapp.logic.mappers.UsuarioMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -121,32 +125,40 @@ public class ConexionService extends BaseService {
     }
 
     @DELETE
-    @Path("/{id}")
-    public Response deleteConexion(@PathParam("id") long historicoId) {
+    @Path("/delete")
+    public Response deleteConexion( ConexionDto conexionDto )
+    {
         Conexion entity;
-        ConexionDto responseDTO = null;
+        ConexionDto response;
         DeleteConexionCommand command = null;
+        //region Instrumentation DEBUG
+        _logger.debug( "Get in ConexionService.deleteConexion" );
+        //endregion
 
-        try {
-            entity = ConexionMapper.mapDtoToEntity(historicoId);
-            command = CommandFactory.createDeleteConexionCommand(entity);
+        try
+        {
+            entity = ConexionMapper.mapDtoToEntity( conexionDto );
+            command = CommandFactory.createDeleteConexionCommand( entity );
             command.execute();
-
-            if (command.getReturnParam() != null)
-                responseDTO = ConexionMapper.mapEntityToDto(command.getReturnParam());
-            else
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el historico con ese ID")).build();
-
+            if(command.getReturnParam() != null){
+                response = ConexionMapper.mapEntityToDto(command.getReturnParam());
+            }else{
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + conexionDto.getId())).build();
+            }
+        }
+        catch ( Exception e )
+        {
+            return Response.status(Response.Status.OK).entity(new CustomResponse<>(" "+e)).build();
 
         }
-        catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un usuario", e.getMessage())).build();
-        } finally {
+        finally
+        {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El historico ha sido eliminado correctamente")).build();
+        _logger.debug( "Leaving ConexionService.deleteUsuario" );
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Eliminado: " + conexionDto.getId())).build();
     }
 
     @PUT
