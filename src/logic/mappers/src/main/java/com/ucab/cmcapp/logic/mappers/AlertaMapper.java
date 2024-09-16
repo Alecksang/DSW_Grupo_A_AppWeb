@@ -2,7 +2,9 @@ package com.ucab.cmcapp.logic.mappers;
 
 import com.ucab.cmcapp.common.EntityFactory;
 import com.ucab.cmcapp.common.entities.Alerta;
+import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.logic.dtos.AlertaDto;
+import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +27,8 @@ public class AlertaMapper extends BaseMapper
 
         entity.set_tipoAlerta( dto.get_tipoAlerta());
         entity.set_fechaHora(dto.get_fechaHora());
+        entity.set_latitudY(dto.get_latitud());
+        entity.set_longitudX(dto.get_longitud());
 
         if ( Objects.nonNull( dto.getUsuario() ) )
         {
@@ -49,6 +53,8 @@ public class AlertaMapper extends BaseMapper
 
         entity.set_tipoAlerta( dto.get_tipoAlerta());
         entity.set_fechaHora(dto.get_fechaHora());
+        entity.set_latitudY(dto.get_latitud());
+        entity.set_longitudX(dto.get_longitud());
         if ( Objects.nonNull( dto.getUsuario() ) )
         {
             entity.setUsuario( UsuarioMapper.mapDtoToEntity( dto.getUsuario() ) );
@@ -75,6 +81,8 @@ public class AlertaMapper extends BaseMapper
 
         dto.set_tipoAlerta(  entity.get_tipoAlerta() );
         dto.set_fechaHora( entity.get_fechaHora() );
+        dto.set_latitud(entity.get_latitudY());
+        dto.set_longitud(entity.get_longitudX());
 
         if(Objects.nonNull(entity.getUsuario()))
             dto.setUsuario( UsuarioMapper.mapEntityToDto( entity.getUsuario() ));
@@ -119,6 +127,16 @@ public class AlertaMapper extends BaseMapper
 
         return entity;
     }
+
+//    public static List<AlertaDto> mapListTipoAlertaEntityToDto(List<Alerta> entities) {
+//        List<AlertaDto> dtos = new ArrayList<>();
+//        for (Usuario entity : entities) {
+//            dtos.add(mapEntityToDto(entity));
+//        }
+//        return dtos;
+//    }
+
+
 
     public static List<Alerta> mapDtosToEntities(List<AlertaDto> dtos) throws ParseException {
         List<Alerta> entities = new ArrayList<>();

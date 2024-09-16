@@ -5,8 +5,8 @@ com\ucab\cmcapp\logic\dtos\AlertaDto.class
 com\ucab\cmcapp\logic\dtos\VictimaDto.class
 com\ucab\cmcapp\logic\dtos\UserDto.class
 com\ucab\cmcapp\logic\dtos\AgresorDto.class
-com\ucab\cmcapp\logic\dtos\Sentencia_AVDto.class
 com\ucab\cmcapp\logic\dtos\UsuarioDto.class
 com\ucab\cmcapp\logic\dtos\ZonaSeguraDto.class
+com\ucab\cmcapp\logic\dtos\SentenciaDto.class
 com\ucab\cmcapp\logic\dtos\AdminDto.class
 com\ucab\cmcapp\logic\dtos\BaseDto.class

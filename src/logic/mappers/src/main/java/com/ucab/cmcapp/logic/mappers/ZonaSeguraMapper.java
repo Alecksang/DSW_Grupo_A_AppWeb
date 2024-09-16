@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
+import java.util.Objects;
 
 public class ZonaSeguraMapper extends BaseMapper
 {
@@ -22,6 +23,10 @@ public class ZonaSeguraMapper extends BaseMapper
 
         entity.set_nombreZona( dto.get_nombre());
 
+        if ( Objects.nonNull( dto.getUsuario() ) )
+        {
+            entity.setUsuario( UsuarioMapper.mapDtoToEntity( dto.getUsuario() ) );
+        }
         //region Instrumentation DEBUG
         _logger.debug( "Leaving ZonaSeguraMapper.mapDtoToEntity: entity {}", entity );
         //endregion
@@ -39,7 +44,10 @@ public class ZonaSeguraMapper extends BaseMapper
         //endregion
 
         entity.set_nombreZona( dto.get_nombre());
-
+        if ( Objects.nonNull( dto.getUsuario() ) )
+        {
+            entity.setUsuario( UsuarioMapper.mapDtoToEntity( dto.getUsuario() ) );
+        }
         //region Instrumentation DEBUG
         _logger.debug( "Leaving ZonaSeguraMapper.mapDtoToEntity: entity {}", entity );
         //endregion
@@ -59,7 +67,8 @@ public class ZonaSeguraMapper extends BaseMapper
 
         dto.set_nombre(  entity.get_nombreZona() );
 
-
+        if(Objects.nonNull(entity.getUsuario()))
+            dto.setUsuario( UsuarioMapper.mapEntityToDto( entity.getUsuario() ));
 
         //region Instrumentation DEBUG
         _logger.debug( "Leaving ZonaSeguraMapper.mapEntityToDto: dto {}", dto );

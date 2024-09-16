@@ -11,14 +11,6 @@ import com.ucab.cmcapp.logic.commands.UserType.composite.GetUserTypeCommand;
 import com.ucab.cmcapp.logic.commands.UserType.composite.UpdateUserTypeCommand;
 import com.ucab.cmcapp.logic.commands.admin.atomic.*;
 import com.ucab.cmcapp.logic.commands.admin.composite.*;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.AddAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByIdCommand;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.GetAgresorByListCommand;
-import com.ucab.cmcapp.logic.commands.agresor.atomic.ModifyAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.CreateAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.GetAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.GetAllAgresorCommand;
-import com.ucab.cmcapp.logic.commands.agresor.composite.UpdateAgresorCommand;
 import com.ucab.cmcapp.logic.commands.alerta.atomic.*;
 import com.ucab.cmcapp.logic.commands.alerta.composite.CreateAlertaCommand;
 import com.ucab.cmcapp.logic.commands.alerta.composite.DeleteAlertaCommand;
@@ -28,8 +20,8 @@ import com.ucab.cmcapp.logic.commands.conexion.atomic.*;
 import com.ucab.cmcapp.logic.commands.conexion.composite.*;
 import com.ucab.cmcapp.logic.commands.coordenada.atomic.*;
 import com.ucab.cmcapp.logic.commands.coordenada.composite.*;
-import com.ucab.cmcapp.logic.commands.sentencia_av.atomic.*;
-import com.ucab.cmcapp.logic.commands.sentencia_av.composite.*;
+import com.ucab.cmcapp.logic.commands.sentencia.atomic.*;
+import com.ucab.cmcapp.logic.commands.sentencia.composite.*;
 import com.ucab.cmcapp.logic.commands.user.atomic.AddUserCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByIdCommand;
 import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
@@ -37,14 +29,6 @@ import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.*;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
-import com.ucab.cmcapp.logic.commands.victima.atomic.AddVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByIdCommand;
-import com.ucab.cmcapp.logic.commands.victima.atomic.GetVictimaByListCommand;
-import com.ucab.cmcapp.logic.commands.victima.atomic.ModifyVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.CreateVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.GetAllVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.GetVictimaCommand;
-import com.ucab.cmcapp.logic.commands.victima.composite.UpdateVictimaCommand;
 import com.ucab.cmcapp.logic.commands.zonasegura.atomic.*;
 import com.ucab.cmcapp.logic.commands.zonasegura.composite.*;
 import com.ucab.cmcapp.persistence.DBHandler;
@@ -170,77 +154,6 @@ public class CommandFactory
         return new CreateUsuarioCommand(user);
     }
 
-//VICTIMA
-
-    //POST VICTIMA
-    public static AddVictimaCommand createAddVictimaCommand(Victima usuarioVictima, DBHandler handler) {
-        return new AddVictimaCommand(usuarioVictima, handler);
-    }
-    public static CreateVictimaCommand createCreateVictimaCommand(Victima usuarioVictima) {
-        return new CreateVictimaCommand(usuarioVictima);
-    }
-
-    //GET VICTIMA
-    public static GetVictimaCommand createGetVictimaCommand(Victima usuarioVictima) {
-        return new GetVictimaCommand(usuarioVictima);
-    }
-
-    public static GetVictimaByIdCommand createGetVictimaByIdCommand(DBHandler handler, long victimaId) {
-        return new GetVictimaByIdCommand(handler, victimaId);
-    }
-
-    public static GetAllVictimaCommand createGetAllVictimaCommand(){
-        return new GetAllVictimaCommand();
-    }
-
-    public static GetVictimaByListCommand createGetVictimaByListCommand(DBHandler handler) {
-        return new GetVictimaByListCommand(handler);
-    }
-
-    //PUT VICTIMA
-    public static UpdateVictimaCommand createUpdateVictimaCommand(Victima usuarioVictima){
-        return new UpdateVictimaCommand(usuarioVictima);
-    }
-    public static ModifyVictimaCommand createModifyVictimaCommand(Victima usuarioVictima, DBHandler handler){
-        return new ModifyVictimaCommand(usuarioVictima, handler);
-    }
-
-//AGRESOR//
-
-    //POST AGRESOR
-    public static AddAgresorCommand createAddAgresorCommand(Agresor usuarioAgresor, DBHandler handler) {
-        return new AddAgresorCommand(usuarioAgresor, handler);
-    }
-    public static CreateAgresorCommand createCreateAgresorCommand(Agresor agresor)
-    {
-        return new CreateAgresorCommand(agresor);
-    }
-
-    //GET AGRESOR
-    public static GetAgresorCommand createGetAgresorCommand(Agresor usuarioAgresor) {
-        return new GetAgresorCommand(usuarioAgresor);
-    }
-
-    public static GetAgresorByIdCommand createGetAgresorByIdCommand(DBHandler handler, long agresorId) {
-        return new GetAgresorByIdCommand(handler, agresorId);
-    }
-
-    public static GetAllAgresorCommand createGetAllAgresorCommand(){
-        return new GetAllAgresorCommand();
-    }
-
-    public static GetAgresorByListCommand createGetAgresorByListCommand(DBHandler handler) {
-        return new GetAgresorByListCommand(handler);
-    }
-
-    //PUT AGRESOR
-    public static UpdateAgresorCommand createUpdateAgresorCommand(Agresor usuarioAgresor){
-        return new UpdateAgresorCommand(usuarioAgresor);
-    }
-
-    public static ModifyAgresorCommand createModifyAgresorCommand(Agresor usuarioAgresor, DBHandler handler){
-        return new ModifyAgresorCommand(usuarioAgresor, handler);
-    }
 
 
 //ALERTA//
@@ -440,58 +353,71 @@ public static GetAlertaCommand createGetAlertaCommand(Alerta alerta)
 
     // COMMAND DE SENTENCIA_AV
 
-    // GET SENTENCIA_AV
-    public static GetSentencia_AVCommand createGetSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV) {
-        return new GetSentencia_AVCommand(usuarioSentencia_AV);
+    public static GetSentenciaCommand createGetSentenciaCommand(Sentencia distancia)
+    {
+        return new GetSentenciaCommand(distancia);
     }
 
-    public static GetSentencia_AVByIdCommand createGetSentencia_AVByIdCommand(DBHandler handler, long atacanteId) {
-        return new GetSentencia_AVByIdCommand(handler, atacanteId);
+    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(Sentencia distancia)
+    {
+        return new GetSentenciaByUsuariosCommand(distancia);
     }
 
-    public static GetAllSentencia_AVCommand createGetAllSentencia_AVCommand(){
-        return new GetAllSentencia_AVCommand();
+    public static GetSentenciaByUsuariosCommand createGetSentenciaByUsuariosCommand(Sentencia distancia, DBHandler handler)
+    {
+        return new GetSentenciaByUsuariosCommand(distancia, handler);
     }
 
-    public static GetSentencia_AVByListCommand createGetSentencia_AVByListCommand(DBHandler handler) {
-        return new GetSentencia_AVByListCommand(handler);
+    public static GetSentenciaByIdCommand createGetSentenciaByIdCommand (DBHandler handler, long distanciaId )
+    {
+        return new GetSentenciaByIdCommand(handler, distanciaId);
+    }
+
+    public static AddSentenciaCommand createAddSentenciaCommand(Sentencia distancia, DBHandler handler)
+    {
+        return new AddSentenciaCommand(distancia, handler);
+    }
+
+    public static AddSentenciaCommand createAddSentenciaCommand(Sentencia distancia)
+    {
+        return new AddSentenciaCommand(distancia);
+    }
+
+    public static CreateSentenciaCommand createCreateSentenciaCommand(Sentencia distancia)
+    {
+        return new CreateSentenciaCommand(distancia);
     }
 
 
-    // POST/AGREGAR Sentencia_AV
-    public static AddSentencia_AVCommand createAddSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV, DBHandler handler) {
-        return new AddSentencia_AVCommand(usuarioSentencia_AV, handler);
+    public static DeleteSentenciaByIdCommand createDeleteSentenciaByIdCommand(Sentencia user, DBHandler handler)
+    {
+        return new DeleteSentenciaByIdCommand(user, handler);
     }
 
-    /*public static AddUsuarioCommand createAddUsuarioCommand(User user) {
-        return new AddUsuarioCommand(user);
-    }*/
-
-    public static CreateSentencia_AVCommand createCreateSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV) {
-        return new CreateSentencia_AVCommand(usuarioSentencia_AV);
+    public static DeleteSentenciaByIdCommand createDeleteSentenciaByIdCommand(Sentencia user)
+    {
+        return new DeleteSentenciaByIdCommand(user);
     }
 
-    //DELETE Sentencia_AV
-
-    /*
-    public static DeleteSentencia_AVCommand createDeleteSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV) {
-        return new DeleteSentencia_AVCommand(usuarioSentencia_AV);
+    public static DeleteSentenciaCommand createDeleteSentenciaCommand(Sentencia user)
+    {
+        return new DeleteSentenciaCommand(user);
     }
 
-    public static EraseSentencia_AVCommand createEraseSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV, DBHandler handler) {
-        return new EraseSentencia_AVCommand(usuarioSentencia_AV, handler);
-    }
-    */
-
-    //UPDATE Sentencia_AV_VICTIMA-ATACANTE
-    public static UpdateSentencia_AVCommand createUpdateSentencia_AVCommand(Sentencia_AV usuarioSentencia_AV){
-        return new UpdateSentencia_AVCommand(usuarioSentencia_AV);
+    public static UpdateSentenciaByIdCommand createUpdateSentenciaByIdCommand(Sentencia user, DBHandler handler)
+    {
+        return new UpdateSentenciaByIdCommand(user, handler);
     }
 
-    public static ModifySentencia_AVCommand createModifySentencia_AVCommand(Sentencia_AV usuarioSentencia_AV, DBHandler handler){
-        return new ModifySentencia_AVCommand(usuarioSentencia_AV, handler);
+    public static UpdateSentenciaByIdCommand createUpdateSentenciaByIdCommand(Sentencia user)
+    {
+        return new UpdateSentenciaByIdCommand(user);
     }
 
+    public static UpdateSentenciaCommand createUpdateSentenciaCommand(Sentencia user)
+    {
+        return new UpdateSentenciaCommand(user);
+    }
 
 //ADMIN
 

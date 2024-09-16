@@ -1,16 +1,10 @@
 package com.ucab.cmcapp.implementation;
 
-import com.ucab.cmcapp.common.entities.Alerta;
-import com.ucab.cmcapp.common.entities.User;
 import com.ucab.cmcapp.common.entities.Usuario;
 import com.ucab.cmcapp.common.util.CustomResponse;
 import com.ucab.cmcapp.logic.commands.CommandFactory;
-import com.ucab.cmcapp.logic.commands.user.atomic.GetUserByEmailCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.CreateUserCommand;
-import com.ucab.cmcapp.logic.commands.user.composite.GetUserCommand;
 import com.ucab.cmcapp.logic.commands.usuario.atomic.GetUsuarioByUsernameCommand;
 import com.ucab.cmcapp.logic.commands.usuario.composite.*;
-import com.ucab.cmcapp.logic.dtos.UserDto;
 import com.ucab.cmcapp.logic.dtos.UsuarioDto;
 import com.ucab.cmcapp.logic.mappers.*;
 import com.ucab.cmcapp.persistence.dao.UsuarioDao;
@@ -177,44 +171,72 @@ public class UsuarioService extends BaseService
         _logger.debug( "Leaving UsuarioService.addUsuario" );
         return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Insertado: " + userDto.getId())).build();
     }
-
     @DELETE
-    @Path("/delete")
-    public Response deleteUsuario( UsuarioDto userDto )
-    {
+       @Path("/delete")
+       public Response deleteUsuario( UsuarioDto userDto )
+       {
+           Usuario entity;
+           UsuarioDto response;
+           DeleteUsuarioCommand command = null;
+           //region Instrumentation DEBUG
+           _logger.debug( "Get in UsuarioService.deleteUsuario" );
+           //endregion
+
+           try
+           {
+               entity = UsuarioMapper.mapDtoToEntity( userDto );
+               command = CommandFactory.createDeleteUsuarioCommand( entity );
+               command.execute();
+               if(command.getReturnParam() != null){
+                   response = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+               }else{
+                   return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + userDto.getId())).build();
+               }
+           }
+           catch ( Exception e )
+           {
+               return Response.status(Response.Status.OK).entity(new CustomResponse<>(" "+e)).build();
+
+           }
+           finally
+           {
+               if (command != null)
+                   command.closeHandlerSession();
+           }
+
+           _logger.debug( "Leaving UsuarioService.deleteUsuario" );
+           return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Eliminado: " + userDto.getId())).build();
+       }
+
+    /*@DELETE
+    @Path("/{id}")
+    public Response deleteUsuario(@PathParam("id") long usuarioId) {
         Usuario entity;
-        UsuarioDto response;
+        UsuarioDto responseDTO = null;
         DeleteUsuarioCommand command = null;
-        //region Instrumentation DEBUG
-        _logger.debug( "Get in UsuarioService.deleteUsuario" );
-        //endregion
 
-        try
-        {
-            entity = UsuarioMapper.mapDtoToEntity( userDto );
-            command = CommandFactory.createDeleteUsuarioCommand( entity );
+        try {
+            entity = UsuarioMapper.mapDtoToEntity(usuarioId);
+            command = CommandFactory.createDeleteUsuarioCommand(entity);
             command.execute();
-            if(command.getReturnParam() != null){
-                response = UsuarioMapper.mapEntityToDto(command.getReturnParam());
-            }else{
-                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se puede eliminar " + userDto.getId())).build();
-            }
-        }
-        catch ( Exception e )
-        {
-            return Response.status(Response.Status.OK).entity(new CustomResponse<>("Error en Usuario " + userDto.getId())).build();
 
-        }
-        finally
-        {
+            _logger.debug(command.toString());
+
+            if (command.getReturnParam() != null)
+                responseDTO = UsuarioMapper.mapEntityToDto(command.getReturnParam());
+            else
+                return Response.status(Response.Status.OK).entity(new CustomResponse<>("No se pudo eliminar el usuario con ese ID")).build();
+
+
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new CustomResponse<>("Error interno al momento de eliminar un usuario", e.getMessage())).build();
+        } finally {
             if (command != null)
                 command.closeHandlerSession();
         }
 
-        _logger.debug( "Leaving UsuarioService.deleteUsuario" );
-        return Response.status(Response.Status.OK).entity(new CustomResponse<>(response,"Eliminado: " + userDto.getId())).build();
-    }
-
+        return Response.status(Response.Status.OK).entity(new CustomResponse<>(responseDTO, "El usuario ha sido eliminado correctamente")).build();
+    }*/
 
     @PUT
     @Path("/update")

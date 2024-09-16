@@ -22,11 +22,11 @@ public class ZonaSeguraDto extends BaseDto {
         this._nombre = _nombre;
     }
 
-    public UsuarioDto get_usuario() {
+    public UsuarioDto getUsuario() {
         return _usuario;
     }
 
-    public void set_usuario(UsuarioDto _usuario) {
+    public void setUsuario(UsuarioDto _usuario) {
         this._usuario = _usuario;
     }
 }

@@ -1,13 +1,14 @@
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\AgresorDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\DBHandler.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\BaseDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\UsuarioDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\AdminDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\CoordenadaDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\VictimaDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\Sentencia_AVDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\UserDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\ConexionDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\AlertaDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\ZonaSeguraDao.java
-C:\Users\Alsan\OneDrive\Documentos\Semestre\Nuevo\Desarrollo nuevo\Proyecto\DSW_EquipoA\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\DaoFactory.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\ConexionDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\UserTypeDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\AdminDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\SentenciaDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\UsuarioDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\AlertaDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\UserDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\DBHandler.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\CoordenadaDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\ZonaSeguraDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\AgresorDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\BaseDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\dao\VictimaDao.java
+C:\Users\Usuario\IdeaProjects\DSW_Grupo_A\src\persistence\dao\src\main\java\com\ucab\cmcapp\persistence\DaoFactory.java

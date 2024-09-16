@@ -25,24 +25,6 @@ public class EntityFactory
         return new Usuario(id);
     }
 
-    //Metodos para la clase VICTIMA
-    public static Victima createVictima()
-    {
-        return new Victima();
-    }
-    public static Victima createVictima(long id)
-    {
-        return new Victima(id);
-    }
-
-    //Metodos para la clase AGRESOR
-    public static Agresor createAgresor() {
-        return new Agresor();
-    }
-    public static Agresor createAgresor(long id) {
-        return new Agresor(id);
-    }
-
     //Metodos para la clase ZONA SEGURA
     public static ZonaSegura createZonaSegura(long id) {
         return new ZonaSegura(id);
@@ -71,11 +53,11 @@ public class EntityFactory
     }
 
     //Metodos para la clase SENTENCIA
-    public static Sentencia_AV createSentencia_AV() {
-        return new Sentencia_AV();
+    public static Sentencia createSentencia() {
+        return new Sentencia();
     }
-    public static Sentencia_AV createSentencia_AV(long id) {
-        return new Sentencia_AV(id);
+    public static Sentencia createSentencia(long id) {
+        return new Sentencia(id);
     }
 
     //Metodos para la clase ADMINISTRADOR

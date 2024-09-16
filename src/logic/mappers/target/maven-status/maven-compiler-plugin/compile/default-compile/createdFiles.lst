@@ -1,11 +1,11 @@
 com\ucab\cmcapp\logic\mappers\VictimaMapper.class
 com\ucab\cmcapp\logic\mappers\ZonaSeguraMapper.class
-com\ucab\cmcapp\logic\mappers\Sentencia_AVMapper.class
 com\ucab\cmcapp\logic\mappers\AlertaMapper.class
 com\ucab\cmcapp\logic\mappers\UsuarioMapper.class
 com\ucab\cmcapp\logic\mappers\BaseMapper.class
 com\ucab\cmcapp\logic\mappers\CoordenadaMapper.class
 com\ucab\cmcapp\logic\mappers\UserMapper.class
+com\ucab\cmcapp\logic\mappers\SentenciaMapper.class
 com\ucab\cmcapp\logic\mappers\AgresorMapper.class
 com\ucab\cmcapp\logic\mappers\AdminMapper.class
 com\ucab\cmcapp\logic\mappers\ConexionMapper.class
